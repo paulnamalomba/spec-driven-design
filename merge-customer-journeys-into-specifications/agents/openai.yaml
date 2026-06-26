@@ -1,0 +1,4 @@
+interface:
+  display_name: "Merge Journeys Into Specs"
+  short_description: "Reconcile customer journeys with existing system specifications."
+  default_prompt: "Read these customer journeys and merge their implied requirements into the existing specifications, adding, replacing, or deprecating requirements with traceability."

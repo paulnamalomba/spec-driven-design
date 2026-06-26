@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Existing Project Specifications"
+  short_description: "Generate SRS docs from existing codebases."
+  default_prompt: "Create a system requirements specification for this existing project from its current repositories, docs, source modules, APIs, data model, and gaps."

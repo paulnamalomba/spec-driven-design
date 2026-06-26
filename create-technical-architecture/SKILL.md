@@ -68,8 +68,10 @@ The generated document MUST follow a highly structured, professional format simi
 8. **Web Servers and Runtime Hosting:** Details on the ingress layers (Nginx, Kestrel, Vercel) and TLS termination.
 9. **Security Architecture:** Comprehensive breakdown of JWTs, authorization roles, password hashing, CORS, WAF, and specific data protection gates.
 10. **Data Flow Diagram (DFD) & Deployment Architecture Diagram:** Markdown-compatible visual representations (using HTML/CSS tables or ASCII art) of data movement and deployment topology.
-11. **Design Interpretation and Trade-Offs:** Honest analysis of constraints and strengths of the chosen architecture.
-12. **References:** A standards and source section when architectural claims rely on external guidance.
+11. **Eraser.io Diagram Code Pack:** Every technical architecture document MUST include paste-ready Eraser.io diagram-as-code blocks for the major architectural areas covered by the document. At minimum, include system context, deployment topology, tenant resolution/onboarding, data platform, security/auth flow, background processing, document generation, and at least one core business workflow diagram. Each Eraser block must be titled, grouped logically, and labelled with meaningful directional flows so stakeholders can generate high-quality architecture, data, business process, and sequence-style diagrams without reinterpreting the document.
+12. **Design Interpretation and Trade-Offs:** Honest analysis of constraints and strengths of the chosen architecture.
+13. **Glossary:** Definitions of domain, architectural, infrastructure, and project-delivery terms used in the document.
+14. **References:** A standards and source section when architectural claims rely on external guidance.
 
 ### Depth Expectations Per Section
 
@@ -99,6 +101,8 @@ The final architecture document must read like material prepared for technical l
 3. Prefer explanatory precision over buzzwords.
 4. Make trade-offs explicit when a chosen architecture improves one quality attribute while constraining another.
 5. Preserve professional tone suitable for commercial proposals and enterprise design packs.
+6. Include Eraser.io code that can be copied into Eraser with minimal cleanup. Diagram code should use stable component names, readable grouping, and directional labels that match the written architecture.
+7. Include a glossary so non-engineering stakeholders can understand domain-specific and architecture-specific terminology without leaving the document.
 
 ## Supporting Resources Context
 
