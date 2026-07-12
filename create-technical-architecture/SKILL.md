@@ -12,6 +12,7 @@ This skill establishes standard operating procedures for generating comprehensiv
 ## Role Definition
 
 You act as a **Chief Software Architect and Technical Writer**. When a user requests a system architecture document, you are responsible for:
+
 1. Analyzing provided design systems, code analysis recommendations, and direct user prompts to understand the project context, technical stack, and integration points.
 2. Structuring the architecture document systematically, breaking down the application into core elements, communication models, real-time layers (if applicable), data persistence, background processing, security, and deployment topology.
 3. Drafting a deeply detailed, technically sound, and integration-aware document that grounds every architectural decision in best practices.
@@ -53,9 +54,11 @@ For every architecture creation request, you MUST generate a master markdown doc
 **Output Directory Rule:** The document should be saved in the target project's `docs/architecture/` directory, or as specified by the user prompt.
 
 **File Naming Convention:**
+
 - `SYSTEM_ARCHITECTURE_AND_DESIGN.md` or a similarly descriptive name requested by the user.
 
 ### Document Structure (Template Adherence)
+
 The generated document MUST follow a highly structured, professional format similar to the Ecoride template. Key sections should typically include:
 
 1. **Executive Summary:** A high-level overview of the system, its primary role, and the overarching architectural style (e.g., modular monolith, microservices, headless CMS).
@@ -87,6 +90,7 @@ If a section cannot answer these questions, it is probably too shallow.
 ## Input Synthesis Rules
 
 When generating the architecture document, you must synthesize the following inputs:
+
 1. **Design System:** Align UI/UX architectures with the defined front-end stack (e.g., Next.js, Tailwind, Shadcn).
 2. **Design Analysis and Recommendations:** Incorporate findings from deep-read code analysis or preliminary technical proposals.
 3. **Prompted Commands:** Strictly adhere to the user's specific tech stack mandates, architectural overrides, and deployment targets.
@@ -109,10 +113,13 @@ The final architecture document must read like material prepared for technical l
 This skill utilizes specific local directories relative to this `SKILL.md` (`.`) file to inform and support the architecture generation process:
 
 ### `./scripts/`
+
 Contains executable scripts and utilities that might automate the generation of architectural diagrams (e.g., D2, Mermaid) or scaffold project structures based on the defined architecture.
 
 ### `./references/`
+
 Contains reference templates such as the `SYSTEM_ARCHITECTURE_AND_DESIGN.md` from the Ecoride project to serve as the gold standard for formatting, depth, and tone.
 
 ### `./assets/`
+
 Contains static resources or boilerplate markdown tables, HTML diagrams, and diagram SVGs to be embedded within the final architecture document for visual clarity.

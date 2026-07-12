@@ -1,11 +1,13 @@
 # Skill: Automated DOCX to Markdown Conversion & Asset Extraction
 
 ## Purpose
+
 Automate the deep extraction and conversion of `.docx` binary files into structured Markdown (`.md`). This skill mandates the preservation of hierarchical heading structures (up to 5 levels), the physical extraction and relative embedding of media assets (images), and the dynamic generation of a snake_case output filename derived from the document's internal title metadata or primary header.
 
 ---
 
 ## Prerequisites & Tooling Scope
+
 1. **No Data Loss:** All text, lists, bold/italic formatting, and image anchors must be preserved. Do not abstract or summarize the content.
 2. **Media Handling:** The agent must have file-system write access to create an accompanying `assets/` or `images/` directory adjacent to the output Markdown file.
 3. **Execution Environment:** Assume access to Python libraries (`python-docx`, `pypandoc`, `mammoth`) or native shell utilities (`pandoc`, `unzip`).
@@ -51,7 +53,7 @@ The agent must explicitly evaluate the style definition of each paragraph node a
 #### Inline Formatting & Block Components
 
 * **Emphasis:** Map `w:b` to `**text**` and `w:i` to `*text*`.
-* **Lists:** Map `w:numPr` (numbered lists) to `1. ` format and `w:ilvl` (bulleted lists) to `- ` or `* ` format, preserving indentation for nested lists.
+* **Lists:** Map `w:numPr` (numbered lists) to `1.` format and `w:ilvl` (bulleted lists) to `-` or `*` format, preserving indentation for nested lists.
 * **Tables:** Convert Word tables into standard Markdown pipe (`|`) tables. Ensure table headers are delineated with `|---|` separators.
 
 ### Step 4: Asset Re-embedding
