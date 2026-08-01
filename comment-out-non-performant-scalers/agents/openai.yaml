@@ -1,0 +1,4 @@
+interface:
+  display_name: "Comment Out Widget Font Scalers"
+  short_description: "Safely disable redundant Flutter font scalers"
+  default_prompt: "Use $comment-out-non-performant-scalers to manually comment out matching widget-scoped Flutter font scalers in a confirmed Dart page tree."

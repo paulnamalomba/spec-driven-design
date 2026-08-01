@@ -1,3 +1,8 @@
+---
+name: convert-docx-to-md
+description: Automates the extraction and conversion of .docx binary files into structured Markdown (.md), preserving heading hierarchy, media assets, and formatting.
+---
+
 # Skill: Automated DOCX to Markdown Conversion & Asset Extraction
 
 ## Purpose
