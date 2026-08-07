@@ -1,0 +1,4 @@
+interface:
+  display_name: "Optimize Docker Builds"
+  short_description: "Speed up Docker builds and shrink images"
+  default_prompt: "Use $optimize-docker-builds to audit and optimize this project’s Dockerfiles, build contexts, and Compose workflow."
