@@ -1,0 +1,71 @@
+---
+name: create-substream-work-summary
+description: Generates standardized technical substream work summary markdown files in the docs/work directory following the exact DDbbYY-substream<NN>-work-to-<reponame>-<branchname>.md naming convention without duplicate files.
+---
+
+# Skill: Substream Work Summary Generator
+
+## Overview
+
+This skill standardizes the creation of technical substream work summary documents across all repositories (e.g. `afriflex`, `afriflex-webapp`, `afriflex-admin`, `afriflex-contracts`, `afriflex-ussd`).
+
+---
+
+## File Naming & Output Protocol
+
+When invoked, the skill requires a **Substream Number** (integer `N` >= 1).
+
+### Formatting Rules:
+1. **Date (`DDbbYY`)**: 2-digit day, 3-letter lowercase month abbreviation, 2-digit year (e.g. `07aug26` for August 7, 2026).
+2. **Substream Tag (`substream<NN>`)**: Substream number with leading zero if less than 10 (e.g. `substream01`, `substream02`, `substream12`).
+3. **Repo Name (`<reponame>`)**: Name of the target repository folder or git root (e.g. `afriflex-webapp`, `afriflex-admin`, `afriflex`).
+4. **Branch Name (`<branchname>`)**: Active git branch returned by `git branch --show-current` (e.g. `main`, `dev`, `feature-sacco`).
+
+### Strict Target Save Path:
+```text
+docs/work/DDbbYY-substream<NN>-work-to-<reponame>-<branchname>.md
+```
+*(e.g. `docs/work/07aug26-substream01-work-to-afriflex-webapp-main.md`)*
+
+> [!IMPORTANT]
+> **No Duplicates Policy**: Save ONLY to the single canonical file name `docs/work/DDbbYY-substream<NN>-work-to-<reponame>-<branchname>.md`. Do NOT generate alternative or duplicate filenames.
+
+---
+
+## Execution Protocol
+
+### Step 1: Discover Environment & Git Baseline
+1. Determine active repository name and directory root (`pwd` / basename).
+2. Query active branch name:
+   ```bash
+   git branch --show-current
+   ```
+3. Capture git status and uncommitted / committed diff for the substream:
+   ```bash
+   git status --short
+   git diff
+   ```
+
+### Step 2: Structure & Technical Detail Requirements
+Each substream work document must follow this standard markdown structure:
+
+1. **Document Title & Metadata Table**:
+   - Substream ID, Date, Target Repo, Active Branch, Author/Agent, Verification Status.
+2. **Executive Summary**:
+   - High-level overview of features, API integrations, UI components, and architectural refactoring performed.
+3. **Detailed Technical Breakdown**:
+   - Explanations of modified functions, new state hooks, input formatters, exception mappings, and styling keyframes.
+4. **Touched Files Matrix**:
+   - Table of created and modified files with full relative paths and descriptions.
+5. **Git Diff Baseline**:
+   - Full code diff (`git diff`) formatted inside a fenced `diff` block.
+6. **Empirical Build & Verification Results**:
+   - Command line verification output (`npm run build`, `dotnet test`, etc.).
+
+---
+
+## Output Directory Setup
+Ensure `docs/work` directory exists before writing:
+```bash
+mkdir -p docs/work
+```
