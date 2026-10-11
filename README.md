@@ -1,119 +1,115 @@
-# Spec-Driven Design — Agentic Workflow Library
+# spec-driven-design
 
-[![Workflows](https://img.shields.io/badge/workflows-10-blue)](#workflow-catalogue)
-[![Format](https://img.shields.io/badge/format-SKILL.md-2ea44f)](#skill-package-anatomy)
-[![Focus](https://img.shields.io/badge/focus-spec--driven%20delivery-purple)](#delivery-model)
-[![Runtime](https://img.shields.io/badge/runtime-agentic%20workflows-orange)](#using-the-workflows)
+[![Skills](https://img.shields.io/badge/skills-17-blue)](#skills)
+[![Format](https://img.shields.io/badge/format-SKILL.md-2ea44f)](#package-layout)
 
-> **A source-controlled library of rigorous agent workflows for discovering existing systems, producing specifications and architecture, reconciling customer journeys, auditing code and UX, preparing release notes, and performing tightly scoped maintenance.**
+My working set of agent skills. Each folder holds a `SKILL.md` that tells a coding agent (Codex, Claude Code, or anything else that reads the format) how to do one job: write an SRS from an existing codebase, audit a subsystem, draft release notes, tidy a Dockerfile, design a dashboard, and so on.
 
-`spec-driven-design` is not an application, framework, or deployable service. It is the authoring home for reusable `SKILL.md` instruction packages used by coding agents across Ecoride, Afriflex, and other software projects.
+Nothing here runs on its own. There is no app, build, or install step. An agent reads the skill and applies it to some other repository or document.
 
-Each workflow turns an open-ended request into a repeatable operating procedure with explicit roles, evidence requirements, output paths, guardrails, and validation expectations. The repository exists to make agent-assisted delivery more deterministic, reviewable, and grounded in the current state of the target project.
+Most skills were written for Ecoride and Afriflex work. Several still carry those assumptions; see [Project-specific skills](#project-specific-skills) before reusing one elsewhere.
 
 ## Contents
 
-- [Purpose](#purpose)
-- [Design Principles](#design-principles)
-- [Workflow Catalogue](#workflow-catalogue)
-- [Delivery Model](#delivery-model)
-- [Using the Workflows](#using-the-workflows)
-- [Composing Workflows](#composing-workflows)
-- [Skill Package Anatomy](#skill-package-anatomy)
-- [Project Structure](#project-structure)
-- [Repository-Specific Behavior](#repository-specific-behavior)
-- [Authoring and Maintaining Skills](#authoring-and-maintaining-skills)
-- [Safety and Evidence Rules](#safety-and-evidence-rules)
-- [Validation](#validation)
-- [Operational Guide](#operational-guide)
-- [Contributing](#contributing)
+- [Skills](#skills)
+- [How the skills fit together](#how-the-skills-fit-together)
+- [Installing a skill](#installing-a-skill)
+- [Writing a good request](#writing-a-good-request)
+- [Common chains](#common-chains)
+- [Package layout](#package-layout)
+- [Repository layout](#repository-layout)
+- [Project-specific skills](#project-specific-skills)
+- [Third-party skills](#third-party-skills)
+- [Writing or changing a skill](#writing-or-changing-a-skill)
+- [Ground rules](#ground-rules)
+- [Checking the repo](#checking-the-repo)
+- [Other files](#other-files)
 - [License](#license)
 - [Author](#author)
 
-## Purpose
+## Skills
 
-The library addresses a recurring problem in agentic software work: a capable agent can still produce weak results when the operating method is vague.
+### Specifications and architecture
 
-These workflows define that method. Depending on the selected skill, an agent may be required to:
-
-- inspect repositories before drawing conclusions;
-- distinguish implemented behavior from documentation and planned intent;
-- preserve dirty worktrees and constrain edits to an approved scope;
-- create traceable requirements with testable acceptance criteria;
-- produce exact replacement or insertion recommendations;
-- connect screenshots to design-system source code;
-- enumerate release diffs from a pinned Git baseline;
-- write outputs to predictable, reviewable locations; and
-- report validation failures honestly instead of treating them as success.
-
-The result is a practical bridge between product intent, source evidence, technical design, implementation guidance, and release governance.
-
-## Workflow Catalogue
-
-### Specifications, journeys, and architecture
-
-| Skill | Use it when | Primary output |
+| Skill | Use it when | Output |
 | --- | --- | --- |
-| [`$create-specifications-existing-projects`](create-specifications-existing-projects/SKILL.md) | An existing system needs an enterprise-grade SRS grounded in one or more repositories. | A development-ready SRS with requirement IDs, evidence, implementation status, acceptance criteria, security, operations, gaps, and glossary. |
-| [`$merge-customer-journeys-into-specifications`](merge-customer-journeys-into-specifications/SKILL.md) | Customer journeys, service blueprints, or user flows must be reconciled with an existing SRS. | A merged SRS, requirements addendum, and/or journey-to-requirement traceability matrix. |
-| [`$create-technical-architecture`](create-technical-architecture/SKILL.md) | Product requirements, design analysis, and source evidence need to become an authoritative architecture document. | `docs/architecture/SYSTEM_ARCHITECTURE_AND_DESIGN.md`, including diagrams, trade-offs, security, data flow, operations, glossary, and references. |
+| [`create-specifications-existing-projects`](create-specifications-existing-projects/SKILL.md) | An existing system needs an SRS based on what its repositories actually do. | An SRS with requirement IDs, source evidence, implementation status, acceptance criteria, security, operations, gaps, and a glossary. |
+| [`merge-customer-journeys-into-specifications`](merge-customer-journeys-into-specifications/SKILL.md) | Customer journeys, user flows, or service blueprints need to be merged into an existing SRS. | An updated SRS, a requirements addendum, a journey-to-requirement traceability matrix, or some mix of these. |
+| [`create-technical-architecture`](create-technical-architecture/SKILL.md) | Requirements, design analysis, and source code need to become one architecture document. | `docs/architecture/SYSTEM_ARCHITECTURE_AND_DESIGN.md` with diagrams, trade-offs, security, data flow, and operations. |
 
-### Analysis, audits, and UX alignment
+### Analysis and audits
 
-| Skill | Use it when | Primary output |
+| Skill | Use it when | Output |
 | --- | --- | --- |
-| [`$code-analysis-recommendations`](analysis-and-recommndations/code-analysis-recommendations/SKILL.md) | A defect, feature, or structural concern needs a deep-read analysis before implementation. | Exactly two documents: a code analysis report and a line-targeted fixes document using “replace this” / “insert this here” instructions. |
-| [`$deep-code-and-security-audits`](deep-code-and-security-audits/SKILL.md) | A subsystem needs architecture, security, integration, quality, performance, and runtime-integrity assessment. | Three dated reports: `SecurityAudit`, `IntegrationAudit`, and `CodeQualityAudit` in the supplied `$outputdir`. |
-| [`$ux-system-analyzer`](ux-system-analyzer/SKILL.md) | Screenshots and UI source need cross-repository visual QA and design-system alignment analysis. | Two dated reports under `$outputdir/docs/code/`: UX analysis and implementation-ready recommendations. |
+| [`code-analysis-recommendations`](analysis-and-recommndations/code-analysis-recommendations/SKILL.md) | A bug, feature, or structural problem needs a close read before anyone edits code. | Two documents: an analysis report and a fixes document written as "replace this with this" and "insert this here" instructions. |
+| [`deep-code-and-security-audits`](deep-code-and-security-audits/SKILL.md) | A subsystem needs a security, integration, code quality, and performance review. | Three dated reports in `$outputdir`: `SecurityAudit`, `IntegrationAudit`, `CodeQualityAudit`. |
+| [`ux-system-analyzer`](ux-system-analyzer/SKILL.md) | Screenshots and UI source need to be checked against the design system. | Two dated reports under `$outputdir/docs/code/`: the UX analysis and the recommended changes. |
+| [`optimize-docker-builds`](optimize-docker-builds/SKILL.md) | Docker builds are slow, contexts are large, dependency restores repeat, or runtime images carry build tools. | Rewritten Dockerfiles, `.dockerignore` files, and Compose/CI build changes, with before/after timings from `scripts/benchmark_docker_build.sh`. |
 
-### Documentation, release governance, and maintenance
+### Frontend and UI design
 
-| Skill | Use it when | Primary output |
+| Skill | Use it when | Output |
 | --- | --- | --- |
-| [`$convert-docx-to-md`](convert-docx-to-md/SKILL.md) | A DOCX source must become structurally faithful Markdown without losing headings, tables, formatting, or embedded media. | A snake_case Markdown file plus an adjacent extracted asset directory. |
-| [`$create-commit-notes`](create-commit-notes/SKILL.md) | An Ecoride repository needs technical release notes derived from its actual Git diff and previous version. | `.commits/<version>.txt` with baseline, detailed changes, file inventory, compatibility, deployment, and validation. |
-| [`$create-release-listing-summaries`](create-release-listing-summaries/SKILL.md) | An Ecoride mobile repository needs user-facing, abstract App Store and Google Play listing summaries derived from commit notes. | `builds/<app>-<version>-listing.md` with 5 abstract Android points and 12 abstract iOS points. |
-| [`$comment-out-non-performant-scalers`](comment-out-non-performant-scalers/SKILL.md) | A confirmed Flutter app already scales typography at the theme root and approved widget-local `fontSize: AppConstants.scaledFontSize(...)` arguments must be disabled safely. | Targeted Dart edits, an exact occurrence ledger, scoped diff review, formatting analysis, and tests. |
+| [`impeccable`](impeccable/SKILL.md) | Designing, redesigning, critiquing, or polishing any frontend: sites, product UI, forms, onboarding, empty states. | UI changes driven by sub-commands (`critique`, `audit`, `polish`, `harden`, `animate`, `colorize`, and more), plus `PRODUCT.md` / `DESIGN.md` context files. Ships its own helper agents and a live-browser script. |
+| [`design-taste-frontend`](design-taste-frontend/SKILL.md) | Building or redesigning a landing page, portfolio, or editorial site that shouldn't look like a template. | A one-line design read, then the page, checked against a pre-flight list. |
+| [`dashboard-design`](dashboard-design/SKILL.md) | Designing or reviewing operations, finance, logistics, seller, or analytics dashboards. | A short design decision list, the dashboard, and evidence that it was checked in the running app at several viewport widths. |
+| [`pretty-mermaid`](pretty-mermaid/SKILL.md) | You have Mermaid source, or need a flowchart, sequence, state, class, ER, or XY diagram drawn. | Themed SVG, PNG, or ASCII/Unicode output, rendered locally with the bundled Node scripts. 15 built-in themes. |
 
-## Delivery Model
+### Docs, releases, and maintenance
 
-The workflows support a spec-driven delivery chain rather than one monolithic “do everything” prompt:
+| Skill | Use it when | Output |
+| --- | --- | --- |
+| [`convert-docx-to-md`](convert-docx-to-md/SKILL.md) | A `.docx` has to become Markdown without losing headings, tables, formatting, or images. | A snake_case `.md` file plus a folder of extracted media next to it. |
+| [`create-commit-notes`](create-commit-notes/SKILL.md) | An Ecoride repo needs technical release notes built from its real Git diff. | `.commits/<version>.txt` with the diff baseline, changes, touched files, compatibility, deployment, and validation. |
+| [`create-release-listing-summaries`](create-release-listing-summaries/SKILL.md) | An Ecoride mobile app needs store listing text written from its commit notes. | `builds/<app>-<version>-listing.md` with 5 Android points and 12 iOS points, no low-level code detail. |
+| [`create-substream-work-summary`](create-substream-work-summary/SKILL.md) | A piece of parallel work (a "substream") needs a write-up for its target repo and branch. | One file at `docs/work/DDbbYY-substream<NN>-work-to-<reponame>-<branchname>.md`, never duplicated under another name. |
+| [`comment-out-non-performant-scalers`](comment-out-non-performant-scalers/SKILL.md) | A Flutter app already scales text at the theme root, and widget-level `fontSize: AppConstants.scaledFontSize(...)` calls should be disabled. | Targeted Dart edits, a ledger of every occurrence, a scoped diff review, then format, analyze, and test runs. |
+
+### Agent behavior
+
+| Skill | Use it when | Output |
+| --- | --- | --- |
+| [`caveman`](caveman/SKILL.md) | You want shorter agent replies with all technical detail kept. | No files. Changes how the agent writes until told "stop caveman" or "normal mode". |
+
+## How the skills fit together
+
+Each skill does one job and stops. They're meant to be chained, not merged into one big prompt:
 
 ```text
-Source repositories + business documents + screenshots
-                         │
-                         ▼
-             Discovery and evidence mapping
-                         │
-              ┌──────────┴──────────┐
-              ▼                     ▼
-      Existing-system SRS     Code / UX analysis
-              │                     │
-              ▼                     ▼
-      Journey reconciliation   Targeted recommendations
-              │                     │
-              └──────────┬──────────┘
-                         ▼
-              Technical architecture
-                         │
-                         ▼
-             Approved implementation work
-                         │
-                         ▼
-        Validation, audit, and release notes
+Source repos + business docs + screenshots
+                    │
+                    ▼
+          Discovery and evidence
+                    │
+         ┌──────────┴──────────┐
+         ▼                     ▼
+  Existing-system SRS    Code / UX analysis
+         │                     │
+         ▼                     ▼
+  Journey merge          Targeted fixes
+         │                     │
+         └──────────┬──────────┘
+                    ▼
+        Technical architecture
+                    │
+                    ▼
+       Approved implementation
+                    │
+                    ▼
+   Validation, audit, release notes
 ```
 
-The workflow boundaries are intentional:
+Where the lines are drawn:
 
-- An SRS skill documents requirements; it does not silently implement them.
-- An audit identifies risks and remediation; it does not imply approval to rewrite the target system.
-- A recommendations skill prepares exact edits for a later implementation pass.
-- The scaler workflow is deliberately exceptional: it is an editing workflow, but only for an exact authorized Dart argument shape.
-- Commit-note creation documents the release state; it does not authorize committing, tagging, or pushing.
+- SRS skills describe requirements. They don't implement them.
+- Audits list risks and fixes. They aren't permission to rewrite the target.
+- `code-analysis-recommendations` writes exact edits for someone else to apply later.
+- Some skills do edit source: `comment-out-non-performant-scalers` (one exact Dart pattern only), `optimize-docker-builds` (build files only), and the three frontend design skills.
+- `create-commit-notes` documents a release. It doesn't commit, tag, or push.
 
-## Using the Workflows
+## Installing a skill
 
-### 1. Clone and inspect the library
+Clone the repo and list what's in it:
 
 ```bash
 git clone https://github.com/paulnamalomba/spec-driven-design.git
@@ -121,17 +117,7 @@ cd spec-driven-design
 rg --files -g 'SKILL.md' | sort
 ```
 
-There is no application bootstrap, dependency installation, build server, or runtime process. A compatible agent reads the selected `SKILL.md` and follows its instructions against a separate target repository or document set.
-
-### 2. Make the skill available to the agent
-
-In the current Codex setup, personal skills are discovered under:
-
-```text
-~/.codex/skills/<skill-name>/SKILL.md
-```
-
-This repository is the source-controlled authoring copy. Install or synchronize only the workflow you intend to expose. A non-destructive symlink example is:
+Agents look for skills in their own folder: `~/.codex/skills/<name>/` for Codex, `~/.claude/skills/<name>/` for Claude Code. Symlink the ones you want rather than copying, so edits here take effect:
 
 ```bash
 mkdir -p "$HOME/.codex/skills"
@@ -139,298 +125,247 @@ ln -s "$PWD/create-technical-architecture" \
   "$HOME/.codex/skills/create-technical-architecture"
 ```
 
-The command intentionally fails when the destination already exists. Inspect and reconcile an existing installed copy rather than overwriting it blindly.
+`ln -s` fails if the destination already exists. That's on purpose. Look at the installed copy and reconcile it by hand instead of overwriting it.
 
-Installed copies can drift from this repository. Check before assuming an edit is active:
+If you copied instead of linking, the installed version can drift. Compare before trusting it:
 
 ```bash
 cmp create-technical-architecture/SKILL.md \
   "$HOME/.codex/skills/create-technical-architecture/SKILL.md"
 ```
 
-### 3. Invoke the skill with concrete inputs
+`pretty-mermaid` needs `npm install` inside its folder before its render scripts work.
 
-Good requests name the workflow and provide its required evidence, scope, and output location.
+## Writing a good request
+
+Name the skill, point at the inputs, and say where the output goes:
 
 ```text
 $create-specifications-existing-projects
 
 Inspect ~/Development/example-api, ~/Development/example-web, and
-~/Development/example-admin. Produce the SRS in
-~/Development/example-contracts/docs/specifications/. Treat unimplemented
-admin modules as planned gaps and cite source files for every implemented claim.
+~/Development/example-admin. Write the SRS to
+~/Development/example-contracts/docs/specifications/. Treat unbuilt
+admin modules as planned gaps and cite a source file for every implemented claim.
 ```
 
 ```text
 $merge-customer-journeys-into-specifications
 
 Merge docs/journeys/member-purchase.md into docs/specifications/SRS.md.
-Preserve existing requirement IDs, add a traceability matrix, and leave
+Keep existing requirement IDs, add a traceability matrix, and mark
 commercial conflicts as Requires Decision.
 ```
 
 ```text
-$ux-system-analyzer
+$optimize-docker-builds
 
-Compare the attached screenshots with ~/Development/example-admin/src.
-Write both reports to ~/Development/example-admin and inventory every repeated
-design-system violation before recommending edits.
+The API image takes 6 minutes to rebuild after a one-line change. Look at
+api/Dockerfile and docker-compose.yml, time one build first, and don't
+change runtime behavior.
 ```
 
 ```text
 $create-commit-notes
 
-Create .commits/1.2.0.txt from the previous documented tag. Include the exact
-diff baseline, untracked release files, compatibility, deployment order, and
-the commands that actually passed or failed. Do not commit or push.
+Create .commits/1.2.0.txt from the previous tag. Include the diff baseline,
+untracked release files, compatibility, deployment order, and which
+commands passed or failed. Don't commit or push.
 ```
 
-### 4. Review the artifact, not just the chat response
+The useful result is usually a file in the target project, not the chat reply. Read that file and check:
 
-The durable output is normally a Markdown or text file in the target project. Review:
+- every claim traces back to a source file or requirement;
+- assumptions and open decisions are listed, not buried;
+- the list of changed files or recommendations is complete;
+- security and privacy effects are covered;
+- validation commands and their real results are stated; and
+- the file landed where the skill says it should.
 
-- evidence and requirement traceability;
-- assumptions and unresolved decisions;
-- exact changed-file or recommendation inventory;
-- security and privacy implications;
-- stated implementation status;
-- validation commands and limitations; and
-- whether the output path matches the selected workflow contract.
+## Common chains
 
-## Composing Workflows
+### Documenting an existing product
 
-### Existing product documentation chain
+1. `convert-docx-to-md` to turn a Word spec or journey into Markdown.
+2. `create-specifications-existing-projects` for a current-state SRS.
+3. `merge-customer-journeys-into-specifications` to fold the journeys in.
+4. `create-technical-architecture` for the architecture document.
+5. `deep-code-and-security-audits` once the work is built.
 
-1. Use `$convert-docx-to-md` to normalize a reference specification or customer journey.
-2. Use `$create-specifications-existing-projects` to establish the source-grounded current-state SRS.
-3. Use `$merge-customer-journeys-into-specifications` to reconcile narrative journeys with that baseline.
-4. Use `$create-technical-architecture` to derive the implementation and operational architecture.
-5. Use `$deep-code-and-security-audits` after implementation to assess the delivered boundaries.
+### Fixing UI drift
 
-### UI alignment chain
+1. `ux-system-analyzer` with screenshots and the UI repo.
+2. `code-analysis-recommendations` where one problem needs a deeper trace.
+3. Approve the recommendations before anyone edits code.
+4. `impeccable` (`polish`, `harden`, `audit`) or `dashboard-design` to make and check the changes.
+5. Run the target repo's own lint, tests, build, and visual checks.
 
-1. Use `$ux-system-analyzer` with screenshots and the responsible UI repository.
-2. Use `$code-analysis-recommendations` when a specific misalignment needs deeper execution-flow analysis.
-3. Review and approve the recommendations before asking an implementation agent to edit code.
-4. Validate the implementation with the target repository’s own lint, analysis, test, build, and visual QA process.
+### Flutter font scaling
 
-### Flutter typography maintenance
+1. Confirm the Rider or Driver app scales text at the theme root.
+2. Run `comment-out-non-performant-scalers` on the approved folder only.
+3. Review the occurrence ledger and the diff.
+4. Run the Flutter format check, analyzer, tests, and build.
 
-1. Confirm root-level prescaling in the exact Rider or Driver repository.
-2. Use `$comment-out-non-performant-scalers` for the explicitly authorized directory only.
-3. Review the occurrence ledger and scoped diff.
-4. Run the target Flutter repository’s format check, analyzer, tests, and relevant build.
+### Shipping a release
 
-### Release governance
+1. Finish and validate the work in the target repo.
+2. `create-commit-notes` against a pinned previous version.
+3. `create-release-listing-summaries` for the store text (mobile apps).
+4. `create-substream-work-summary` if the work ran as a separate substream.
+5. Commit, tag, push, and deploy through your normal release process, not the skill.
 
-1. Finish implementation and validation in the target repository.
-2. Use `$create-commit-notes` against a pinned previous version or tag.
-3. Review mixed-deployment, migration, environment, and compatibility notes.
-4. Commit, tag, push, or deploy only through a separately authorized release process.
-
-## Skill Package Anatomy
-
-A workflow package is centered on `SKILL.md`:
+## Package layout
 
 ```text
-workflow-name/
-├── SKILL.md                 # Required workflow contract
-├── agents/
-│   └── openai.yaml          # Optional agent UI metadata/default prompt
-├── references/              # Templates, standards, or domain guidance
-├── scripts/                 # Optional deterministic helper utilities
-└── assets/                  # Output templates or static resources
+skill-name/
+├── SKILL.md         # required: the instructions
+├── agents/          # optional: openai.yaml UI metadata, helper agent definitions
+├── references/      # docs the skill loads when needed
+├── scripts/         # optional helper scripts
+└── assets/          # templates and static files
 ```
 
-### `SKILL.md`
-
-Every skill begins with YAML front matter:
+Every `SKILL.md` starts with front matter:
 
 ```yaml
 ---
-name: workflow-name
-description: A trigger-focused description of when this workflow applies.
+name: skill-name
+description: When this skill should trigger, written so an agent can match it.
 ---
 ```
 
-The body should then establish, as applicable:
+The body covers whatever applies: when to use it, the agent's role and limits, inputs, what to inspect first, what it may and may not change, the steps, output files and names, which references to load, and how to validate and report.
 
-- purpose and trigger conditions;
-- agent role and decision boundaries;
-- required inputs;
-- repository discovery requirements;
-- mutation and safety guardrails;
-- ordered execution protocol;
-- mandatory outputs and file naming;
-- supporting resources to load;
-- validation commands or evidence expectations; and
-- completion/reporting criteria.
+`agents/openai.yaml` holds a display name, short description, and default prompt. It helps discovery but `SKILL.md` wins if they disagree. `impeccable/agents/` also holds `.toml` definitions for its helper agents (documenter, asset producer, finish reviewer, manual edit applier).
 
-### `agents/openai.yaml`
+Scripts help; they don't override a skill's rules.
 
-Some packages include a small interface descriptor with a display name, short description, and default prompt. It improves discoverability but does not replace `SKILL.md` as the authoritative workflow.
-
-### References, scripts, and assets
-
-- `references/` contains material the agent should load when the workflow selects it, such as the SRS structure and journey traceability template.
-- `scripts/` contains optional helpers. Scripts support the workflow; they do not override its guardrails.
-- `assets/` contains templates or other resources intended to be copied or embedded in outputs.
-
-## Project Structure
+## Repository layout
 
 ```text
 spec-driven-design/
 ├── analysis-and-recommndations/
-│   └── code-analysis-recommendations/
-│       ├── SKILL.md
-│       ├── assets/
-│       ├── references/
-│       └── scripts/
-├── comment-out-non-performant-scalers/
-│   ├── SKILL.md
-│   └── agents/openai.yaml
+│   └── code-analysis-recommendations/   # SKILL.md, assets/, references/, scripts/
+├── caveman/
+├── comment-out-non-performant-scalers/  # agents/openai.yaml
 ├── convert-docx-to-md/
-│   └── SKILL.md
 ├── create-commit-notes/
-│   └── SKILL.md
-├── create-specifications-existing-projects/
-│   ├── SKILL.md
-│   ├── agents/openai.yaml
-│   └── references/srs-structure.md
+├── create-release-listing-summaries/
+├── create-specifications-existing-projects/  # agents/, references/srs-structure.md
+├── create-substream-work-summary/
 ├── create-technical-architecture/
-│   └── SKILL.md
+├── dashboard-design/
 ├── deep-code-and-security-audits/
-│   └── SKILL.md
-├── merge-customer-journeys-into-specifications/
-│   ├── SKILL.md
-│   ├── agents/openai.yaml
-│   └── references/merge-traceability-template.md
+├── design-taste-frontend/
+├── impeccable/                          # agents/, reference/, scripts/
+├── merge-customer-journeys-into-specifications/  # agents/, references/
+├── optimize-docker-builds/              # agents/, references/patterns.md, scripts/
+├── pretty-mermaid/                      # references/, scripts/, docs/, package.json
 ├── ux-system-analyzer/
-│   └── SKILL.md
 ├── guides/
 │   └── ssh_public_ip_setup.md
 └── README.md
 ```
 
-`analysis-and-recommndations` retains its current historical spelling. Use the actual path when linking or synchronizing the nested skill.
+`analysis-and-recommndations` is misspelled. It stays that way because installed links point at it.
 
-## Repository-Specific Behavior
+## Project-specific skills
 
-Not every workflow is fully generic. Read these constraints before reuse:
+Not everything here is generic.
 
-| Workflow | Current specialization |
+| Skill | Assumes |
 | --- | --- |
-| `code-analysis-recommendations` | Writes exactly two documents to `~/Development/ecoride/docs/ideas/<month>/` and uses Ecoride-oriented naming conventions. |
-| `create-commit-notes` | Explicitly models version sequences and `.commits` formatting across Ecoride API, Driver, Rider, Admin, and Website repositories. |
-| `create-release-listing-summaries` | Formats abstract Android (5 points) and iOS (12 points) app store release notes in `builds/<app>-<version>-listing.md` without low-level code details. |
-| `comment-out-non-performant-scalers` | Applies only to a confirmed Flutter/Dart source tree whose theme-root typography scaling has been verified. |
-| `create-specifications-existing-projects` | Project-general at its core, with additional Afriflex repository-role guidance. |
-| `merge-customer-journeys-into-specifications` | Project-general at its core, with detailed Afriflex SACCO/BNPL and USSD reconciliation rules. |
-| `ux-system-analyzer` | Assumes screenshots plus inspectable UI source and currently emphasizes JSX/HTML/CSS/Tailwind design-system patterns. |
-| `create-technical-architecture` | Project-general, calibrated to the depth and systems-thinking standard of Ecoride architecture documents. |
-| `convert-docx-to-md` | Generic DOCX/OOXML conversion with adjacent media extraction. |
-| `deep-code-and-security-audits` | Generic subsystem audit contract whose claimed coverage must be backed by the actual tools and crawl evidence available in the target environment. |
+| `code-analysis-recommendations` | Writes to `~/Development/ecoride/docs/ideas/<month>/` with Ecoride naming. |
+| `create-commit-notes` | Ecoride's API, Driver, Rider, Admin, and Website repos and their `.commits` format. |
+| `create-release-listing-summaries` | Ecoride mobile apps and the `builds/` folder. |
+| `create-substream-work-summary` | The `docs/work/` folder and the `DDbbYY-substream<NN>-…` naming scheme. |
+| `comment-out-non-performant-scalers` | A Flutter app with verified theme-root text scaling. |
+| `create-specifications-existing-projects` | Generic, with extra notes on Afriflex repo roles. |
+| `merge-customer-journeys-into-specifications` | Generic, with detailed Afriflex SACCO/BNPL and USSD rules. |
+| `ux-system-analyzer` | Screenshots plus JSX/HTML/CSS/Tailwind source. |
+| `create-technical-architecture` | Generic, pitched at the depth of the Ecoride architecture docs. |
+| `deep-code-and-security-audits` | Generic. Its "100% coverage" claims only hold if the tools in the target environment can back them. |
 
-When adapting a specialized workflow, change its name/description, paths, examples, domain rules, and output contract together. Do not leave hidden Ecoride or Afriflex assumptions inside a supposedly generic clone.
+The rest (`convert-docx-to-md`, `optimize-docker-builds`, `impeccable`, `design-taste-frontend`, `dashboard-design`, `pretty-mermaid`, `caveman`) don't depend on a particular project.
 
-## Authoring and Maintaining Skills
+To adapt a specialised skill, change the name, description, paths, examples, domain rules, and output contract together. A "generic" copy with Ecoride paths still inside is worse than the original.
 
-### Create or revise a workflow
+## Third-party skills
 
-1. Define one bounded job and a precise trigger description.
-2. State whether the workflow is read-only, document-writing, or source-editing.
-3. Identify required inputs and conditions that must stop execution.
-4. Specify exact output files and whether existing documents are modified in place.
-5. Require repository and instruction discovery before conclusions or edits.
-6. Link only the references, scripts, and assets required for the job.
-7. Include proportional validation and honest limitation reporting.
-8. Test the workflow against a representative repository with existing uncommitted changes.
-9. Confirm the installed agent copy matches the source-controlled copy.
+Some skills came from elsewhere and keep their own licenses:
 
-### Quality checklist
+- `pretty-mermaid` is MIT (Beautiful-Mermaid Contributors). See [`pretty-mermaid/LICENSE`](pretty-mermaid/LICENSE).
+- `dashboard-design` declares `license: MIT` in its front matter.
+- `impeccable` ships its own scripts and version file (`impeccable/scripts/VERSION`).
 
-- The folder name and YAML `name` agree.
-- The description explains when the skill should trigger, not merely what it contains.
-- Required files are referenced with paths relative to `SKILL.md`.
-- Output paths are explicit and cannot be confused with the source workflow repository.
-- Read-only analysis cannot silently become implementation.
-- Destructive commands, secret handling, and dirty-worktree behavior are addressed.
-- Examples use placeholders rather than credentials or production identifiers.
-- “Complete,” “deterministic,” or “100%” claims require measurable evidence.
-- The workflow names validation commands only after inspecting the target project’s actual toolchain.
-- Optional `agents/openai.yaml` metadata remains consistent with the authoritative skill description.
+Check upstream before editing these heavily, or your changes will be hard to merge with new releases.
 
-### Versioning workflow changes
+## Writing or changing a skill
 
-This repository currently has no separate package manifest or formal skill version field. Use Git history to review changes. For behavior-breaking revisions, document the changed output contract in the commit message and coordinate synchronization of installed copies.
+1. Give it one job and a description that says when it should trigger.
+2. Say whether it's read-only, writes documents, or edits source.
+3. List the inputs, and the conditions that should make it stop.
+4. Name the output files and say whether existing files are edited in place.
+5. Make the agent look at the target repo before it concludes or edits anything.
+6. Link only the references, scripts, and assets the job needs.
+7. Ask for validation that fits the job, and honest reporting when it fails.
+8. Try it on a real repo that has uncommitted changes.
+9. Check that the installed copy matches this one.
 
-## Safety and Evidence Rules
+Before you commit, check that:
 
-These rules apply across the library even when a skill is focused on documentation:
+- the folder name matches `name` in the front matter;
+- paths to references and scripts are relative to `SKILL.md` and exist;
+- output paths can't be confused with this repo;
+- a read-only skill can't drift into editing code;
+- destructive commands, secrets, and dirty worktrees are handled;
+- examples use placeholders, not real credentials or production IDs;
+- words like "complete" or "100%" are backed by something measurable;
+- validation commands are chosen after looking at the target's toolchain; and
+- `agents/openai.yaml`, if present, agrees with `SKILL.md`.
 
-- Read every applicable `AGENTS.md` in the target repository before acting.
-- Preserve existing uncommitted changes and keep unrelated diffs untouched.
-- Never place credentials, tokens, private keys, production identifiers, or unnecessary personal data in generated artifacts.
-- Treat client restrictions as UX, not authorization; security conclusions must verify server-side enforcement.
-- Pin source evidence by file path, requirement source, or Git baseline wherever the workflow requires traceability.
-- Do not invent APIs, database fields, implementation status, test results, citations, or repository commands.
-- If a tool or environment cannot prove an audit claim, narrow the claim and document the limitation.
-- Do not commit, tag, push, deploy, or open a pull request unless the user separately authorizes that external state change.
+There's no version field or manifest. Git history is the record. If a change breaks a skill's output contract, say so in the commit message and update installed copies.
 
-## Validation
+## Ground rules
 
-This is a documentation/workflow repository, so validation focuses on package integrity rather than compilation.
+These apply to every skill, including the documentation ones:
 
-### Inventory workflows
+- Read any `AGENTS.md` (or `CLAUDE.md`) in the target repo first.
+- Leave uncommitted changes alone and keep diffs to the task.
+- Keep credentials, tokens, keys, production IDs, and personal data out of outputs.
+- Client-side checks are UX, not security. Confirm enforcement on the server.
+- Cite file paths, requirement sources, or Git baselines where the skill asks for traceability.
+- Don't invent APIs, fields, status, test results, citations, or commands.
+- If a tool can't prove an audit claim, narrow the claim and say why.
+- Don't commit, tag, push, deploy, or open a PR unless the user asks for that separately.
+
+## Checking the repo
+
+There's no linter, test runner, or CI here, so don't report that any passed. What you can check:
 
 ```bash
+# list skills
 rg --files -g 'SKILL.md' | sort
-```
 
-### Check required front matter
+# look at front matter
+for file in $(rg --files -g 'SKILL.md'); do sed -n '1,5p' "$file"; done
 
-```bash
-for file in $(rg --files -g 'SKILL.md'); do
-  sed -n '1,5p' "$file"
-done
-```
-
-### Check local Markdown links and referenced paths
-
-Review every relative Markdown link and every `references/`, `scripts/`, `assets/`, or `agents/` path introduced by a change. A workflow must not point to a missing resource.
-
-### Check formatting and scope
-
-```bash
+# whitespace and scope
 git diff --check
 git status --short
-git diff -- README.md path/to/changed/workflow/
 ```
 
-There is currently no repository-level Markdown linter, test runner, build script, or CI configuration. Do not claim those checks passed unless they are added and executed.
+Also open every relative link and every `references/`, `scripts/`, `assets/`, or `agents/` path a change adds, and make sure it exists. For `pretty-mermaid`, `npm test` in its folder runs the render smoke test.
 
-## Operational Guide
+## Other files
 
-[`guides/ssh_public_ip_setup.md`](guides/ssh_public_ip_setup.md) is a standalone Linux operations guide covering OpenSSH installation, firewall configuration, router port forwarding, external connectivity testing, SSH keys, password-login disabling, and Fail2ban.
-
-It is not an invokable skill. Follow its warning and prefer private networking, VPN, or identity-aware access where available instead of exposing SSH directly to the public internet.
-
-## Contributing
-
-When contributing a workflow:
-
-1. Keep the change focused on one agent capability or one coherent revision.
-2. Preserve existing packages unless the change explicitly updates their behavior.
-3. Include all referenced templates and descriptors in the same change.
-4. Explain project-specific assumptions in the skill and in this README catalogue.
-5. Validate paths, front matter, Markdown, and the target workflow against a realistic prompt.
-6. Review `git diff` before handing off; do not include `.DS_Store`, generated output, target-project documents, or secrets.
+[`guides/ssh_public_ip_setup.md`](guides/ssh_public_ip_setup.md) is a Linux guide for OpenSSH, firewall rules, router port forwarding, SSH keys, turning off password login, and Fail2ban. It isn't a skill. If you can use a VPN or private network instead of exposing SSH to the internet, do that.
 
 ## License
 
-No license file is currently present. Add an explicit license before treating the workflows as generally redistributable or accepting third-party contributions under defined terms.
+The repo has no top-level license file. Add one before treating these skills as redistributable or taking outside contributions. Third-party skills keep their own licenses (see [above](#third-party-skills)).
 
 ## Author
 
-- **Mr. Paul Namalomba** — [GitHub](https://github.com/paulnamalomba) | [Email](mailto:paul.namalomba-cio@computemore.com) | [LinkedIn](https://www.linkedin.com/in/paulnamalomba/) | [Portfolio](https://paulnamlaomba.github.io/)
-
+**Paul Namalomba** · [GitHub](https://github.com/paulnamalomba) · [Email](mailto:paul.namalomba-cio@computemore.com) · [LinkedIn](https://www.linkedin.com/in/paulnamalomba/) · [Portfolio](https://paulnamalomba.github.io/)
