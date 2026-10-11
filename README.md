@@ -48,19 +48,6 @@ These workflows define that method. Depending on the selected skill, an agent ma
 
 The result is a practical bridge between product intent, source evidence, technical design, implementation guidance, and release governance.
 
-## Design Principles
-
-| Principle | What it means in this repository |
-| --- | --- |
-| **Evidence before assertion** | Read the current source, routes, models, configuration, tests, and documentation before describing system behavior. |
-| **Specifications before broad implementation** | Resolve scope, requirements, state transitions, integration boundaries, and acceptance criteria before making expansive changes. |
-| **Repository conventions first** | Applicable `AGENTS.md` files and established project patterns outrank generic advice. |
-| **Traceability** | Requirements, audit findings, recommendations, and release notes should point back to concrete source files or source documents. |
-| **Explicit status** | Separate implemented behavior, documented intent, planned work, gaps, and unresolved decisions. |
-| **Scoped mutation** | Analysis does not imply authorization to edit application code. Editing workflows define their own narrow mutation boundaries. |
-| **Reviewable outputs** | Produce stable Markdown or text artifacts that a human can inspect, version, compare, and hand to another agent. |
-| **Honest validation** | Record exact commands and results; never claim deterministic coverage, successful builds, or complete audits without evidence. |
-
 ## Workflow Catalogue
 
 ### Specifications, journeys, and architecture
