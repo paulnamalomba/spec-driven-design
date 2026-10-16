@@ -1,6 +1,6 @@
 ---
 name: create-commit-notes
-description: Create technical commit and release notes in .commits with source baselines, version progression, changes, compatibility, and actual validation. Supports existing Ecoride conventions and the PETSc native Windows fork's four-part internal version and build history grouped into three-part note filenames.
+description: Create technical commit and release notes in .commits with source baselines, version progression, changes, compatibility, and actual validation. Supports Ecoride conventions and separate PETSc/SESKA four-part internal versions with build history grouped into three-part note filenames.
 ---
 
 # Skill: Commit Notes Creation
@@ -14,6 +14,7 @@ This skill standardizes technical `.commits` notes while preserving the target r
 Read the target repository's `AGENTS.md`, existing notes, and authoritative version metadata first.
 
 - For `petsc-native-windows`, or a repository explicitly declaring the same PETSc profile, read [PETSc internal versions and build progression](references/petsc-versioning.md). It overrides the Ecoride-specific templates and default filename rule below. Record the four-part `PETSC_INTERNAL_VERSION` in `.commits/<breaking>.<major>.<minor>.txt`, preserving every verified build-number transition.
+- For `seskafeabackend`/SESKA, read [SESKA internal versions](references/seska-versioning.md). Its independent `SESKA_INTERNAL_VERSION` starts at the user's historical `1.0.0.17`, not PETSc's seed. Preserve every accepted build transition in the three-part family note.
 - For Ecoride repositories, retain the existing sequences and note conventions below. Do not impose PETSc's 3.27 internal family, bounded counters, or note grouping on them.
 - For another repository, follow its declared policy and existing note format. Do not infer its version from a dependency or copy an unrelated product's release header.
 
