@@ -1,1 +1,8 @@
 .DS_Store
+
+# AI Agent local directories & internal path configs
+.claude/
+.codex/
+.gemini/
+*settings
+*.env
