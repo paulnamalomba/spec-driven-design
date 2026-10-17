@@ -1,6 +1,6 @@
 # spec-driven-design
 
-[![Skills](https://img.shields.io/badge/skills-17-blue)](#skills)
+[![Skills](https://img.shields.io/badge/skills-39-blue)](#skills)
 [![Format](https://img.shields.io/badge/format-SKILL.md-2ea44f)](#package-layout)
 
 My working set of agent skills. Each folder holds a `SKILL.md` that tells a coding agent (Codex, Claude Code, or anything else that reads the format) how to do one job: write an SRS from an existing codebase, audit a subsystem, draft release notes, tidy a Dockerfile, design a dashboard, and so on.
@@ -36,6 +36,7 @@ Most skills were written for Ecoride and Afriflex work. Several still carry thos
 | [`create-specifications-existing-projects`](create-specifications-existing-projects/SKILL.md) | An existing system needs an SRS based on what its repositories actually do. | An SRS with requirement IDs, source evidence, implementation status, acceptance criteria, security, operations, gaps, and a glossary. |
 | [`merge-customer-journeys-into-specifications`](merge-customer-journeys-into-specifications/SKILL.md) | Customer journeys, user flows, or service blueprints need to be merged into an existing SRS. | An updated SRS, a requirements addendum, a journey-to-requirement traceability matrix, or some mix of these. |
 | [`create-technical-architecture`](create-technical-architecture/SKILL.md) | Requirements, design analysis, and source code need to become one architecture document. | `docs/architecture/SYSTEM_ARCHITECTURE_AND_DESIGN.md` with diagrams, trade-offs, security, data flow, and operations. |
+| [`low-level-systems`](low-level-systems/SKILL.md) | Designing, architecting, or reviewing systems programming, embedded kernels, HPC paths, custom allocators, or hardware/OS interfaces. | Architecture specifications, memory layouts, hot-path analysis, and mechanical sympathy review notes. |
 
 ### Analysis and audits
 
@@ -45,6 +46,7 @@ Most skills were written for Ecoride and Afriflex work. Several still carry thos
 | [`deep-code-and-security-audits`](deep-code-and-security-audits/SKILL.md) | A subsystem needs a security, integration, code quality, and performance review. | Three dated reports in `$outputdir`: `SecurityAudit`, `IntegrationAudit`, `CodeQualityAudit`. |
 | [`ux-system-analyzer`](ux-system-analyzer/SKILL.md) | Screenshots and UI source need to be checked against the design system. | Two dated reports under `$outputdir/docs/code/`: the UX analysis and the recommended changes. |
 | [`optimize-docker-builds`](optimize-docker-builds/SKILL.md) | Docker builds are slow, contexts are large, dependency restores repeat, or runtime images carry build tools. | Rewritten Dockerfiles, `.dockerignore` files, and Compose/CI build changes, with before/after timings from `scripts/benchmark_docker_build.sh`. |
+| [`research`](research/SKILL.md) | A technical question, API fact, or official documentation needs deep primary-source investigation via a background agent. | A single cited Markdown file placed in the repository's notes directory. |
 
 ### Frontend and UI design
 
@@ -54,6 +56,12 @@ Most skills were written for Ecoride and Afriflex work. Several still carry thos
 | [`design-taste-frontend`](design-taste-frontend/SKILL.md) | Building or redesigning a landing page, portfolio, or editorial site that shouldn't look like a template. | A one-line design read, then the page, checked against a pre-flight list. |
 | [`dashboard-design`](dashboard-design/SKILL.md) | Designing or reviewing operations, finance, logistics, seller, or analytics dashboards. | A short design decision list, the dashboard, and evidence that it was checked in the running app at several viewport widths. |
 | [`pretty-mermaid`](pretty-mermaid/SKILL.md) | You have Mermaid source, or need a flowchart, sequence, state, class, ER, or XY diagram drawn. | Themed SVG, PNG, or ASCII/Unicode output, rendered locally with the bundled Node scripts. 15 built-in themes. |
+| [`bento-board-ui`](bento-board-ui/SKILL.md) | Brand assets or a website need to be showcased as a clean, share-ready bento grid for pitches or case studies. | A single presentation frame composed of raster image tiles and consistent spacing. |
+| [`better-interface`](better-interface/SKILL.md) | An entire interface needs a holistic review across hierarchy, spacing, typography, keyboard navigation, and interaction states. | A consolidated, prioritized review verdict with actionable UX improvements. |
+| [`desktop-to-mobile`](desktop-to-mobile/SKILL.md) | A selected desktop frame needs to be adapted into a 390px mobile version following responsive best practices. | A new mobile frame placed alongside the untouched desktop frame. |
+| [`find-animation-opportunities`](find-animation-opportunities/SKILL.md) | A codebase or UI needs to be swept for tasteful motion opportunities with restraint. | A restrained list (5–7 maximum) of motion recipes with exact durations and easings; no code edits. |
+| [`professional-cae-fem-gui-principles`](professional-cae-fem-gui-principles/SKILL.md) | Designing, architecting, or reviewing Dear ImGui desktop apps for FEM/FEA, CAD/CAE tools, or scientific visualization. | Viewport, mesh quality, and workbench interaction specifications (with SESKA FEA suite profile). |
+| [`brag`](brag/SKILL.md) | You want to turn the current project website or app into a short, polished, shareable launch video using Hyperframes. | A project-tailored video storyboard and Hyperframes script/code. |
 
 ### Docs, releases, and maintenance
 
@@ -64,12 +72,26 @@ Most skills were written for Ecoride and Afriflex work. Several still carry thos
 | [`create-release-listing-summaries`](create-release-listing-summaries/SKILL.md) | An Ecoride mobile app needs store listing text written from its commit notes. | `builds/<app>-<version>-listing.md` with 5 Android points and 12 iOS points, no low-level code detail. |
 | [`create-substream-work-summary`](create-substream-work-summary/SKILL.md) | A piece of parallel work (a "substream") needs a write-up for its target repo and branch. | One file at `docs/work/DDbbYY-substream<NN>-work-to-<reponame>-<branchname>.md`, never duplicated under another name. |
 | [`comment-out-non-performant-scalers`](comment-out-non-performant-scalers/SKILL.md) | A Flutter app already scales text at the theme root, and widget-level `fontSize: AppConstants.scaledFontSize(...)` calls should be disabled. | Targeted Dart edits, a ledger of every occurrence, a scoped diff review, then format, analyze, and test runs. |
+| [`docs`](synced/125118c9-8c32-4a11-ab92-dd0810b788c4_f2201e45-d812-4437-acae-677a92bda627/docs/SKILL.md) | Creating, editing, or collaborating on shared documents (reports, proposals, PRDs, SOPs) via the docs connector. | Structured collaborative documents exportable to Word, PDF, Markdown, or Google Docs. |
+| [`docx`](synced/125118c9-8c32-4a11-ab92-dd0810b788c4_f2201e45-d812-4437-acae-677a92bda627/docx/SKILL.md) | Creating, reading, editing, or manipulating Microsoft Word `.docx` documents or templates. | Updated or generated `.docx` files with preserved formatting, styles, and tracked changes. |
+| [`google-workspace`](synced/125118c9-8c32-4a11-ab92-dd0810b788c4_f2201e45-d812-4437-acae-677a92bda627/google-workspace/SKILL.md) | Creating or editing Google Docs, Sheets, Slides, or Drive files via connector APIs. | Updated Google Workspace files modified directly in Google Drive. |
+| [`pdf`](synced/125118c9-8c32-4a11-ab92-dd0810b788c4_f2201e45-d812-4437-acae-677a92bda627/pdf/SKILL.md) | Extracting text/tables, merging, splitting, watermarking, filling forms, or OCR processing PDF files. | Processed, extracted, or newly generated PDF documents and form data. |
+| [`pptx`](synced/125118c9-8c32-4a11-ab92-dd0810b788c4_f2201e45-d812-4437-acae-677a92bda627/pptx/SKILL.md) | Creating, editing, parsing, or analyzing PowerPoint (`.pptx`/`.potx`) slide decks and speaker notes. | Formatted `.pptx` presentations, slide templates, or extracted deck content. |
+| [`xlsx`](synced/125118c9-8c32-4a11-ab92-dd0810b788c4_f2201e45-d812-4437-acae-677a92bda627/xlsx/SKILL.md) | Creating, reading, cleaning, computing formulas for, or updating Excel (`.xlsx`/`.csv`) spreadsheets. | Spreadsheets with formulas and formatting verified via `openpyxl` or `pandas`. |
 
 ### Agent behavior
 
 | Skill | Use it when | Output |
 | --- | --- | --- |
 | [`caveman`](caveman/SKILL.md) | You want shorter agent replies with all technical detail kept. | No files. Changes how the agent writes until told "stop caveman" or "normal mode". |
+| [`chief-of-staff`](chief-of-staff/SKILL.md) | Pursuing a long-running goal across a session by coordinating background subagents and schedules. | Subagent task delegations, context pointers, and strategic schedule management. |
+| [`grilling`](grilling/SKILL.md) | Stress-testing a plan, decision, or idea through a relentless interview mapped as a design tree. | Multi-round frontier questions with recommended answers to settle prerequisite decisions. |
+| [`grill-me`](grill-me/SKILL.md) | You want a fast shortcut to start a relentless interview (`grilling`) to sharpen a plan. | Interactive stress-testing interview session. |
+| [`grill-with-docs`](grill-with-docs/SKILL.md) | Stress-testing a plan while capturing architectural decisions and domain models as you go. | Interview answers plus generated ADRs and glossary documentation. |
+| [`implement`](implement/SKILL.md) | Implementing a feature or bug fix from a specification or tickets using TDD and code review loops. | Code changes backed by regular typechecking, tests, and review feedback. |
+| [`import-memory`](synced/125118c9-8c32-4a11-ab92-dd0810b788c4_f2201e45-d812-4437-acae-677a92bda627/import-memory/SKILL.md) | Importing memories exported from another AI assistant (ChatGPT, Gemini) into Claude's memory store. | Conversationally filed memory entries stored using memory tools. |
+| [`morning`](synced/125118c9-8c32-4a11-ab92-dd0810b788c4_f2201e45-d812-4437-acae-677a92bda627/morning/SKILL.md) | You want a calm, single-page morning overview of your schedule and priorities. | A hand-sketched, single-file HTML morning brief artifact or scheduled recurring brief. |
+| [`skill-creator`](synced/125118c9-8c32-4a11-ab92-dd0810b788c4_f2201e45-d812-4437-acae-677a92bda627/skill-creator/SKILL.md) | Creating, editing, benchmarking, or optimizing agent skills and evaluating trigger accuracy. | Validated `SKILL.md` packages, test prompts, and eval benchmark reports. |
 
 ## How the skills fit together
 
@@ -247,10 +269,14 @@ Scripts help; they don't override a skill's rules.
 spec-driven-design/
 ├── analysis-and-recommndations/
 │   └── code-analysis-recommendations/   # SKILL.md, assets/, references/, scripts/
+├── bento-board-ui/
+├── better-interface/
+├── brag/                                # assets/, references/, scripts/, slim.md
 ├── caveman/
+├── chief-of-staff/                      # agents/
 ├── comment-out-non-performant-scalers/  # agents/openai.yaml
 ├── convert-docx-to-md/
-├── create-commit-notes/
+├── create-commit-notes/                 # references/
 ├── create-release-listing-summaries/
 ├── create-specifications-existing-projects/  # agents/, references/srs-structure.md
 ├── create-substream-work-summary/
@@ -258,10 +284,21 @@ spec-driven-design/
 ├── dashboard-design/
 ├── deep-code-and-security-audits/
 ├── design-taste-frontend/
+├── desktop-to-mobile/
+├── find-animation-opportunities/
+├── grill-me/                            # agents/
+├── grill-with-docs/                     # agents/
+├── grilling/                            # agents/
 ├── impeccable/                          # agents/, reference/, scripts/
+├── implement/                           # agents/
+├── low-level-systems/
 ├── merge-customer-journeys-into-specifications/  # agents/, references/
 ├── optimize-docker-builds/              # agents/, references/patterns.md, scripts/
 ├── pretty-mermaid/                      # references/, scripts/, docs/, package.json
+├── professional-cae-fem-gui-principles/ # references/
+├── research/                            # agents/
+├── synced/
+│   └── 125118c9-8c32-4a11-ab92-dd0810b788c4_f2201e45-d812-4437-acae-677a92bda627/  # synced Anthropic skills (docs, docx, google-workspace, import-memory, morning, pdf, pptx, skill-creator, xlsx)
 ├── ux-system-analyzer/
 ├── guides/
 │   └── ssh_public_ip_setup.md
@@ -286,8 +323,9 @@ Not everything here is generic.
 | `ux-system-analyzer` | Screenshots plus JSX/HTML/CSS/Tailwind source. |
 | `create-technical-architecture` | Generic, pitched at the depth of the Ecoride architecture docs. |
 | `deep-code-and-security-audits` | Generic. Its "100% coverage" claims only hold if the tools in the target environment can back them. |
+| `professional-cae-fem-gui-principles` | Generic Dear ImGui CAE/FEM guidelines, plus a tailored SESKA FEA workbench profile. |
 
-The rest (`convert-docx-to-md`, `optimize-docker-builds`, `impeccable`, `design-taste-frontend`, `dashboard-design`, `pretty-mermaid`, `caveman`) don't depend on a particular project.
+The rest (`convert-docx-to-md`, `optimize-docker-builds`, `impeccable`, `design-taste-frontend`, `dashboard-design`, `pretty-mermaid`, `caveman`, `bento-board-ui`, `better-interface`, `brag`, `desktop-to-mobile`, `find-animation-opportunities`, `low-level-systems`, `research`, `grilling`, `grill-me`, `grill-with-docs`, `chief-of-staff`, `implement`, and the synced skills) don't depend on a particular project.
 
 To adapt a specialised skill, change the name, description, paths, examples, domain rules, and output contract together. A "generic" copy with Ecoride paths still inside is worse than the original.
 
@@ -298,6 +336,7 @@ Some skills came from elsewhere and keep their own licenses:
 - `pretty-mermaid` is MIT (Beautiful-Mermaid Contributors). See [`pretty-mermaid/LICENSE`](pretty-mermaid/LICENSE).
 - `dashboard-design` declares `license: MIT` in its front matter.
 - `impeccable` ships its own scripts and version file (`impeccable/scripts/VERSION`).
+- Synced skills under `synced/` are synced upstream skills (including Anthropic reference and productivity skills), retaining their respective licenses and manifests.
 
 Check upstream before editing these heavily, or your changes will be hard to merge with new releases.
 
