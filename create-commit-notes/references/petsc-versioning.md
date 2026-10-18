@@ -22,7 +22,7 @@ This skill records verified outcomes. Do not run builds or change counters merel
 
 ## One note per release family
 
-The output is `.commits/<breaking>.<major>.<minor>.txt` in the PETSc fork. Versions `3.27.0.1` and `3.27.0.2` share `.commits/3.27.0.txt`. Do not create one note per fourth-field value. Invoke this workflow at seed initialization and every minor, major, or breaking change, including an automatic carry.
+The output is `.commits/<breaking>.<major>.<minor>.md` in the PETSc fork. Versions `3.27.0.1` and `3.27.0.2` share `.commits/3.27.0.md`. Do not create one note per fourth-field value. Invoke this workflow at seed initialization and every minor, major, or breaking change, including an automatic carry.
 
 Append chronological build records without deleting or collapsing earlier transitions. Preserve multiple successful builds made before a commit. A new release-family file links the preceding family's note and records the complete rollover, including numeric `99 -> 0`. Failed or unbuilt attempts retain the accepted version and record a separate candidate.
 
@@ -30,16 +30,16 @@ Illustrative transitions, not actual build results:
 
 | Event | Previous accepted version | New accepted version | Note |
 | --- | --- | --- | --- |
-| First qualifying build | 3.27.0.0 | 3.27.0.1 | `.commits/3.27.0.txt` |
-| Another qualifying build | 3.27.0.1 | 3.27.0.2 | Append to `.commits/3.27.0.txt` |
+| First qualifying build | 3.27.0.0 | 3.27.0.1 | `.commits/3.27.0.md` |
+| Another qualifying build | 3.27.0.1 | 3.27.0.2 | Append to `.commits/3.27.0.md` |
 | Failed or documentation-only work | 3.27.0.2 | 3.27.0.2 | Record no counter advance |
-| Build rollover | 3.27.0.99 | 3.27.1.0 | `.commits/3.27.1.txt`; record `99 -> 0` |
-| Minor rollover | 3.27.9.99 | 3.28.0.0 | `.commits/3.28.0.txt` |
-| Major rollover | 3.99.9.99 | 4.0.0.0 | `.commits/4.0.0.txt` |
+| Build rollover | 3.27.0.99 | 3.27.1.0 | `.commits/3.27.1.md`; record `99 -> 0` |
+| Minor rollover | 3.27.9.99 | 3.28.0.0 | `.commits/3.28.0.md` |
+| Major rollover | 3.99.9.99 | 4.0.0.0 | `.commits/4.0.0.md` |
 
 ## Required note content
 
-Use the repository's plain-text style and a PETSc-specific header. Include:
+Use Markdown headings, a progression table, evidence links and a PETSc-specific header. Include:
 
 1. Release family, current accepted four-part version, note date, authoritative version file, upstream PETSc version/release flag and commit, and the preceding accepted build/note.
 2. Diff baseline and exact scope. Identify the source commit used for the build, or its base commit plus the recorded patch/worktree identity. Do not claim a future commit SHA or require a note to contain the hash of the commit that contains itself.

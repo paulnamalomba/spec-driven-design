@@ -1,24 +1,31 @@
 ---
 name: create-commit-notes
-description: Create technical commit and release notes in .commits with source baselines, version progression, changes, compatibility, and actual validation. Supports Ecoride conventions and separate PETSc/SESKA four-part internal versions with build history grouped into three-part note filenames.
+description: Create Markdown commit and release notes in .commits with source baselines, version progression, changes, compatibility, and actual validation. Supports Ecoride and independent PETSc, SESKA and frontend version profiles.
 ---
 
 # Skill: Commit Notes Creation
 
 ## Overview
 
-This skill standardizes technical `.commits` notes while preserving the target repository's own version policy. It supports the Ecoride platform and the PETSc native Windows fork without sharing their version counters or file-naming rules.
+This skill standardizes technical `.commits` notes while preserving the target repository's own version policy. Ecoride, PETSc, SESKA and the frontend retain independent identities and note grouping.
 
 ## Select the repository profile
 
 Read the target repository's `AGENTS.md`, existing notes, and authoritative version metadata first.
 
-- For `petsc-native-windows`, or a repository explicitly declaring the same PETSc profile, read [PETSc internal versions and build progression](references/petsc-versioning.md). It overrides the Ecoride-specific templates and default filename rule below. Record the four-part `PETSC_INTERNAL_VERSION` in `.commits/<breaking>.<major>.<minor>.txt`, preserving every verified build-number transition.
+- For `petsc-native-windows`, or a repository explicitly declaring the same PETSc profile, read [PETSc internal versions and build progression](references/petsc-versioning.md). It overrides the Ecoride-specific templates and default filename rule below. Record the four-part `PETSC_INTERNAL_VERSION` in `.commits/<breaking>.<major>.<minor>.md`, preserving every verified build-number transition.
 - For `seskafeabackend`/SESKA, read [SESKA internal versions](references/seska-versioning.md). Its independent `SESKA_INTERNAL_VERSION` starts at the user's historical `1.0.0.17`, not PETSc's seed. Preserve every accepted build transition in the three-part family note.
+- For `seskafeafrontend`, read [frontend internal versions and releases](references/frontend-versioning.md). Its four single-digit fields and minor-family release policy are independent of PETSc/SESKA.
 - For Ecoride repositories, retain the existing sequences and note conventions below. Do not impose PETSc's 3.27 internal family, bounded counters, or note grouping on them.
 - For another repository, follow its declared policy and existing note format. Do not infer its version from a dependency or copy an unrelated product's release header.
 
 Writing notes does not authorize a build, counter increase, commit, tag, or push. Record actual evidence and unchanged counters for unbuilt or failed work; never invent a passing build to make the note complete.
+
+## Markdown output and historical notes
+
+New notes and new entries use UTF-8 Markdown (`.md`), with real headings, tables, links and fenced command blocks. Do not wrap an entire note in a text code block or use ASCII underline headings. Preserve existing `.txt` notes and immutable evidence. Continue an active historical family in one `.md` file that links its frozen `.txt` predecessor and lists the earlier accepted transitions; append only to the Markdown continuation. Do not maintain two active copies or rewrite historical artifact paths/hashes.
+
+Before migrating a repository whose acceptance/release tools require `.txt`, update its owned note-path readers to prefer `.md` with historical `.txt` read compatibility and its appenders to write Markdown. Preserve that repository's version arithmetic, remote, tag namespace and permission rules. This format migration does not change raw test logs, licences or solver outputs.
 
 ---
 
@@ -53,15 +60,18 @@ Writing notes does not authorize a build, counter increase, commit, tag, or push
 Use this default layout for Ecoride. The PETSc profile defines its own scientific/build sections and progression records.
 
 1. **Header & Release Metadata:**
-   ```text
-   Ecoride <Repo> v<Version> Release Notes
-   Release Date: <Date>
-   ====================================
+   ```markdown
+   # Ecoride <Repo> v<Version> release notes
 
-   MAJOR CHANGES
-   =============
+   Release date: <Date>
 
    ## [<Version>] - <YYYY-MM-DD>
+
+   ### Changes
+
+   ### Validation
+
+   ### Artifacts and remaining limits
    ```
 
 2. **Diff Baseline:**
@@ -87,5 +97,5 @@ Use this default layout for Ecoride. The PETSc profile defines its own scientifi
 
 ## File Naming & Output Location
 
-- Default Ecoride output: `.commits/<version>.txt` (e.g. `.commits/0.9.7.6.txt`) in the target repository root.
-- PETSc output: `.commits/<breaking>.<major>.<minor>.txt`, with all full four-part versions and build transitions inside the file. See the [PETSc profile](references/petsc-versioning.md).
+- Default Ecoride output: `.commits/<version>.md` (e.g. `.commits/0.9.7.6.md`) in the target repository root.
+- PETSc, SESKA and frontend output: `.commits/<breaking>.<major>.<minor>.md`, with full four-part versions and build transitions inside. Apply the selected profile's independent rules.

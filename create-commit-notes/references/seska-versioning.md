@@ -1,7 +1,7 @@
 # SESKA internal versions and build evidence
 
 Read the backend repository's AGENTS.md first. SESKA_INTERNAL_VERSION owns
-its independent <breaking>.<major>.<minor>.<build-number> identity. The user
+its independent `<breaking>.<major>.<minor>.<build-number>` identity. The user
 declared 1.0.0.17 as the historical starting identity; this does not prove
 a reproduced historical build. The first new qualifying candidate is
 1.0.0.18. Never apply PETSc's 3.27 family to SESKA.
@@ -12,7 +12,7 @@ Later rollover build zero is valid when supported by normal acceptance
 evidence. Invoke this skill at initialization and every minor, major or
 breaking transition, including automatic carries.
 
-Use .commits/<breaking>.<major>.<minor>.txt. Append every successful full
+Use `.commits/<breaking>.<major>.<minor>.md`. Append every successful full
 version transition, including multiple builds before one Git commit.
 Each accepted build records UTC, previous/candidate/accepted versions,
 source commit or base-plus-patch/tree identity, platform/profile, compiler
