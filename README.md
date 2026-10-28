@@ -68,7 +68,7 @@ Most skills were written for Ecoride and Afriflex work. Several still carry thos
 | Skill | Use it when | Output |
 | --- | --- | --- |
 | [`convert-docx-to-md`](convert-docx-to-md/SKILL.md) | A `.docx` has to become Markdown without losing headings, tables, formatting, or images. | A snake_case `.md` file plus a folder of extracted media next to it. |
-| [`create-commit-notes`](create-commit-notes/SKILL.md) | An Ecoride repo needs technical release notes built from its real Git diff. | `.commits/<version>.txt` with the diff baseline, changes, touched files, compatibility, deployment, and validation. |
+| [`create-commit-notes`](create-commit-notes/SKILL.md) | A repo needs commit or release notes (full technical notes or optional minimal abstract notes). | `.commits/<version>.md` with full technical sections or minimal abstract updates (Added, Changed, Fixed, Validation). |
 | [`create-release-listing-summaries`](create-release-listing-summaries/SKILL.md) | An Ecoride mobile app needs store listing text written from its commit notes. | `builds/<app>-<version>-listing.md` with 5 Android points and 12 iOS points, no low-level code detail. |
 | [`create-substream-work-summary`](create-substream-work-summary/SKILL.md) | A piece of parallel work (a "substream") needs a write-up for its target repo and branch. | One file at `docs/work/DDbbYY-substream<NN>-work-to-<reponame>-<branchname>.md`, never duplicated under another name. |
 | [`comment-out-non-performant-scalers`](comment-out-non-performant-scalers/SKILL.md) | A Flutter app already scales text at the theme root, and widget-level `fontSize: AppConstants.scaledFontSize(...)` calls should be disabled. | Targeted Dart edits, a ledger of every occurrence, a scoped diff review, then format, analyze, and test runs. |
@@ -314,7 +314,7 @@ Not everything here is generic.
 | Skill | Assumes |
 | --- | --- |
 | `code-analysis-recommendations` | Writes to `~/Development/ecoride/docs/ideas/<month>/` with Ecoride naming. |
-| `create-commit-notes` | Ecoride's API, Driver, Rider, Admin, and Website repos and their `.commits` format. |
+| `create-commit-notes` | Ecoride, PETSc, SESKA, frontend, or general repos and their `.commits` format (full or minimal mode). |
 | `create-release-listing-summaries` | Ecoride mobile apps and the `builds/` folder. |
 | `create-substream-work-summary` | The `docs/work/` folder and the `DDbbYY-substream<NN>-…` naming scheme. |
 | `comment-out-non-performant-scalers` | A Flutter app with verified theme-root text scaling. |
