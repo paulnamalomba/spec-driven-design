@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "humanize",
+  "owner": "smykla-skalski",
+  "repo": "sai",
+  "path": "plugins/humanize/skills/humanize",
+  "branch": "main",
+  "sha": "b59ee279cb590741a2b57bd0c41c5f1d6548c2e6",
+  "source": "manual"
+}
