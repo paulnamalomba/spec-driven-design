@@ -2,6 +2,7 @@
 
 # AI Agent local directories & internal path configs
 .claude/
+.agents/
 .codex/
 .gemini/
 *settings

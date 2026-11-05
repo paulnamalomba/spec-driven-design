@@ -11,17 +11,36 @@
 ## 3. Root Cause Analysis / Misalignments
 [Explain exactly where the code diverges from expectation]
 
-## 4. Dead Code & Duplication
+## 4. Impact and Necessity
+| Finding | Class (production failure / latent / tooling / hygiene) | Evidence | Runtime effect |
+| --- | --- | --- | --- |
+
+## 5. Dead Code & Duplication
 - [List any dead code or duplicated logic found during analysis]
 
-## 5. Strategy for Resolution
+## 6. Strategy for Resolution
 [Actionable points for fixing the issue]
 
 === TEMPLATE: Fixes.md ===
 # Recommendations & Fixes: {FeatureName}
 **Date:** {DMMMYY}
 
-## 1. Fixes
+## 1. Minimal Sufficient Fix
+[Smallest change that resolves the problem the user raised]
+
+## 2. Tiered Recommendations
+- Required:
+- Recommended:
+- Optional (cost, risk, what would justify it later):
+- Not recommended now (and why):
+
+## 3. Blast Radius and Rollback (high-risk changes only)
+- Failure mode if wrong:
+- Verified against the deployable artifact by:
+- Rollback (exact image/tag/commit, state left behind):
+- Ongoing obligations created:
+
+## 4. Fixes
 
 In 'path/to/affected/file.ts':
 Replace this:
