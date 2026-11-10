@@ -1,6 +1,6 @@
 # spec-driven-design
 
-[![Skills](https://img.shields.io/badge/skills-47-blue)](#skills)
+[![Skills](https://img.shields.io/badge/skills-48-blue)](#skills)
 [![Format](https://img.shields.io/badge/format-SKILL.md-2ea44f)](#package-layout)
 
 My working set of agent skills. Each folder holds a `SKILL.md` that tells a coding agent (Codex, Claude Code, or anything else that reads the format) how to do one job: write an SRS from an existing codebase, audit a subsystem, draft release notes, tidy a Dockerfile, design a dashboard, and so on.
@@ -96,6 +96,7 @@ Most skills were written for Ecoride and Afriflex work. Several still carry thos
 | [`grilling`](grilling/SKILL.md) | Stress-testing a plan, decision, or idea through a relentless interview mapped as a design tree. | Multi-round frontier questions with recommended answers to settle prerequisite decisions. |
 | [`grill-me`](grill-me/SKILL.md) | You want a fast shortcut to start a relentless interview (`grilling`) to sharpen a plan. | Interactive stress-testing interview session. |
 | [`grill-with-docs`](grill-with-docs/SKILL.md) | Stress-testing a plan while capturing architectural decisions and domain models as you go. | Interview answers plus generated ADRs and glossary documentation. |
+| [`issue-and-pr-based-development`](issue-and-pr-based-development/SKILL.md) | A human owner and AI agents develop through a project board, issues, and PRs: plan to tracker, board setup, agent branches, review and merge. | Tracker issues and board items, `<owner>/<work>` branches, PRs with `Closes #<i>`, evidence comments. Never merges, tags, or releases. |
 | [`implement`](implement/SKILL.md) | Implementing a feature or bug fix from a specification or tickets using TDD and code review loops. | Code changes backed by regular typechecking, tests, and review feedback. |
 | [`import-memory`](synced/125118c9-8c32-4a11-ab92-dd0810b788c4_f2201e45-d812-4437-acae-677a92bda627/import-memory/SKILL.md) | Importing memories exported from another AI assistant (ChatGPT, Gemini) into Claude's memory store. | Conversationally filed memory entries stored using memory tools. |
 | [`morning`](synced/125118c9-8c32-4a11-ab92-dd0810b788c4_f2201e45-d812-4437-acae-677a92bda627/morning/SKILL.md) | You want a calm, single-page morning overview of your schedule and priorities. | A hand-sketched, single-file HTML morning brief artifact or scheduled recurring brief. |
@@ -258,6 +259,14 @@ The useful result is usually a file in the target project, not the chat reply. R
 4. `create-substream-work-summary` if the work ran as a separate substream.
 5. Commit, tag, push, and deploy through your normal release process, not the skill.
 
+### Running work through issues and PRs
+
+1. `planning-and-task-breakdown` with the tracker as the task list target.
+2. `issue-and-pr-based-development` to create the issues and board items and to brief agents.
+3. `implement` in each agent worktree; commits stay local.
+4. `code-review` on each branch before the orchestrator pushes and opens the PR.
+5. The owner reviews and merges; release notes and tags follow the merges.
+
 ## Package layout
 
 ```text
@@ -318,6 +327,7 @@ spec-driven-design/
 ├── humanize/
 ├── impeccable/                          # agents/, reference/, scripts/
 ├── implement/                           # agents/
+├── issue-and-pr-based-development/      # references/
 ├── low-level-systems/
 ├── merge-customer-journeys-into-specifications/  # agents/, references/
 ├── optimize-docker-builds/              # agents/, references/patterns.md, scripts/
@@ -354,7 +364,7 @@ Not everything here is generic.
 | `deep-code-and-security-audits` | Generic. Its "100% coverage" claims only hold if the tools in the target environment can back them. |
 | `professional-cae-fem-gui-principles` | Generic Dear ImGui CAE/FEM guidelines, plus a tailored SESKA FEA workbench profile. |
 
-The rest (`convert-docx-to-md`, `optimize-docker-builds`, `impeccable`, `design-taste-frontend`, `dashboard-design`, `dense-dashboard-design`, `frontend-design`, `stitch-ui-design`, `pretty-mermaid`, `caveman`, `bento-board-ui`, `better-interface`, `brag`, `desktop-to-mobile`, `find-animation-opportunities`, `low-level-systems`, `codebase-design`, `whiteboard`, `code-review`, `research`, `grilling`, `grill-me`, `grill-with-docs`, `chief-of-staff`, `implement`, `find-skills`, `humanize`, and the synced skills) don't depend on a particular project.
+The rest (`convert-docx-to-md`, `optimize-docker-builds`, `impeccable`, `design-taste-frontend`, `dashboard-design`, `dense-dashboard-design`, `frontend-design`, `stitch-ui-design`, `pretty-mermaid`, `caveman`, `bento-board-ui`, `better-interface`, `brag`, `desktop-to-mobile`, `find-animation-opportunities`, `low-level-systems`, `codebase-design`, `whiteboard`, `code-review`, `research`, `grilling`, `grill-me`, `grill-with-docs`, `chief-of-staff`, `implement`, `issue-and-pr-based-development`, `find-skills`, `humanize`, and the synced skills) don't depend on a particular project.
 
 To adapt a specialised skill, change the name, description, paths, examples, domain rules, and output contract together. A "generic" copy with Ecoride paths still inside is worse than the original.
 
