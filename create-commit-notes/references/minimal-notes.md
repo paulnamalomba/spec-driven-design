@@ -53,7 +53,6 @@ Every minimal note contains these concise sections:
 ```markdown
 # <Product or Repository Name> [<Version>] - <YYYY-MM-DD>
 ```
-*(For PETSc, SESKA, or frontend release families, preserve the family heading, e.g. `# PETSc Native Windows [3.27.0] - 2026-10-28`)*.
 
 ### 3.2 Change Categories
 Use standard change categories. Omit any category that has no items for the release:
@@ -122,5 +121,5 @@ Regardless of whether notes are written in **Full** or **Minimal** mode:
 1. **Version progression rules remain binding**: Minimal notes do NOT relax counter increments, candidate reservations, or zero-advance rules on failed/unbuilt work.
 2. **Monotonic progression**: A minimal note cannot invent a passing build. If a build did not qualify, the minimal note records that no version advance occurred.
 3. **Repository note conventions**:
-   - For Ecoride repositories: writes to `.commits/<version>.md` (or `.commits/<version>.minimal.md` if both modes are generated).
-   - For PETSc, SESKA, and frontend repositories: minimal notes fit within the three-part family file `.commits/<breaking>.<major>.<minor>.md` or a requested standalone minimal summary, while honoring the authoritative counter.
+   - For <app> repositories: writes to `.commits/<version>.md` (or `.commits/<version>.minimal.md` if both modes are generated).
+   - For other types of repositories: minimal notes fit within the three-part family file `.commits/<breaking>.<major>.<minor>.md` or a requested standalone minimal summary, while honoring the authoritative counter.

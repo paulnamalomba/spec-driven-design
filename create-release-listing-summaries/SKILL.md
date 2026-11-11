@@ -7,7 +7,7 @@ description: Creates user-facing abstract Android (5 points) and iOS (12 points)
 
 ## Overview
 
-This skill standardizes the generation of user-facing, abstract App Store and Google Play release listing summary documents (`<app>-<version>-listing.md`) for Ecoride mobile applications (`ecoride_driver`, `ecoride_rider`, etc.) stored in the central `builds/` directory.
+This skill standardizes the generation of user-facing, abstract App Store and Google Play release listing summary documents (`<app>-<version>-listing.md`) for mobile applications (`<app 1>`, `<app 2>`, etc.) stored in the central `builds/` directory.
 
 The summaries translate internal technical release notes (`.commits/<version>.txt`) or Git diff baselines into polished, high-level, user-centric feature highlights suitable for public app store release notes.
 
@@ -15,7 +15,7 @@ The summaries translate internal technical release notes (`.commits/<version>.tx
 
 ## Output Target & Naming
 
-- **Output Directory**: `builds/` (at the root of the ecoride project workspace, e.g., `/Users/kabwe/Development/ecoride_project/builds/`)
+- **Output Directory**: `builds/` (at the root of the project workspace, e.g., `/<repo name>/builds/`)
 - **File Naming Format**: `<app>-<version>-listing.md`
   - Example Driver: `driver-1.0.28.80-listing.md`
   - Example Rider: `rider-1.0.38.80-listing.md`
@@ -27,7 +27,7 @@ The summaries translate internal technical release notes (`.commits/<version>.tx
 Each generated listing summary Markdown document MUST adhere to the following structure:
 
 ```markdown
-# Ecoride <App> v<Version> Release Listing Summary
+# <Platform Name> <App> v<Version> Release Listing Summary
 
 Release Date: <Month Day, Year>  
 Source Document: <version>.txt
@@ -70,11 +70,11 @@ Source Document: <version>.txt
 
 ### 2. Strict Prohibition of Fine-Grained Technical Details
 NEVER include low-level code implementation details in listing summaries. Specifically exclude:
-- **Widget / Class / Component Names**: Do NOT mention names like `EcorideButtonClear`, `DispatchOpenCoordinator`, `OfferDeadlineCountdown`, `EcorideSlideButton`, etc. Abstract them to general concepts like "action buttons", "notification coordinator", "countdown timer", or "slide controls".
-- **Variable / Payload / Type Names**: Do NOT mention internal types or strings like `ride_dispatch_offer`, `DispatchOpenIntent`, `offerExpiresAt`, or `claimNotificationSoundReminder`.
+- **Widget / Class / Component Names**: Do NOT mention widget, class, or component names. Abstract them to general concepts like "action buttons", "notification coordinator", "countdown timer", or "slide controls".
+- **Variable / Payload / Type Names**: Do NOT mention internal types or strings.
 - **Code Counts & Quantitative Refactor Metrics**: Do NOT include internal code metrics such as "139 widget surfaces", "227 text scaling declarations", or "100-key cache".
 - **Exact Numeric Opacities & Constants**: Do NOT mention specific code values like `0.84`, `0.12`, or `0.15` opacity tokens. Use terms like "harmonized translucent contrast" or "refined border outlines".
-- **Internal Scripts & Tooling**: Do NOT reference internal maintenance tools like `replace_alpha_values.py`.
+- **Internal Scripts & Tooling**: Do NOT reference internal maintenance tools like `<tool name>.py`.
 - **Quoted Text Strings / UI Labels**: Avoid quoting exact code string literals (e.g. `"More Info"`, `"Sharing your trip status"`). Describe the functional feature instead.
 
 ---
@@ -82,7 +82,7 @@ NEVER include low-level code implementation details in listing summaries. Specif
 ## Execution Protocol
 
 ### Step 1: Discover Source Release Notes
-1. Locate the source release note file in the target repository's `.commits/` directory (e.g., `ecoride_driver/.commits/1.0.28.80.txt` or `ecoride_rider/.commits/1.0.38.80.txt`).
+1. Locate the source release note file in the target repository's `.commits/` directory (e.g., `<app 1>/.commits/1.0.28.80.txt` or `<app 2>/.commits/1.0.38.80.txt`).
 2. Read the full release note document to identify major changes, UI redesigns, dispatch logic, safety features, performance tweaks, and accessibility improvements.
 3. Extract the release date and version numbers.
 

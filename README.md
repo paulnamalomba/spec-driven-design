@@ -7,25 +7,37 @@ My working set of agent skills. Each folder holds a `SKILL.md` that tells a codi
 
 Nothing here runs on its own. There is no app, build, or install step. An agent reads the skill and applies it to some other repository or document.
 
-Most skills were written for Ecoride and Afriflex work. Several still carry those assumptions; see [Project-specific skills](#project-specific-skills) before reusing one elsewhere.
+Many skills are written for real workflows. Several still carry those assumptions; see [Project-specific skills](#project-specific-skills) before reusing one elsewhere.
 
 ## Contents
 
-- [Skills](#skills)
-- [How the skills fit together](#how-the-skills-fit-together)
-- [Installing a skill](#installing-a-skill)
-- [Writing a good request](#writing-a-good-request)
-- [Common chains](#common-chains)
-- [Package layout](#package-layout)
-- [Repository layout](#repository-layout)
-- [Project-specific skills](#project-specific-skills)
-- [Third-party skills](#third-party-skills)
-- [Writing or changing a skill](#writing-or-changing-a-skill)
-- [Ground rules](#ground-rules)
-- [Checking the repo](#checking-the-repo)
-- [Other files](#other-files)
-- [License](#license)
-- [Author](#author)
+- [spec-driven-design](#spec-driven-design)
+  - [Contents](#contents)
+  - [Skills](#skills)
+    - [Specifications and architecture](#specifications-and-architecture)
+    - [Analysis and audits](#analysis-and-audits)
+    - [Frontend and UI design](#frontend-and-ui-design)
+    - [Docs, releases, and maintenance](#docs-releases-and-maintenance)
+    - [Agent behavior](#agent-behavior)
+  - [How the skills fit together](#how-the-skills-fit-together)
+  - [Installing a skill](#installing-a-skill)
+  - [Writing a good request](#writing-a-good-request)
+  - [Common chains](#common-chains)
+    - [Documenting an existing product](#documenting-an-existing-product)
+    - [Fixing UI drift](#fixing-ui-drift)
+    - [Flutter font scaling](#flutter-font-scaling)
+    - [Shipping a release](#shipping-a-release)
+    - [Running work through issues and PRs](#running-work-through-issues-and-prs)
+  - [Package layout](#package-layout)
+  - [Repository layout](#repository-layout)
+  - [Project-specific skills](#project-specific-skills)
+  - [Third-party skills](#third-party-skills)
+  - [Writing or changing a skill](#writing-or-changing-a-skill)
+  - [Ground rules](#ground-rules)
+  - [Checking the repo](#checking-the-repo)
+  - [Other files](#other-files)
+  - [License](#license)
+  - [Author](#author)
 
 ## Skills
 
@@ -75,7 +87,7 @@ Most skills were written for Ecoride and Afriflex work. Several still carry thos
 | --- | --- | --- |
 | [`convert-docx-to-md`](convert-docx-to-md/SKILL.md) | A `.docx` has to become Markdown without losing headings, tables, formatting, or images. | A snake_case `.md` file plus a folder of extracted media next to it. |
 | [`create-commit-notes`](create-commit-notes/SKILL.md) | A repo needs commit or release notes (full technical notes or optional minimal abstract notes). | `.commits/<version>.md` with full technical sections or minimal abstract updates (Added, Changed, Fixed, Validation). |
-| [`create-release-listing-summaries`](create-release-listing-summaries/SKILL.md) | An Ecoride mobile app needs store listing text written from its commit notes. | `builds/<app>-<version>-listing.md` with 5 Android points and 12 iOS points, no low-level code detail. |
+| [`create-release-listing-summaries`](create-release-listing-summaries/SKILL.md) | mobile apsp need store listing text written from its commit notes. | `builds/<app>-<version>-listing.md` with 5 Android points and 12 iOS points, no low-level code detail. |
 | [`create-substream-work-summary`](create-substream-work-summary/SKILL.md) | A piece of parallel work (a "substream") needs a write-up for its target repo and branch. | One file at `docs/work/DDbbYY-substream<NN>-work-to-<reponame>-<branchname>.md`, never duplicated under another name. |
 | [`comment-out-non-performant-scalers`](comment-out-non-performant-scalers/SKILL.md) | A Flutter app already scales text at the theme root, and widget-level `fontSize: AppConstants.scaledFontSize(...)` calls should be disabled. | Targeted Dart edits, a ledger of every occurrence, a scoped diff review, then format, analyze, and test runs. |
 | [`humanize`](humanize/SKILL.md) | Removing robotic AI writing patterns, ChatGPT filler, and unnatural phrasing from commit messages, PRs, docs, and notes. | Natural, human-written text stripped of AI mannerisms and structural slop. |
@@ -352,21 +364,21 @@ Not everything here is generic.
 
 | Skill | Assumes |
 | --- | --- |
-| `code-analysis-recommendations` | Writes to `~/Development/ecoride/docs/ideas/<month>/` with Ecoride naming. |
-| `create-commit-notes` | Ecoride, PETSc, SESKA, frontend, or general repos and their `.commits` format (full or minimal mode). |
-| `create-release-listing-summaries` | Ecoride mobile apps and the `builds/` folder. |
+| `code-analysis-recommendations` | Writes to `~/<repo name>/docs/ideas/<month>/` with appropriate naming. |
+| `create-commit-notes` | General repos and their `.commits` format (full or minimal mode). |
+| `create-release-listing-summaries` | Mobile apps and the `builds/` folder. |
 | `create-substream-work-summary` | The `docs/work/` folder and the `DDbbYY-substream<NN>-…` naming scheme. |
 | `comment-out-non-performant-scalers` | A Flutter app with verified theme-root text scaling. |
 | `create-specifications-existing-projects` | Generic, with extra notes on Afriflex repo roles. |
 | `merge-customer-journeys-into-specifications` | Generic, with detailed Afriflex SACCO/BNPL and USSD rules. |
 | `ux-system-analyzer` | Screenshots plus JSX/HTML/CSS/Tailwind source. |
-| `create-technical-architecture` | Generic, pitched at the depth of the Ecoride architecture docs. |
+| `create-technical-architecture` | Generic, pitched at the depth of mmy other project architecture docs. |
 | `deep-code-and-security-audits` | Generic. Its "100% coverage" claims only hold if the tools in the target environment can back them. |
 | `professional-cae-fem-gui-principles` | Generic Dear ImGui CAE/FEM guidelines, plus a tailored SESKA FEA workbench profile. |
 
 The rest (`convert-docx-to-md`, `optimize-docker-builds`, `impeccable`, `design-taste-frontend`, `dashboard-design`, `dense-dashboard-design`, `frontend-design`, `stitch-ui-design`, `pretty-mermaid`, `caveman`, `bento-board-ui`, `better-interface`, `brag`, `desktop-to-mobile`, `find-animation-opportunities`, `low-level-systems`, `codebase-design`, `whiteboard`, `code-review`, `research`, `grilling`, `grill-me`, `grill-with-docs`, `chief-of-staff`, `implement`, `issue-and-pr-based-development`, `find-skills`, `humanize`, and the synced skills) don't depend on a particular project.
 
-To adapt a specialised skill, change the name, description, paths, examples, domain rules, and output contract together. A "generic" copy with Ecoride paths still inside is worse than the original.
+To adapt a specialised skill, change the name, description, paths, examples, domain rules, and output contract together.
 
 ## Third-party skills
 

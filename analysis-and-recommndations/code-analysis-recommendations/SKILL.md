@@ -31,7 +31,7 @@ Investigate deeply; recommend proportionally. Before writing either document, re
 
 For every analysis request, you MUST generate exactly two markdown documents.
 
-**Output Directory Rule:** All output documents MUST be saved in `~/Development/ecoride_project/ecoride/docs/ideas/<month>/` (or `docs/ideas/<month>/` relative to the ecoride repository root), where `<month>` is the full lowercase month name (e.g., `june`, `july`).
+**Output Directory Rule:** All output documents MUST be saved in `~/<directory_placeholder>/<app_placeholder>/docs/ideas/<month>/` (or `docs/ideas/<month>/` relative to the app's own repository root), where `<month>` is the full lowercase month name (e.g., `june`, `july`).
 
 **File Naming Convention:**
 
@@ -41,7 +41,7 @@ For every analysis request, you MUST generate exactly two markdown documents.
 ### Document 1: Code Analysis Report
 
 **Filename Format:** `DMMMYY-<FeatureName>CodeAnalysis.md`
-**Example:** `~/Development/ecoride_project/ecoride/docs/ideas/june/5Jun26-BrokenBottomSheetSelectLocationPageCodeAnalysis.md`
+**Example:** `~/<directory_placeholder>/<app_placeholder>/docs/ideas/june/5Jun26-BrokenBottomSheetSelectLocationPageCodeAnalysis.md`
 
 **Contents:**
 
@@ -55,7 +55,7 @@ For every analysis request, you MUST generate exactly two markdown documents.
 ### Document 2: Recommendations and Fixes
 
 **Filename Format:** `DMMMYY-<FeatureName>Fixes.md`
-**Example:** `~/Development/ecoride_project/ecoride/docs/ideas/june/5Jun26-BrokenBottomSheetSelectLocationPageFixes.md`
+**Example:** `~/<directory_placeholder>/<app_placeholder>/docs/ideas/june/5Jun26-BrokenBottomSheetSelectLocationPageFixes.md`
 
 **Contents:**
 

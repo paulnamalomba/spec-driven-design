@@ -8,7 +8,7 @@ Before changing a skill, read its `SKILL.md` and applicable references. Keep the
 
 ## Commit-note version profiles
 
-`create-commit-notes` supports the existing Ecoride conventions and the PETSc native Windows fork's separate profile. Resolve the target repository's local `AGENTS.md` and version metadata first; do not apply one project's version scheme to another.
+`create-commit-notes` supports the convention to create commit notes for repository tags/releases. Resolve the target repository's local `AGENTS.md` and version metadata first; do not apply one project's version scheme to another.
 
 New commit/release notes use UTF-8 Markdown (`.md`) with headings, tables and evidence links. Preserve historical `.txt` records and link them from the sole active Markdown continuation. Before migrating an automated consumer, make its readers Markdown-first with legacy text compatibility and its appenders write Markdown. This changes note presentation, not raw logs, licenses, version arithmetic or publication permissions.
 

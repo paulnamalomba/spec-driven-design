@@ -1,6 +1,6 @@
 ---
 name: create-commit-notes
-description: Create Markdown commit and release notes in .commits with source baselines, version progression, changes, compatibility, and actual validation. Supports full technical notes or minimal abstract notes, and independent PETSc, SESKA, frontend, and Ecoride profiles.
+description: Create Markdown commit and release notes in .commits with source baselines, version progression, changes, compatibility, and actual validation. Supports full technical notes or minimal abstract notes, and independent app profiles.
 ---
 
 # Skill: Commit Notes Creation
@@ -12,7 +12,7 @@ This skill standardizes commit and release notes in `.commits/` while preserving
 1. **Full Notes** (default): Exhaustive, code-level engineering release notes documenting git diff baselines, code files touched, exact function signatures, state hooks, DTOs, schemas, compatibility, and execution logs.
 2. **Minimal Notes** (optional): High-level, abstract updates designed to completely obscure all code, code file paths, git diff statistics, and raw SQL, aliasing variable and component names into natural language under clear change categories.
 
-Ecoride, PETSc, SESKA, and frontend repositories retain independent identities, monotonic version arithmetic, and note grouping.
+app repositories retain independent identities, monotonic version arithmetic, and note grouping.
 
 ---
 
@@ -30,10 +30,7 @@ Choose the note mode based on the user's prompt or operational context:
 
 Read the target repository's `AGENTS.md`, existing notes, and authoritative version metadata first.
 
-- For `petsc-native-windows`, or a repository explicitly declaring the same PETSc profile, read [PETSc internal versions and build progression](references/petsc-versioning.md). It overrides Ecoride templates and default filename rules. Record `PETSC_INTERNAL_VERSION` in `.commits/<breaking>.<major>.<minor>.md`, preserving every verified build transition.
-- For `seskafeabackend`/SESKA, read [SESKA internal versions](references/seska-versioning.md). Its independent `SESKA_INTERNAL_VERSION` starts at historical `1.0.0.17`. Preserve every accepted build transition in the three-part family note.
-- For `seskafeafrontend`, read [frontend internal versions and releases](references/frontend-versioning.md). Its four single-digit fields and minor-family release policy are independent of PETSc/SESKA.
-- For Ecoride repositories, retain the existing sequences and note conventions below.
+- For app repositories, retain the existing sequences and note conventions below.
 - For another repository, follow its declared policy and existing note format.
 
 Writing notes does not authorize a build, counter increase, commit, tag, or push. Record actual evidence and unchanged counters for unbuilt or failed work; never invent a passing build to make a note complete.
@@ -78,7 +75,7 @@ New notes and new entries use UTF-8 Markdown (`.md`), with real headings, tables
 
 ### Structure A: Full Notes (Default Layout)
 
-Use this layout for standard engineering release notes (or the scientific/build layout in [PETSc profile](references/petsc-versioning.md)):
+Use this layout for standard engineering release notes:
 
 1. **Header & Release Metadata:**
    ```markdown
@@ -139,8 +136,8 @@ Use this layout when minimal notes are requested:
 
 ## File Naming & Output Location
 
-- **Ecoride & Standard Repositories**:
+- **App Repositories**:
   - Full notes: `.commits/<version>.md` (e.g. `.commits/0.9.7.6.md`).
   - Minimal notes (when standalone): `.commits/<version>.md` (or `.commits/<version>.minimal.md` if coexisting with full notes).
-- **PETSc, SESKA and Frontend Repositories**:
+- **Other Types of Repositories**:
   - Output file: `.commits/<breaking>.<major>.<minor>.md`. Full four-part internal version transitions and build progression are recorded inside. If minimal notes are requested for a family release, update or summarize the family note using the minimal format while maintaining monotonic counter truth.

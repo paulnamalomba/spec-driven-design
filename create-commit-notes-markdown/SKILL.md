@@ -1,22 +1,19 @@
 ---
 name: create-commit-notes-markdown
-description: Create Markdown commit and release notes in .commits with source baselines, version progression, changes, compatibility, and actual validation. Supports Ecoride and independent PETSc, SESKA and frontend version profiles.
+description: Create Markdown commit and release notes in .commits with source baselines, version progression, changes, compatibility, and actual validation. Supports app and independent version profiles.
 ---
 
 # Skill: Commit Notes Creation
 
 ## Overview
 
-This skill standardizes technical `.commits` notes while preserving the target repository's own version policy. Ecoride, PETSc, SESKA and the frontend retain independent identities and note grouping.
+This skill standardizes technical `.commits` notes while preserving the target repository's own version policy.
 
 ## Select the repository profile
 
 Read the target repository's `AGENTS.md`, existing notes, and authoritative version metadata first.
 
-- For `petsc-native-windows`, or a repository explicitly declaring the same PETSc profile, read [PETSc internal versions and build progression](references/petsc-versioning.md). It overrides the Ecoride-specific templates and default filename rule below. Record the four-part `PETSC_INTERNAL_VERSION` in `.commits/<breaking>.<major>.<minor>.md`, preserving every verified build-number transition.
-- For `seskafeabackend`/SESKA, read [SESKA internal versions](references/seska-versioning.md). Its independent `SESKA_INTERNAL_VERSION` starts at the user's historical `1.0.0.17`, not PETSc's seed. Preserve every accepted build transition in the three-part family note.
-- For `seskafeafrontend`, read [frontend internal versions and releases](references/frontend-versioning.md). Its four single-digit fields and minor-family release policy are independent of PETSc/SESKA.
-- For Ecoride repositories, retain the existing sequences and note conventions below. Do not impose PETSc's 3.27 internal family, bounded counters, or note grouping on them.
+- For app repositories, retain the existing sequences and note conventions below. For Forks, do not impose their internal family, bounded counters, or note grouping on them.
 - For another repository, follow its declared policy and existing note format. Do not infer its version from a dependency or copy an unrelated product's release header.
 
 Writing notes does not authorize a build, counter increase, commit, tag, or push. Record actual evidence and unchanged counters for unbuilt or failed work; never invent a passing build to make the note complete.
@@ -29,13 +26,13 @@ Before migrating a repository whose acceptance/release tools require `.txt`, upd
 
 ---
 
-## Ecoride Repositories & Version Sequences
+## App Repositories & Version Sequences
 
-- **ecoride_driver** (e.g. `1.0.10.26` -> `1.0.10.27` -> ... -> `1.0.21.73`)
-- **ecoride_rider** (e.g. `1.0.12.25` -> `1.0.12.26` -> ... -> `1.0.32.74`)
-- **ecoride** (e.g. `0.92.7-alpha` -> `0.93.6-alpha` -> ... -> `0.97.4-alpha`)
-- **ecoride_admin** (e.g. `0.9.1.2` -> `0.9.2.0` -> ... -> `0.9.7.5` -> `0.9.7.6`)
-- **ecoride_website** (e.g. `1.0.2.0` -> `1.0.3.0`)
+- **<app name>** (e.g. `1.0.10.26` -> `1.0.10.27` -> ... -> `1.0.21.73`)
+- **<app name>** (e.g. `1.0.12.25` -> `1.0.12.26` -> ... -> `1.0.32.74`)
+- **<app name>** (e.g. `0.92.7-alpha` -> `0.93.6-alpha` -> ... -> `0.97.4-alpha`)
+- **<app name>** (e.g. `0.9.1.2` -> `0.9.2.0` -> ... -> `0.9.7.5` -> `0.9.7.6`)
+- **<app name>** (e.g. `1.0.2.0` -> `1.0.3.0`)
 
 ---
 
@@ -54,14 +51,14 @@ Before migrating a repository whose acceptance/release tools require `.txt`, upd
 ### Step 2: Content & Technical Depth Requirements
 - Notes must be highly technical and detailed, documenting exact function signatures, state hooks, components, API endpoints, DTO interfaces, CSS classes, and architectural rationale.
 - Do not abstract or summarize away technical detail; preserve explicit symbol names, line changes, and precise behaviors.
-- Match the selected profile's note filename and the styling established in the target repository. PETSc notes use a three-part release-family filename and a complete fourth-field build progression inside it.
+- Match the selected profile's note filename and the styling established in the target repository.
 
 ### Step 3: Standard Section Structure
-Use this default layout for Ecoride. The PETSc profile defines its own scientific/build sections and progression records.
+Use this default layout for app repositories.
 
 1. **Header & Release Metadata:**
    ```markdown
-   # Ecoride <Repo> v<Version> release notes
+   # <App Name> <Repo> v<Version> release notes
 
    Release date: <Date>
 
@@ -97,5 +94,5 @@ Use this default layout for Ecoride. The PETSc profile defines its own scientifi
 
 ## File Naming & Output Location
 
-- Default Ecoride output: `.commits/<version>.md` (e.g. `.commits/0.9.7.6.md`) in the target repository root.
-- PETSc, SESKA and frontend output: `.commits/<breaking>.<major>.<minor>.md`, with full four-part versions and build transitions inside. Apply the selected profile's independent rules.
+- Default app output: `.commits/<version>.md` (e.g. `.commits/0.9.7.6.md`) in the target repository root.
+- Other types of output: `.commits/<breaking>.<major>.<minor>.md`, with full four-part versions and build transitions inside. Apply the selected profile's independent rules.

@@ -17,7 +17,7 @@ const monthArgs = process.argv[2];
 const defaultMonth = new Date().toLocaleString('default', { month: 'long' }).toLowerCase();
 const month = monthArgs ? monthArgs.toLowerCase() : defaultMonth;
 
-const baseDir = path.join(os.homedir(), 'Development', 'ecoride', 'docs', 'ideas', month);
+const baseDir = path.join(os.homedir(), '<directory_placeholder>', '<app_placeholder>', 'docs', 'ideas', month);
 
 try {
     if (!fs.existsSync(baseDir)) {

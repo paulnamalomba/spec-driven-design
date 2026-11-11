@@ -1,13 +1,13 @@
 ---
 name: create-technical-architecture
-description: This skill creates deeply detailed, technically sound, and integration-aware system-architecture.md documents for any project based on design systems, design analysis and recommendations, and prompted commands. It outputs professionalized system architecture documents matching the quality of the Ecoride System Architecture reference.
+description: This skill creates deeply detailed, technically sound, and integration-aware system-architecture.md documents for any project based on design systems, design analysis and recommendations, and prompted commands. It outputs professionalized system architecture documents matching the quality of the <app_placeholder> System Architecture reference.
 ---
 
 # Technical Architecture Creation Skill
 
 ## Overview
 
-This skill establishes standard operating procedures for generating comprehensive, highly professional, code-verified, and citation-aware system architecture documents. The goal is to synthesize inputs from design systems, design analysis, technical recommendations, and user prompts into a single, authoritative `system_architecture_and_design.md` file. The resulting document must emulate the depth, structure, professional formatting, and systems-thinking richness of the Ecoride System Architecture reference template while remaining grounded in verifiable architectural reasoning.
+This skill establishes standard operating procedures for generating comprehensive, highly professional, code-verified, and citation-aware system architecture documents. The goal is to synthesize inputs from design systems, design analysis, technical recommendations, and user prompts into a single, authoritative `system_architecture_and_design.md` file. The resulting document must emulate the depth, structure, professional formatting, and systems-thinking richness of the <app_placeholder> System Architecture reference template while remaining grounded in verifiable architectural reasoning.
 
 ## Role Definition
 
@@ -59,7 +59,7 @@ For every architecture creation request, you MUST generate a master markdown doc
 
 ### Document Structure (Template Adherence)
 
-The generated document MUST follow a highly structured, professional format similar to the Ecoride template. Key sections should typically include:
+The generated document MUST follow a highly structured, professional format similar to the <app_placeholder> template. Key sections should typically include:
 
 1. **Executive Summary:** A high-level overview of the system, its primary role, and the overarching architectural style (e.g., modular monolith, microservices, headless CMS).
 2. **Architecture Style:** Explanation of the chosen pattern (Monolith vs. Microservices, Jamstack, Headless, etc.) and why it matters for this specific project.
@@ -118,7 +118,7 @@ Contains executable scripts and utilities that might automate the generation of 
 
 ### `./references/`
 
-Contains reference templates such as the `SYSTEM_ARCHITECTURE_AND_DESIGN.md` from the Ecoride project to serve as the gold standard for formatting, depth, and tone.
+Contains reference templates such as the `SYSTEM_ARCHITECTURE_AND_DESIGN.md` from the <app_placeholder> project to serve as the gold standard for formatting, depth, and tone.
 
 ### `./assets/`
 
