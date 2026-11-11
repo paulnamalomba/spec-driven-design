@@ -9,6 +9,7 @@ user-invocable: false
 ## When to Use This Skill
 
 Use this skill when:
+
 - Writing new C# code or refactoring existing code
 - Designing public APIs for libraries or services
 - Optimizing performance-critical code paths
@@ -72,6 +73,7 @@ public record ShoppingCart(
 ```
 
 **When to use `record class` vs `record struct`:**
+
 - `record class` (default): Reference types, use for entities, aggregates, DTOs with multiple properties
 - `record struct`: Value types, use for value objects (see next section)
 
@@ -196,6 +198,7 @@ public async IAsyncEnumerable<Order> StreamOrdersAsync(
 ```
 
 **Key rules:**
+
 - Always accept `CancellationToken` with `= default`
 - Use `ConfigureAwait(false)` in library code
 - Never block on async code (no `.Result` or `.Wait()`)
@@ -283,6 +286,7 @@ public readonly record struct OrderError(string Code, string Message);
 ## Best Practices Summary
 
 ### DO's
+
 - Use `record` for DTOs, messages, and domain entities
 - Use `readonly record struct` for value objects
 - Leverage pattern matching with `switch` expressions
@@ -296,6 +300,7 @@ public readonly record struct OrderError(string Code, string Message);
 - Prefer composition over inheritance
 
 ### DON'Ts
+
 - Don't use mutable classes when records work
 - Don't use classes for value objects (use `readonly record struct`)
 - Don't create deep inheritance hierarchies
@@ -313,8 +318,8 @@ See [anti-patterns-and-reflection.md](anti-patterns-and-reflection.md) for detai
 
 ## Additional Resources
 
-- **C# Language Specification**: https://learn.microsoft.com/en-us/dotnet/csharp/
-- **Pattern Matching**: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/functional/pattern-matching
-- **Span<T> and Memory<T>**: https://learn.microsoft.com/en-us/dotnet/standard/memory-and-spans/
-- **Async Best Practices**: https://learn.microsoft.com/en-us/archive/msdn-magazine/2013/march/async-await-best-practices-in-asynchronous-programming
-- **.NET Performance Tips**: https://learn.microsoft.com/en-us/dotnet/framework/performance/
+- **C# Language Specification**: <https://learn.microsoft.com/en-us/dotnet/csharp/>
+- **Pattern Matching**: <https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/functional/pattern-matching>
+- **Span<T> and Memory<T>**: <https://learn.microsoft.com/en-us/dotnet/standard/memory-and-spans/>
+- **Async Best Practices**: <https://learn.microsoft.com/en-us/archive/msdn-magazine/2013/march/async-await-best-practices-in-asynchronous-programming>
+- **.NET Performance Tips**: <https://learn.microsoft.com/en-us/dotnet/framework/performance/>

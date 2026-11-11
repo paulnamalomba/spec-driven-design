@@ -27,7 +27,7 @@ and loop number: `motion.md`.
 On `:root`, used everywhere (desktop / under 640px):
 
 | Token | Value | Use |
-|---|---|---|
+| --- | --- | --- |
 | `--nav` | 72 / 56 | the fixed header |
 | `--padt` | 120 / 96 | a section's top padding: the h2 sits here |
 | `--padb` | 72 / 48 | a section's bottom padding (plus `--bar`) |

@@ -208,6 +208,7 @@ Score-only mode (no rewriting):
 ```bash
 /humanize docs/architecture.md --score-only
 ```
+
 </example>
 
 <example>
@@ -216,4 +217,5 @@ Dry-run preview:
 ```bash
 /humanize CHANGELOG.md --dry-run
 ```
+
 </example>

@@ -39,24 +39,30 @@ Before migrating a repository whose acceptance/release tools require `.txt`, upd
 ## Execution Protocol
 
 ### Step 1: Discover Baseline & Git Diff Scope
+
 1. Locate the `.commits/` directory in the target repository.
 2. Determine the previous documented version / release tag (e.g. `0.9.7.5`).
 3. Compute the git diff baseline against the previous tag:
+
    ```bash
    git diff <previous_tag> -- . ':(exclude).commits/**'
    git status --short
    ```
+
 4. Extract the exact file insertions, deletions, modified files, and untracked files.
 
 ### Step 2: Content & Technical Depth Requirements
+
 - Notes must be highly technical and detailed, documenting exact function signatures, state hooks, components, API endpoints, DTO interfaces, CSS classes, and architectural rationale.
 - Do not abstract or summarize away technical detail; preserve explicit symbol names, line changes, and precise behaviors.
 - Match the selected profile's note filename and the styling established in the target repository.
 
 ### Step 3: Standard Section Structure
+
 Use this default layout for app repositories.
 
 1. **Header & Release Metadata:**
+
    ```markdown
    # <App Name> <Repo> v<Version> release notes
 

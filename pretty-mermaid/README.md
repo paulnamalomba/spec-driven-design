@@ -42,6 +42,7 @@ npx skills add imxv/pretty-mermaid-skills@pretty-mermaid -g -y
 - 📚 **Ready to Use**: Complete templates and detailed documentation
 
 ### Supported Themes
+
 | Light Themes | Dark Themes | Other |
 | :--- | :--- | :--- |
 | zinc-light | zinc-dark | nord |
@@ -75,24 +76,29 @@ Seamlessly integrates with the following AI coding environments:
 ## Installation details
 
 ### Install from GitHub
+
 ```bash
 npx skills add imxv/pretty-mermaid-skills@pretty-mermaid -g -y
 ```
 
 ### Verify Installation
+
 ```bash
 npx skills list -g
 ```
+
 Confirm that `pretty-mermaid` appears in the global skill list. Node.js 16 or newer is required.
 
 ## 📖 Quick Start
 
 ### List Available Themes
+
 ```bash
 node scripts/themes.mjs
 ```
 
 ### Render Single Diagram
+
 ```bash
 node scripts/render.mjs \
   --input diagram.mmd \
@@ -101,6 +107,7 @@ node scripts/render.mjs \
 ```
 
 ### Render PNG
+
 ```bash
 node scripts/render.mjs \
   --input diagram.mmd \
@@ -111,6 +118,7 @@ node scripts/render.mjs \
 ```
 
 ### Batch Render
+
 ```bash
 node scripts/batch.mjs \
   --input-dir ./diagrams \
@@ -121,6 +129,7 @@ node scripts/batch.mjs \
 ## 📂 Examples
 
 Check the 6 template files in `assets/example_diagrams/`:
+
 - `flowchart.mmd` - Flowchart
 - `sequence.mmd` - Sequence Diagram
 - `state.mmd` - State Diagram
@@ -144,9 +153,11 @@ PNG output is rendered directly in Node.js with no external converter required. 
 Read the [contribution guide](CONTRIBUTING.md), report problems with the issue templates, and review the [security policy](SECURITY.md) before sharing sensitive findings. Release history is tracked in the [changelog](CHANGELOG.md).
 
 ## ⚙️ Requirements
+
 - Node.js 16+
 
 ## 📄 License
+
 MIT License
 
 ## Star History
@@ -154,4 +165,5 @@ MIT License
 [![Star History Chart](https://api.star-history.com/svg?repos=imxv/Pretty-mermaid-skills&type=timeline&legend=top-left)](https://www.star-history.com/?repos=imxv%2FPretty-mermaid-skills&type=timeline&legend=bottom-right)
 
 ## 🙏 Acknowledgments
+
 Based on [beautiful-mermaid](https://github.com/lukilabs/beautiful-mermaid)

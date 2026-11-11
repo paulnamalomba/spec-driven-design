@@ -9,6 +9,7 @@ user-invocable: false
 ## When to Use This Skill
 
 Use this skill when:
+
 - Deciding how to handle concurrent operations in .NET
 - Evaluating whether to use async/await, Channels, Akka.NET, or other abstractions
 - Tempted to use locks, semaphores, or other synchronization primitives
@@ -28,6 +29,7 @@ Most concurrency problems can be solved with `async/await`. Only reach for more 
 **Try to avoid shared mutable state.** The best way to handle concurrency is to design it away. Immutable data, message passing, and isolated state (like actors) eliminate entire categories of bugs.
 
 **Locks should be the exception, not the rule.** When you can't avoid shared mutable state:
+
 1. **First choice:** Redesign to avoid it (immutability, message passing, actor isolation)
 2. **Second choice:** Use `System.Collections.Concurrent` (ConcurrentDictionary, etc.)
 3. **Third choice:** Use `Channel<T>` to serialize access through message passing
@@ -240,7 +242,7 @@ var results = new ConcurrentBag<Result>();
 ## Quick Reference: Which Tool When?
 
 | Need | Tool | Example |
-|------|------|---------|
+| ------ | ------ | --------- |
 | Wait for I/O | `async/await` | HTTP calls, database queries |
 | Parallel CPU work | `Parallel.ForEachAsync` | Image processing, calculations |
 | Work queue | `Channel<T>` | Background job processing |

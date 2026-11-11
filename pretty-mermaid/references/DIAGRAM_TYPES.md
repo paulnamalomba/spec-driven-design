@@ -13,6 +13,7 @@
 ## Flowchart / Graph
 
 ### Basic Syntax
+
 ```mermaid
 flowchart LR
     A[Node] --> B[Another Node]
@@ -22,6 +23,7 @@ flowchart LR
 ```
 
 ### Node Shapes
+
 - `[Text]` - Rectangle
 - `([Text])` - Stadium (rounded)
 - `[[Text]]` - Subroutine (double border)
@@ -34,6 +36,7 @@ flowchart LR
 - `[\Text\]` - Trapezoid (alt)
 
 ### Connections
+
 - `-->` - Arrow
 - `---` - Line
 - `-.->` - Dotted arrow
@@ -42,6 +45,7 @@ flowchart LR
 - `-->|text|` - Arrow with text (alt syntax)
 
 ### Edge Styling
+
 ```mermaid
 flowchart LR
     A --> B
@@ -52,12 +56,14 @@ flowchart LR
 `linkStyle` works in flowcharts and state diagrams. Target an edge by its zero-based declaration order, or use `linkStyle default` for all edges.
 
 ### Direction
+
 - `LR` - Left to Right
 - `RL` - Right to Left
 - `TB` / `TD` - Top to Bottom / Top Down
 - `BT` - Bottom to Top
 
 ### Best Practices
+
 - Use `LR` direction for wide screens
 - Keep decision nodes distinct with `{}` shape
 - Use stadium shapes `([])` for start/end
@@ -69,6 +75,7 @@ flowchart LR
 ## Sequence Diagram
 
 ### Basic Syntax
+
 ```mermaid
 sequenceDiagram
     participant A as Alice
@@ -81,6 +88,7 @@ sequenceDiagram
 ```
 
 ### Participants
+
 ```mermaid
 sequenceDiagram
     participant A
@@ -89,6 +97,7 @@ sequenceDiagram
 ```
 
 ### Message Types
+
 - `->>` - Solid line arrow
 - `-->>` - Dotted line arrow
 - `-x` - Solid line with cross
@@ -97,6 +106,7 @@ sequenceDiagram
 - `--)` - Dotted line with open arrow
 
 ### Activations
+
 ```mermaid
 sequenceDiagram
     A->>+B: Request
@@ -104,6 +114,7 @@ sequenceDiagram
 ```
 
 ### Notes
+
 ```mermaid
 sequenceDiagram
     Note left of A: Note on left
@@ -112,6 +123,7 @@ sequenceDiagram
 ```
 
 ### Loops & Alt
+
 ```mermaid
 sequenceDiagram
     loop Every minute
@@ -126,6 +138,7 @@ sequenceDiagram
 ```
 
 ### Best Practices
+
 - Use meaningful participant names
 - Add notes for complex logic
 - Keep sequence linear (avoid too many branches)
@@ -137,6 +150,7 @@ sequenceDiagram
 ## State Diagram
 
 ### Basic Syntax
+
 ```mermaid
 stateDiagram-v2
     [*] --> State1
@@ -145,6 +159,7 @@ stateDiagram-v2
 ```
 
 ### Composite States
+
 ```mermaid
 stateDiagram-v2
     [*] --> Active
@@ -160,6 +175,7 @@ stateDiagram-v2
 ```
 
 ### Choice
+
 ```mermaid
 stateDiagram-v2
     state if_state <<choice>>
@@ -169,6 +185,7 @@ stateDiagram-v2
 ```
 
 ### Concurrency
+
 ```mermaid
 stateDiagram-v2
     [*] --> Active
@@ -181,6 +198,7 @@ stateDiagram-v2
 ```
 
 ### Notes
+
 ```mermaid
 stateDiagram-v2
     State1 --> State2
@@ -190,6 +208,7 @@ stateDiagram-v2
 ```
 
 ### Best Practices
+
 - Start with `[*]` for initial state
 - Use clear transition labels
 - Limit composite state depth to 2 levels
@@ -202,6 +221,7 @@ stateDiagram-v2
 ## Class Diagram
 
 ### Basic Syntax
+
 ```mermaid
 classDiagram
     class ClassName {
@@ -218,12 +238,14 @@ classDiagram
 ```
 
 ### Visibility
+
 - `+` Public
 - `-` Private
 - `#` Protected
 - `~` Package/Internal
 
 ### Relationships
+
 ```mermaid
 classDiagram
     ClassA --|> ClassB : Inheritance
@@ -236,6 +258,7 @@ classDiagram
 ```
 
 ### Cardinality
+
 ```mermaid
 classDiagram
     Customer "1" --> "*" Order
@@ -243,6 +266,7 @@ classDiagram
 ```
 
 ### Abstract & Interface
+
 ```mermaid
 classDiagram
     class AbstractClass {
@@ -257,6 +281,7 @@ classDiagram
 ```
 
 ### Best Practices
+
 - Show only relevant attributes/methods
 - Use inheritance sparingly
 - Indicate cardinality on associations
@@ -268,6 +293,7 @@ classDiagram
 ## ER Diagram
 
 ### Basic Syntax
+
 ```mermaid
 erDiagram
     CUSTOMER ||--o{ ORDER : places
@@ -276,6 +302,7 @@ erDiagram
 ```
 
 ### Cardinality
+
 - `||--||` - One to one
 - `}o--o{` - Zero or more to zero or more
 - `||--o{` - One to zero or more
@@ -284,6 +311,7 @@ erDiagram
 - `}|--|{` - One or more to one or more
 
 ### Attributes
+
 ```mermaid
 erDiagram
     CUSTOMER {
@@ -302,10 +330,12 @@ erDiagram
 ```
 
 ### Attribute Types
+
 - Use standard SQL types: `string`, `int`, `decimal`, `date`, `bool`
 - Add constraints: `PK` (Primary Key), `FK` (Foreign Key), `UK` (Unique Key)
 
 ### Best Practices
+
 - Use UPPERCASE for entity names
 - Use snake_case for attribute names
 - Always mark PK and FK
@@ -318,6 +348,7 @@ erDiagram
 ## XY Chart
 
 ### Bar and Line Series
+
 ```mermaid
 xychart-beta
     title "Monthly Revenue"
@@ -328,6 +359,7 @@ xychart-beta
 ```
 
 ### Horizontal Charts
+
 ```mermaid
 xychart-beta horizontal
     title "Language Popularity"
@@ -336,6 +368,7 @@ xychart-beta horizontal
 ```
 
 ### Axis Configuration
+
 - Categorical axis: `x-axis [A, B, C]`
 - Numeric range: `x-axis 0 --> 100`
 - Axis title: `y-axis "Score" 0 --> 100`
@@ -343,6 +376,7 @@ xychart-beta horizontal
 - Pass `--interactive` when rendering SVG to enable hover tooltips
 
 ### Best Practices
+
 - Keep category labels short enough to avoid crowding
 - Set an explicit numeric range when series must be compared consistently
 - Use a combined bar and line chart only when the two series share a meaningful scale
@@ -353,23 +387,27 @@ xychart-beta horizontal
 ## General Best Practices
 
 ### Theming
+
 - Use `tokyo-night` for dark mode documentation
 - Use `github-light` for light mode documentation
 - Use `dracula` for vibrant, colorful diagrams
 - Use `monokai` for code-centric diagrams
 
 ### Performance
+
 - Keep diagrams under 50 nodes for fast rendering
 - Split complex diagrams into multiple files
 - Use batch rendering for multiple diagrams
 
 ### Accessibility
+
 - Add meaningful labels to all connections
 - Use high-contrast themes
 - Avoid relying solely on color to convey information
 - Provide text descriptions for complex diagrams
 
 ### File Organization
+
 ```
 diagrams/
 ├── architecture/

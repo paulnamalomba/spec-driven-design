@@ -57,6 +57,7 @@ public IRunnableGraph<Task<Done>> CreatePipeline(
 ```
 
 **Akka.NET Streams excel at:**
+
 - Batching with size AND time limits
 - Throttling and rate limiting
 - Backpressure that propagates through the entire pipeline
@@ -113,6 +114,7 @@ public IDisposable AutoSave =>
 ```
 
 **Rx is ideal for:**
+
 - UI event composition (WPF, WinForms, MAUI, Blazor)
 - Search-as-you-type with debouncing
 - Combining multiple event sources
@@ -123,7 +125,7 @@ public IDisposable AutoSave =>
 **Rx vs Akka.NET Streams:**
 
 | Scenario | Rx | Akka.NET Streams |
-|----------|----|--------------------|
+| ---------- | ---- | -------------------- |
 | UI events | Best choice | Overkill |
 | Client-side composition | Best choice | Overkill |
 | Server-side pipelines | Works but limited | Better backpressure |
@@ -266,7 +268,7 @@ orderRegion.Tell(new ShardingEnvelope("order-123", new AddItem(item)));
 **Use Akka.NET Actors when you have:**
 
 | Scenario | Why Actors? |
-|----------|-------------|
+| ---------- | ------------- |
 | Many entities with independent state | Each entity gets its own actor - no locks |
 | State machines | `Become()` elegantly models state transitions |
 | Push-based/reactive updates | Actors naturally support tell-don't-ask |
@@ -279,7 +281,7 @@ orderRegion.Tell(new ShardingEnvelope("order-123", new AddItem(item)));
 **Don't use Akka.NET when:**
 
 | Scenario | Better Alternative |
-|----------|-------------------|
+| ---------- | ------------------- |
 | Simple work queue | `Channel<T>` |
 | Request/response API | `async/await` |
 | Batch processing | `Parallel.ForEachAsync` or Akka.NET Streams |
@@ -289,6 +291,7 @@ orderRegion.Tell(new ShardingEnvelope("order-123", new AddItem(item)));
 ### The Actor Mindset
 
 Think of actors when your problem looks like:
+
 - "I have **thousands** of [orders/users/devices] that need independent state"
 - "Each entity goes through a **lifecycle** with different behaviors at each stage"
 - "I need to **push updates** to interested parties when something changes"
@@ -332,6 +335,7 @@ private void HandleCommand(MyCommand cmd)
 ### Avoid ContinueWith for Sequencing
 
 **Don't:**
+
 ```csharp
 someTask
     .ContinueWith(t => ProcessResult(t.Result))
@@ -339,6 +343,7 @@ someTask
 ```
 
 **Do:**
+
 ```csharp
 async Task ProcessAndNotifyAsync()
 {
@@ -371,7 +376,7 @@ private void HandleSync(StartSync cmd)
 ```
 
 | Benefit | Description |
-|---------|-------------|
+| --------- | ------------- |
 | **Readability** | Named functions are self-documenting |
 | **Debugging** | Stack traces show meaningful function names |
 | **Exception handling** | Cleaner try/catch without `AggregateException` |

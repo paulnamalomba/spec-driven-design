@@ -281,7 +281,7 @@ To fill a table that already exists, a cell's text goes at its first paragraph's
 ## Docs failures
 
 | Symptom | Cause | Fix |
-|---|---|---|
+| --- | --- | --- |
 | `read_doc` result too large or cut off | Full document JSON for a long or table-heavy doc | Orient with Drive `read_file_content`. Use `replaceAllText` where the find text matches only the text you mean to change (add neighboring words until it does). If the result was saved to a file, run `docs_index.py` on it. |
 | An edit landed in the wrong tab | No `tabId` in the location or range | Add the `tabId` from the read or from the URL's `?tab=` value. |
 | `replaceAllText` changed other tabs | No `tabsCriteria` | Scope it with `tabsCriteria.tabIds`. |

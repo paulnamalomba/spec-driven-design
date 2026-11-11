@@ -86,12 +86,14 @@ license: MIT
 ```
 
 ### Sidebar Behavior
+
 - Desktop (lg+): Always visible, 240–280px wide.
 - Tablet (md): Collapsible to icon-only (64px) with tooltip labels.
 - Mobile (< md): Hidden, opens as an overlay drawer with backdrop from a labelled menu button (`aria-expanded`, focus moved into the drawer, Esc closes).
 - Breakpoints follow the Tailwind defaults in ui-design (md 768, lg 1024, xl 1280, 2xl 1536).
 
 ### Pattern B: Top Nav + Grid
+
 - Best for simpler dashboards with fewer navigation items.
 - Horizontal nav bar at top, content fills below.
 - Use tabs or pill navigation for sub-sections.
@@ -101,6 +103,7 @@ license: MIT
 ## 2. Data Cards (KPI Tiles)
 
 ### Standard Stat Card
+
 ```html
 <div class="bg-white rounded-xl border border-gray-200 p-6">
   <div class="flex items-center justify-between">
@@ -124,6 +127,7 @@ license: MIT
 ```
 
 ### Card Grid Layout
+
 ```html
 <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6">
   <!-- 4 stat cards -->
@@ -131,6 +135,7 @@ license: MIT
 ```
 
 ### Card Variants
+
 - **With sparkline**: Add a small inline chart below the number.
 - **With progress bar**: Show completion toward a goal.
 - **With mini table**: Top 3 items listed below the stat.
@@ -142,7 +147,7 @@ license: MIT
 ## 3. Chart Selection Guide
 
 | Data Type | Best Chart | When to Use |
-|-----------|-----------|-------------|
+| ----------- | ----------- | ------------- |
 | Trend over time | **Line chart** | Revenue, users, performance over days/months |
 | Comparison | **Bar chart** | Compare categories, A/B results |
 | Composition | **Pie / Donut** | Budget breakdown, traffic sources (max 5 slices) |
@@ -153,6 +158,7 @@ license: MIT
 | Ranking | **Horizontal bar** | Top pages, top products |
 
 ### Chart Design Rules
+
 1. **Title every chart** with what it shows, not how to read it.
 2. **Label axes** clearly. Include units.
 3. **Limit colors** to 5–6 max, derived from the brand tokens. Each series color needs 3:1 contrast against the chart background (WCAG 1.4.11); add direct labels or patterns so color isn't the only cue.
@@ -162,6 +168,7 @@ license: MIT
 7. **Responsive**: Charts should resize, not overflow.
 
 ### Chart Color Palette
+
 ```css
 :root {
   /* Lightness ≤ ~65% keeps ≥ 3:1 against white; lighten ~10–15% for dark backgrounds */
@@ -172,6 +179,7 @@ license: MIT
   --chart-5: oklch(55% 0.14 145);  /* green */
 }
 ```
+
 If a data-visualization skill (such as dataviz) is installed, follow it for chart marks, legends, and tooltips.
 
 ---
@@ -179,6 +187,7 @@ If a data-visualization skill (such as dataviz) is installed, follow it for char
 ## 4. Table Design
 
 ### Full-Featured Data Table
+
 ```html
 <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
   <!-- Table header / toolbar -->
@@ -272,6 +281,7 @@ If a data-visualization skill (such as dataviz) is installed, follow it for char
 ```
 
 ### Table Design Rules
+
 - Align numbers right, text left.
 - Use row hover highlight (`hover:bg-gray-50`).
 - Sticky header on scroll (`sticky top-0` on `<th>` with a solid background, or it shows rows through it).
@@ -284,6 +294,7 @@ If a data-visualization skill (such as dataviz) is installed, follow it for char
 ## 5. Status Indicators
 
 ### Badge Styles
+
 ```html
 <!-- Success / Active -->
 <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs
@@ -311,6 +322,7 @@ If a data-visualization skill (such as dataviz) is installed, follow it for char
 ```
 
 ### Progress Bars
+
 ```html
 <div class="w-full bg-gray-100 rounded-full h-2">
   <div class="bg-indigo-600 h-2 rounded-full transition-all duration-500"
@@ -325,6 +337,7 @@ If a data-visualization skill (such as dataviz) is installed, follow it for char
 Monitoring and ops dashboards are often used in dark mode. Use the surface, text, and border tokens from the **dark-mode** skill's Complete Token System (`--bg-base` / `--bg-surface` / `--bg-elevated`, `--text-*`, `--border`) — don't define a second set here.
 
 ### Dashboard-Specific Rules
+
 - Elevation is shown through lighter surfaces, not shadows.
 - Reduce chart color saturation by ~15% and raise lightness so series still hit 3:1 on the dark surface.
 - Use semi-transparent borders (`oklch(100% 0 0 / 0.08)`).
@@ -335,6 +348,7 @@ Monitoring and ops dashboards are often used in dark mode. Use the surface, text
 ## 7. Real-Time Data Indicators
 
 ### Live Pulse Dot
+
 ```html
 <span class="relative flex h-2.5 w-2.5" aria-hidden="true">
   <span class="motion-safe:animate-ping absolute inline-flex h-full w-full rounded-full
@@ -344,6 +358,7 @@ Monitoring and ops dashboards are often used in dark mode. Use the surface, text
 ```
 
 ### Last Updated Timestamp
+
 ```html
 <span class="text-xs text-gray-500 flex items-center gap-1.5" role="status">
   <span class="w-1.5 h-1.5 rounded-full bg-emerald-500" aria-hidden="true"></span>
@@ -352,6 +367,7 @@ Monitoring and ops dashboards are often used in dark mode. Use the surface, text
 ```
 
 ### Auto-Refresh Pattern
+
 - Show a subtle countdown or progress bar before refresh.
 - Animate changed values (flash green for increase, red for decrease).
 - Never refresh the entire page — update individual data points.
@@ -362,6 +378,7 @@ Monitoring and ops dashboards are often used in dark mode. Use the surface, text
 ## 8. Dense Information Without Clutter
 
 ### Techniques
+
 1. **Progressive disclosure**: Show summary, expand for details.
 2. **Tabbed sections**: Don't show everything at once.
 3. **Collapsible panels**: Let users hide what they don't need.
@@ -381,13 +398,16 @@ Monitoring and ops dashboards are often used in dark mode. Use the surface, text
 ## 9. Responsive Dashboard Layouts
 
 ### Breakpoint Strategy
+
 - **Mobile (< 768px)**: Single column. Cards stack. Tables become card lists. Sidebar hidden.
 - **Tablet (768–1024px)**: 2-column grid. Sidebar collapsed to icons. Simplified charts.
 - **Desktop (1024px+)**: Full layout. Sidebar expanded. Multi-column grids.
 - **Wide (1536px+)**: Add an extra column rather than stretching; cap text-heavy content at ~1440px (`max-w-screen-2xl` or similar).
 
 ### Mobile Table Alternative
+
 Below `md` (768px), hide the table (`hidden md:block` on its wrapper) and render each row as a card:
+
 ```html
 <!-- Mobile only: one card per row, label-value pairs -->
 <dl class="md:hidden bg-white rounded-xl border border-gray-200 p-4 space-y-2 text-sm">
@@ -411,6 +431,7 @@ Below `md` (768px), hide the table (`hidden md:block` on its wrapper) and render
 ## Verify: Render and Check
 
 Don't hand over code you haven't looked at. After generating it:
+
 1. Screenshot it at mobile and desktop widths, e.g. `npx playwright screenshot --full-page --viewport-size=390,844 file://$PWD/index.html mobile.png`, then again with `--viewport-size=1440,900` (or point at the dev server URL).
 2. Open both images and check: no horizontal scroll or clipped/overlapping text, hierarchy reads at a glance, brand tokens are applied, images load at the right aspect ratio.
 3. Tab through once: every interactive element gets a visible focus ring, in a logical order.

@@ -10,4 +10,4 @@ Record failed, cancelled, configure-only, validation-only, documentation-only an
 
 Short generated Git messages summarize each change. Version tags retain the family-note snapshot; later note growth never changes an existing tag. Creating notes does not itself authorize a commit, tag or push.
 
-The current product uses one pinned PETSc fork source across Windows, Linux and macOS. Modern Linux supplies new numerical references. Legacy build/comparison checks were excluded by the user's 16 October 2026 decision; do not reintroduce them as an acceptance requirement. 
+The current product uses one pinned PETSc fork source across Windows, Linux and macOS. Modern Linux supplies new numerical references. Legacy build/comparison checks were excluded by the user's 16 October 2026 decision; do not reintroduce them as an acceptance requirement.

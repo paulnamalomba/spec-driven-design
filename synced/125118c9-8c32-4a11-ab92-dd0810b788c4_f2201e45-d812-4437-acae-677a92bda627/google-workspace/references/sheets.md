@@ -92,6 +92,7 @@ Text you write in the workbook (sheet names, headers, labels, notes, comments, t
 Use these unless the user or the existing file does something else.
 
 **Text colors:**
+
 - Blue (`#0000FF`): hardcoded inputs, and numbers users will change for scenarios.
 - Black (`#000000`): all formulas and calculations.
 - Green (`#008000`): links to other sheets in the same workbook.
@@ -99,6 +100,7 @@ Use these unless the user or the existing file does something else.
 - Yellow fill (`#FFFF00`): key assumptions that need attention, and cells the user should fill in or update.
 
 **Number formats:**
+
 - Years are text: "2024", not 2,024.
 - Currency is `$#,##0;($#,##0);"-"`, with the unit in the header: "Revenue ($mm)".
 - Negative numbers go in parentheses: (123), not -123.
@@ -107,6 +109,7 @@ Use these unless the user or the existing file does something else.
 - Valuation multiples such as EV/EBITDA and P/E use `0.0"x"`, which shows 12.5x.
 
 **Sensitivity tables:**
+
 - Give the grid an odd number of rows and columns, such as 5×5 or 7×7, so the base case lands in the center cell, and highlight that cell (a yellow fill, for example). A WACC against terminal growth table should put the current WACC in the middle row and the current growth rate in the middle column.
 - Build every cell of the grid as a formula that recalculates the output from its row's and its column's input values. For a DCF, each cell discounts the same cash flows at its row's rate and adds a terminal value at its column's growth rate.
 
@@ -178,7 +181,7 @@ Every value that comes into the workbook from outside it should be traceable wit
 There are two coordinate systems, and each tool uses one of them.
 
 | Tools | Addresses cells by | Example |
-|---|---|---|
+| --- | --- | --- |
 | `get_values`, `update_values`, `update_formulas` | A1 notation with the tab name | `'P&L Model'!B4:D10` |
 | `update_spreadsheet`, `insert_dimension` | Numeric `sheetId` plus 0-based indexes; end indexes are exclusive | B4:D10 on tab 1001 is `{"sheetId": 1001, "startRowIndex": 3, "endRowIndex": 10, "startColumnIndex": 1, "endColumnIndex": 4}` |
 
@@ -292,7 +295,7 @@ Sheets supports `XLOOKUP`, `FILTER`, `UNIQUE`, and `SORT`, so the `xlsx` skill's
 ## Sheets failures
 
 | Symptom | Cause | Fix |
-|---|---|---|
+| --- | --- | --- |
 | `Invalid field: sheets.properties(sheetId,title)` | The connector rejects parenthesized field masks | Pass one full path per array item: `["sheets.properties"]`. |
 | `Invalid field: user_entered_format(number_format` | Parentheses in a request's `fields` | Use comma-separated full paths. `sheets_helper.py format` does this for you. |
 | An ID lost its leading zeros, or text became a date | Both write tools parse input like the UI | Prefix the value with `'`. |

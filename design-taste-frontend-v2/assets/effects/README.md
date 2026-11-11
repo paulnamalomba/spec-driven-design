@@ -81,7 +81,7 @@ const { picks } = pick(index.effects, { palette: fx.paletteKind(palette), slots:
 ## The list
 
 | id | Name | Family | Slots | Palettes | Ground | Motion |
-|---|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- | --- |
 | `film-light-leak` | Film light leak | Grain | hero, card, band | dark, colour | focal | slow |
 | `grain-gradient` | Grain gradient | Grain | hero, card, band, footer | light, dark, colour | quiet | slow |
 | `ascii-shade` | ASCII shade | Dither | hero, card, footer | light, dark, colour | focal | slow |

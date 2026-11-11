@@ -11,7 +11,7 @@ If this session offers a dedicated slide-deck artifact type or a separate slides
 A `.pptx` is a ZIP archive of XML files. Choose your approach by task:
 
 | Task | Approach |
-|---|---|
+| --- | --- |
 | **Create** a new deck | Write a `pptxgenjs` script — see gotchas below — and build it as a [structured deck](#structured-decks) unless the user asks for a quick throwaway |
 | **Edit** an existing deck, or build from a template | unzip → edit `ppt/slides/slideN.xml` → zip |
 | **Read** content | `markitdown deck.pptx` (one block per slide under `<!-- Slide number: N -->` markers); visual grid: `python scripts/thumbnail.py deck.pptx` |
@@ -21,7 +21,7 @@ A `.pptx` is a ZIP archive of XML files. Choose your approach by task:
 Paths are relative to this skill's directory. Everything else is plain Python, `node`, or shell.
 
 | Script | What it does |
-|---|---|
+| --- | --- |
 | `scripts/thumbnail.py deck.pptx [prefix]` | Labeled grid of every slide, for picking template layouts. `.pptx` only. Pass `prefix` — it defaults to `thumbnails`, which overwrites the grids of any other deck done in the same directory |
 | `scripts/add_slide.py unpacked/ slide2.xml [--after slideN.xml]` | Duplicate a slide (or a `slideLayoutN.xml`) with all the package bookkeeping. Also takes a `.pptx` directly with `-o out.pptx` |
 | `scripts/clean.py unpacked/` | Delete slides, media, and rels no longer referenced. Run **after** `<p:sldIdLst>` is final |
@@ -120,7 +120,7 @@ When filling in a template:
 Choose colors that match your topic — don't default to generic blue. Use these palettes as inspiration:
 
 | Theme | Primary | Secondary | Accent |
-|-------|---------|-----------|--------|
+| ------- | --------- | ----------- | -------- |
 | **Midnight Executive** | `1E2761` (navy) | `CADCFC` (ice blue) | `FFFFFF` (white) |
 | **Forest & Moss** | `2C5F2D` (forest) | `97BC62` (moss) | `F5F5F5` (cream) |
 | **Coral Energy** | `F96167` (coral) | `F9E795` (gold) | `2F3C7E` (navy) |
@@ -137,17 +137,20 @@ Choose colors that match your topic — don't default to generic blue. Use these
 **Every slide needs a visual element** — image, chart, icon, or shape. Text-only slides are forgettable.
 
 **Layout options:**
+
 - Two-column (text left, illustration on right)
 - Icon + text rows (icon in colored circle, bold header, description below)
 - 2x2 or 2x3 grid (image on one side, grid of content blocks on other)
 - Half-bleed image (full left or right side) with content overlay
 
 **Data display:**
+
 - Large stat callouts (big numbers 60-72pt with small labels below)
 - Comparison columns (before/after, pros/cons, side-by-side options)
 - Timeline or process flow (numbered steps, arrows)
 
 **Visual polish:**
+
 - Icons in small colored circles next to section headers
 - Italic accent text for key stats or taglines
 
@@ -162,7 +165,7 @@ Choose colors that match your topic — don't default to generic blue. Use these
 - **Never default to Aptos** — Office's post-2023 default has no metric-compatible substitute here *and* is missing from older Office installs, so it's unreliable on both ends.
 
 | Element | Size |
-|---------|------|
+| --------- | ------ |
 | Slide title | 36-44pt bold |
 | Section header | 20-24pt bold |
 | Body text | 14-16pt |

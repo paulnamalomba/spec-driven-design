@@ -27,7 +27,7 @@ Give the frame its size (a hero column as tall as the screen, a full-width stage
 fills it.
 
 | attribute | |
-|---|---|
+| --- | --- |
 | `data-product-place` | `hero` 0.88, `stage` 0.86, `tile` 0.84, `card` 0.9 of the frame (`legacy`: the old turntable right of the words) |
 | `data-product-view` | `three-quarter` (default), then only the views the spec lists in `supports` (`side`, `front`, `top`, a close-up of its own such as `detail-saddle`); `product.views` lists them; any other (the bike's `top`) throws and the frame carries `data-product-error`; or `detail:<part name>` |
 | `data-product-scene` | a scene of the spec: the product loaded or in use (`loaded`, `desk`, `work`) |
@@ -115,7 +115,7 @@ unit; the model is scaled so its largest side is one unit and set on the floor a
 Model the product from its real measurements: proportions are most of what makes it read as a render.
 
 | key | what |
-|---|---|
+| --- | --- |
 | `id`, `name`, `label` | the label is what a screen reader hears ("A desk lamp, switched on") |
 | `poster` | the posters' file name (default the id) |
 | `angle` | its turn at rest and in the still, degrees (default -32: a three-quarter view) |
@@ -140,7 +140,7 @@ It is placed by `from` + `to` (a linear part runs between them; `up` turns its s
 plus `axis` (`"x"`, `"y"`, `"z"` or a vector) and/or `rot` ([x, y, z] degrees).
 
 | type | sizes | use |
-|---|---|---|
+| --- | --- | --- |
 | `tube` | `r`, `r2` (taper), `cap` `flat`/`round`, `round`, `seams` | frame tubes, posts, rods, handles, a tapered robot link |
 | `beam` | `w`, `d` (section), `round`, `seams` | flat bars, cranks, rails |
 | `box` | `size` [x, y, z], `round`, `seams` | housings, bodies, pedals, a gripper |
@@ -165,7 +165,7 @@ the seams of a robot's shell, a base's groove. `seamWidth`, `seamDepth` in units
 A name from `materials`, a built-in name, or `{ "kind": ..., "color": "#hex" | "accent", "finish": "gloss" | "satin" | "matte" }`.
 
 | kind | | built-in names |
-|---|---|---|
+| --- | --- | --- |
 | `paint` | enamel or powder coat; `color: "accent"` takes the page's accent | `accent`, `paint`, `white`, `black`, `graphite` |
 | `metal` | brushed alloy | `alloy`, `aluminium` |
 | `chrome` | polished | `chrome` |
@@ -213,7 +213,7 @@ converts: 1000 for a spec in millimetres); each takes `at`, `yaw`, `scale`, `siz
 `mats` { role: material }, `in` (a motion group: a parcel held in a gripper) and `name`.
 
 | prop | what | options |
-|---|---|---|
+| --- | --- | --- |
 | `child-seat` | a rack seat: high back, wings, cushion, shoulder and lap belts to a red buckle, footrests | `color`; roles shell, pad, belt, buckle |
 | `bench` | a padded bench for 1-3 children or passengers in a row (a cargo box): two belts and a buckle a seat | `seats`, `width`, `color`; roles frame, pad, belt, buckle |
 | `crate` | a slatted wooden crate, open on top | `size`, `contents` fruit / bottles / loaves / parcels / none |

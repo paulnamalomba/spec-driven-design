@@ -162,7 +162,7 @@ public bool TryFormatOrderId(int orderId, Span<char> destination, out int charsW
 **When to use what:**
 
 | Type | Use Case |
-|------|----------|
+| ------ | ---------- |
 | `Span<T>` | Synchronous operations, stack-allocated buffers, slicing without allocation |
 | `ReadOnlySpan<T>` | Read-only views, method parameters for data you won't modify |
 | `Memory<T>` | Async operations (Span can't cross await boundaries) |
@@ -274,7 +274,7 @@ public byte[] SerializeOrder(Order order)
 **Summary Table:**
 
 | Scenario | Accept | Return |
-|----------|--------|--------|
+| ---------- | -------- | -------- |
 | Only iterate once | `IEnumerable<T>` | `IEnumerable<T>` (if lazy) |
 | Need count | `IReadOnlyCollection<T>` | `IReadOnlyCollection<T>` |
 | Need indexing | `IReadOnlyList<T>` | `IReadOnlyList<T>` |

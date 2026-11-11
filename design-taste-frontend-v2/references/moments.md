@@ -16,7 +16,7 @@ when it gives `photo-chapters`), or, with no photograph, `word-highlight` in a o
 section of its own, so the page is four screens.
 
 | page kind | dealt from | look |
-|---|---|---|
+| --- | --- | --- |
 | place (cafe, bakery, guesthouse, shop, gym; a studio with a door is passed as `--page place`, since `--page studio` reads as service) | `photo-chapters`, `picture-develops` (film), `word-highlight` | photographs and type |
 | product (site-kind other) | `photo-chapters`, `pinned-chapters`, `picture-develops` (film), `word-highlight` | photographs and type |
 | service (firm, clinic, agency, trade) | `photo-chapters`, `pinned-chapters`, `picture-develops` (film), `word-highlight` | photographs and type |
@@ -90,7 +90,7 @@ node <skill>/scripts/moments.mjs pick --page <kind> --count 1|2 --fits section,s
 ## Where each fits
 
 | id | kind · fits | phone and reduced motion |
-|---|---|---|
+| --- | --- | --- |
 | word-rotate | retired · hero, three rounds then rests | the written word stands |
 | lines-rise | retired · one section or statement, once | the heading and its lines stand |
 | counter-rolls | text · the proof figures, once; never in a card | the figures stand |

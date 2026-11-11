@@ -26,11 +26,13 @@ Google Stitch is an experimental AI UI generator powered by Gemini 2.5 Flash tha
 Generic prompts yield generic results. Specific prompts with clear requirements produce tailored, professional designs.
 
 **Poor prompt:**
+
 ```
 Create a dashboard
 ```
 
 **Effective prompt:**
+
 ```
 Member dashboard with course modules grid, progress tracking bar, 
 and community feed sidebar using purple theme and card-based layout
@@ -43,12 +45,14 @@ and community feed sidebar using purple theme and card-based layout
 Always include color schemes, design aesthetics, and visual direction to avoid generic AI outputs.
 
 **Components to specify:**
+
 - Color palette (primary colors, accent colors)
 - Design style (minimalist, modern, playful, professional, glassmorphic)
 - Typography preferences (if any)
 - Spacing and density (compact, spacious, balanced)
 
 **Example:**
+
 ```
 E-commerce product page with hero image gallery, add-to-cart CTA, 
 reviews section, and related products carousel. Use clean minimalist 
@@ -60,6 +64,7 @@ design with sage green accents and generous white space.
 For apps with multiple screens, list each screen as bullet points before generation.
 
 **Approach:**
+
 ```
 Fitness tracking app with:
 - Onboarding screen with goal selection
@@ -75,6 +80,7 @@ Stitch will ask for confirmation before generating multiple screens, ensuring al
 Indicate whether the design is for mobile, tablet, desktop, or responsive web.
 
 **Examples:**
+
 ```
 Mobile app login screen (iOS style) with email/password fields and social auth buttons
 
@@ -87,6 +93,7 @@ with collapsible navigation
 Describe interactive elements, states, and user flows to generate more complete designs.
 
 **Elements to specify:**
+
 - Button actions and CTAs
 - Form fields and validation
 - Navigation patterns
@@ -95,6 +102,7 @@ Describe interactive elements, states, and user flows to generate more complete 
 - Error handling
 
 **Example:**
+
 ```
 Checkout flow with:
 - Cart summary with quantity adjusters
@@ -124,6 +132,7 @@ Platform: [Mobile/Web/Responsive]
 ```
 
 **Example:**
+
 ```
 Dashboard for SaaS analytics platform
 
@@ -148,12 +157,14 @@ Platform: Responsive web (desktop-first)
 Use Stitch's "annotate to edit" feature to make targeted changes without rewriting the entire prompt.
 
 **Workflow:**
+
 1. Generate initial design from prompt
 2. Annotate specific elements that need changes
 3. Describe modifications in natural language
 4. Stitch updates only the annotated areas
 
 **Example annotations:**
+
 - "Make this button larger and use primary color"
 - "Add more spacing between these cards"
 - "Change this to a horizontal layout"
@@ -174,16 +185,19 @@ Generate 3 variants of this hero section:
 Start broad, then add specificity in follow-up prompts:
 
 **Initial:**
+
 ```
 E-commerce homepage
 ```
 
 **Refinement 1:**
+
 ```
 Add featured products section with 4-column grid and hover effects
 ```
 
 **Refinement 2:**
+
 ```
 Update color scheme to earth tones (terracotta, sage, cream) 
 and add promotional banner at top
@@ -278,12 +292,14 @@ Stitch provides multiple export formats:
 ### Best Practices for Export
 
 **Before exporting:**
+
 - Verify responsive breakpoints
 - Check color contrast for accessibility
 - Ensure interactive states are defined
 - Review component naming and structure
 
 **After export:**
+
 - Refactor generated code for production standards
 - Add proper semantic HTML tags
 - Implement accessibility attributes (ARIA labels, alt text)
@@ -293,11 +309,13 @@ Stitch provides multiple export formats:
 ## Anti-Patterns to Avoid
 
 ### ❌ Vague Prompts
+
 ```
 Make a nice website
 ```
 
 ### ✅ Specific Prompts
+
 ```
 Portfolio website for photographer with full-screen image gallery, 
 project case studies, and contact form. Minimalist black and white 
@@ -307,11 +325,13 @@ aesthetic with serif typography.
 ---
 
 ### ❌ Missing Context
+
 ```
 Create a login page
 ```
 
 ### ✅ Context-Rich Prompts
+
 ```
 Login page for healthcare portal with email/password fields, 
 "Remember me" checkbox, "Forgot password" link, and SSO options 
@@ -322,11 +342,13 @@ blue medical theme.
 ---
 
 ### ❌ No Visual Direction
+
 ```
 Design an app for task management
 ```
 
 ### ✅ Clear Visual Direction
+
 ```
 Task management app with kanban board layout, drag-and-drop cards, 
 priority labels, and due date indicators. Modern, productivity-focused 
@@ -354,18 +376,21 @@ design with purple/teal gradient accents and dark mode support.
 ## Integration with Development Workflow
 
 ### Stitch → Figma → Code
+
 1. Generate UI in Stitch with detailed prompts
 2. Export to Figma for design system integration
 3. Hand off to developers with design specs
 4. Implement with production-ready code
 
 ### Stitch → HTML → Framework
+
 1. Generate and refine UI in Stitch
 2. Export HTML/CSS code
 3. Convert to React/Vue/Svelte components
 4. Integrate into application codebase
 
 ### Rapid Prototyping
+
 1. Create multiple screen variations quickly
 2. Test with users or stakeholders
 3. Iterate based on feedback

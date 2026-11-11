@@ -37,7 +37,8 @@ When writing minimal notes, parse and convert every technical identifier into it
 | `status_code == 422` | Error code check | `validation-style error response` |
 | `auth_token_secret` | Secret / Config variable | `authentication token configuration` |
 
-### General Aliasing Guidelines:
+### General Aliasing Guidelines
+
 - **Acronyms & Standards**: Keep recognized standard acronyms capitalized and accessible (e.g. `SVG`, `PNG`, `QR`, `PDF`, `CLI`, `API`, `URL`, `R2`, `SDK`, `MPI`, `SQL`).
 - **Composite Names**: Insert spaces between compound words in PascalCase/camelCase identifiers (e.g. `RenderPipeline` -> `render pipeline`, `PaymentWebhookHandler` -> `Payment Webhook Handler`).
 - **Dot Syntax**: Drop intermediate namespaces or replace dots with descriptive words (e.g. `HalfQR.QrEngine.Rasterizer` -> `QR rasterizer in HalfQR Engine`).
@@ -50,11 +51,13 @@ When writing minimal notes, parse and convert every technical identifier into it
 Every minimal note contains these concise sections:
 
 ### 3.1 Header & Version Metadata
+
 ```markdown
 # <Product or Repository Name> [<Version>] - <YYYY-MM-DD>
 ```
 
 ### 3.2 Change Categories
+
 Use standard change categories. Omit any category that has no items for the release:
 
 - **Added**: New features, CLI commands, curated assets, shared helpers, and capabilities.
@@ -63,7 +66,9 @@ Use standard change categories. Omit any category that has no items for the rele
 - **Removed** *(or **Deprecated**)*: Retired features, deprecated endpoints, or obsolete assets.
 
 ### 3.3 Validation
+
 High-level build commands and human-readable verification confirmations:
+
 - Standard build commands without machine-specific paths or noisy verbose flags (e.g. `dotnet build HalfQR.sln`, `npm run build from webapp`, `flutter test`).
 - High-level statements explaining verified functional behavior and operational guarantees.
 
@@ -118,6 +123,7 @@ To understand the transformation required when switching from Full to Minimal mo
 ## 6. Interaction with Repository Profiles
 
 Regardless of whether notes are written in **Full** or **Minimal** mode:
+
 1. **Version progression rules remain binding**: Minimal notes do NOT relax counter increments, candidate reservations, or zero-advance rules on failed/unbuilt work.
 2. **Monotonic progression**: A minimal note cannot invent a passing build. If a build did not qualify, the minimal note records that no version advance occurred.
 3. **Repository note conventions**:

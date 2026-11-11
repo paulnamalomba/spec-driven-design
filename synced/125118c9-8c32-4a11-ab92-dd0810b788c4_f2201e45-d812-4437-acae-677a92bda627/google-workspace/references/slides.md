@@ -169,7 +169,7 @@ Cite only sources you actually have, whether the user gave them to you or you re
 **Visual hierarchy and size.** The reader's eye should land on the title first, then the main visual or the bold text, then the detail. Size and weight control that order. Slides are read from the back of a room, so sizes that look right on a web page are too small here. On a standard 16:9 slide:
 
 | Element | Size |
-|---|---|
+| --- | --- |
 | Slide title | 32–40pt bold, at least about 1.75× the body |
 | Section header | 24–28pt |
 | Body text | 16–18pt |
@@ -266,6 +266,7 @@ Choose a route based on the deck.
 ```
 
   Unlike the Sheets connector, Slides accepts parentheses in masks.
+
 - **One slide:** `read_slide_page` with a `pageId` and a mask starting at `pageElements(...)`.
 - **Text only:** Drive `read_file_content` gives the deck's text compactly when you only need to know what it says.
 - **Outline with real geometry:** save the masked read to a file and run:
@@ -357,7 +358,7 @@ python <skill>/scripts/render_export.py <saved export> render --pages 3-4
 ## Slides failures
 
 | Symptom | Cause | Fix |
-|---|---|---|
+| --- | --- | --- |
 | A read is 100 KB or more | No field mask, so layouts and masters came back | Use the mask in Read. |
 | Elements land in the wrong place or size | Base `size` used without the transform scale | Use `slides_helper.py outline` for real geometry, and `build` for new elements. |
 | A table is a different size than requested | Table size comes from columns and rows, and rows grow with text | Read `tableColumns` and `tableRows`; set widths with `updateTableColumnProperties`. |

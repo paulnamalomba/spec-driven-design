@@ -64,7 +64,7 @@ a place adds `<meta name="page-kind" content="place">`. The dealers take the las
 the metas.
 
 | Brief | page type | site-kind | kind |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | App, SaaS, AI, developer tool, fintech or banking app, a studio selling its own software | software | software | software |
 | A game, a studio launching its game | software | gaming | gaming |
 | Hardware or a tech device (a drone, a robot arm, a keyboard) | product | tech | tech |
@@ -133,7 +133,7 @@ The full plans, deal lists and section order: `references/sections.md`.
 Open the reference of every asset family the page uses first. A dash means never.
 
 | Need | Asset | Software, gaming | Hardware | Product, service | Place | Reference |
-|---|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- | --- |
 | Heights, edges, heroes, type | `system.css`, `assets/layout` | dealt hero | dealt hero | dealt hero | place hero | `layout-v4.md` |
 | Sections and recipes | `starter.html` | its plan | product plan | its plan | place plan | `sections.md`, `sections-library.md` |
 | Tokens, grid, buttons, nav, footer, colour | `system.css`, `system.js` | yes | yes | yes | place tokens | `system.md` |

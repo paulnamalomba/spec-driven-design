@@ -69,6 +69,7 @@ The board uses a fixed structure of 8 blocks. Left zone is a strict 3-column gri
 **Block titles:** blocks carry an uppercase title naming them, set in a NEUTRAL sans-serif (Inter or similar) — NOT the brand's display typeface, NOT the type used in the specimen. Bold weight, letter-spaced slightly, dark on light tiles / light on dark tiles. Titles: OUR MISSION, KEY METRICS, LOGO, TYPOGRAPHY, COLORS, HOW IT WORKS. Two blocks carry no title: the hero (only the tagline) and Photography (a short verbatim line instead, see below). Title size: ~18px at 1920 width. Pinned to the top-left corner of the tile with consistent padding (~32px inset), same size and position on every titled block.
 
 **Row 1 (top):**
+
 1. **Mission** — spans 2 columns. Title: OUR MISSION, pinned top-left. The positioning statement taken from the source copy: what this brand does and for whom. The ONLY tile allowed a body paragraph (max 25 words). Set at 38px (at 1920 width), regular/medium weight, left-aligned, vertically CENTERED in the tile below the pinned top-left title. It breaks naturally across 3–4 lines. Not stretched to fill; centered as a block in the available space. This is the second-loudest text on the board after the hero tagline, not fine print.
 2. **Key metrics** — 1 column. Title: KEY METRICS, pinned top-left. The stat sits at the BOTTOM-LEFT of the tile, left-aligned: a huge number (e.g. "39%", ~90px, brand display face) with a small label directly under it ("program completion rate", ~20px), both aligned to the left edge. Flex column with space-between — title top, number+label bottom. Nothing else. Choose the single most important data point in the source — the one that ADDS to the story the other blocks tell, not one that repeats the mission, hero, or how-it-works block. If several stats exist, pick the most consequential (users, funding, scale), not the most decorative.
 
@@ -91,6 +92,7 @@ The board uses a fixed structure of 8 blocks. Left zone is a strict 3-column gri
 8. **Main image and title** — the dominant source photo, edge-to-edge, full height, ~32% of board width. The main tagline sits bottom-left as the largest text on the board (~80px, Medium weight — not bold, Title Case or as the source sets it, white or high-contrast). A single sticker pill from the source (e.g. a category label) may sit top-right over the photo.
 
 **Fallbacks when the source lacks content:**
+
 - No stat → Key metrics becomes a proof tile of another kind from the source: client logos, avatars + count, or a short quote.
 - No second image for Photography → Photography becomes a flat accent tile with a single oversized glyph or logo mark from the source.
 - No UI or product visual → How it works becomes a flat accent tile with one short line from the source.
@@ -119,6 +121,7 @@ Use these values directly; they are measured from the approved board.
 ## Text sizes — reference
 
 Full hierarchy, largest to smallest, at 1920px width:
+
 - Hero tagline: ~80px
 - Key-metric number: ~90px (the one exception that outsizes the tagline, because it's a single glyph-string)
 - Mission statement: 38px

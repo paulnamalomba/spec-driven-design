@@ -5,7 +5,7 @@ Use only the sections matching the repository's actual package manager and runti
 ## Cache mount targets
 
 | Ecosystem | Persistent targets | Notes |
-|---|---|---|
+| --- | --- | --- |
 | npm | `/root/.npm` | Run `npm ci --prefer-offline`; keep `node_modules` in the normal build layer. |
 | pnpm | configured store, commonly `/pnpm/store` | Pin Corepack/package-manager version and set the store path explicitly. |
 | Yarn | version-specific global/cache directory | Discover with the repository's Yarn version; do not guess across Classic/Berry. |

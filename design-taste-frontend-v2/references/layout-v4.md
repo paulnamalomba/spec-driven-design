@@ -44,7 +44,7 @@ third screen, never a height set by script.
 708px at 1440x900, y 120 to 828):
 
 | c at 1440x900 | Screens |
-|---|---|
+| --- | --- |
 | under 360 | merge into the section above, or add the picture it lacks |
 | 360 to 495 | one screen, a warning: give it its picture |
 | 495 to 708 | one screen |
@@ -62,7 +62,7 @@ section off the screen grid and each tile shows one section's tail and the next 
 cut by the tile's edge (seen at 768). Stacked content c at 768x1024 (the stricter):
 
 | c at 768x1024 | Do |
-|---|---|
+| --- | --- |
 | up to 832 | one screen |
 | 832 to 1,130 | cut to one screen: a lower `--p-h` for the group at tablet, the split's frame as `.fill` (it takes what is left), the grey line or a fourth card out |
 | 1,130 to 1,856 | two screens there, `@media (min-width: 640px) and (max-width: 1023px) { #<id> { --h: 2 } }` (the one page-CSS rule on a section), no card row across the screen line at 1024 |
@@ -165,7 +165,7 @@ and credit line (which names photographers, against `copy.md` Credits) never com
 dealt only without a strong photograph.
 
 | id | composition at 1440 | at 390 | its motion |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `split` | text span-5; the picture span-6 start-7, top-aligned with the h1, ending on the right line; one opaque float card on its lower left | text, then the picture (at least 240 tall) | the float card's dot (tech) |
 | `photo` | a full-bleed photograph layer, the words on its calm, dark side on six columns (h1 80, two lines), four facts at the foot | the photograph cut to the top, the words under it on the ground | none |
 | `product` | a head row (h1 cols 1-7 on two lines; the lead and the buttons stacked on cols 9-12, their foot on the h1's), then the product itself big, nothing on it (hotspots only when the brief asks for them): a product photograph edge to edge down to the fold, square corners; a cut-out or a render (its widest view, `data-product-place="stage"`, only when the brief asks for 3D) on the page's ground across the wrap, no box, gradient or radius, the stage down to 24 above the fold (1280x566 at 1440x900: the city bike's side 1046 wide, 82% of the wrap). A game names itself in the h1; a `[data-print]` or `[data-scene]` on the stage keeps the lit, rounded stage | stacked; the photograph the screen width, a render 86% of the column (294 of 342) | none; a render is a still (live only when asked, `data-product-mode="live"`) |
@@ -283,7 +283,7 @@ node <skill>/assets/layout/check.mjs --url index.html --profile <own dir> \
 ```
 
 | Finding | Means |
-|---|---|
+| --- | --- |
 | `hero-fold` | the hero does not fill the first screen, runs past it, or the next section shows |
 | `hero-maxchars`, `hero-lines` | with the h1 lengthened to its `maxChars`, the hero runs past the screen or the h1 takes too many lines |
 | `screen-short`, `screen-height` | a section shorter than one screen, or not exactly one or two |

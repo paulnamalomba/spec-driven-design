@@ -126,6 +126,7 @@ public readonly record struct Quantity(int Value, string Unit)
 ```
 
 **Why `readonly record struct` for value objects:**
+
 - **Value semantics**: Equality based on content, not reference
 - **Stack allocation**: Better performance, no GC pressure
 - **Immutability**: `readonly` prevents accidental mutation
@@ -225,6 +226,7 @@ public readonly record struct PositiveAmount
 ```
 
 **Why this matters:**
+
 - APIs like Slack Block Kit silently reject relative URLs with cryptic errors. Transactional email links break if they're relative. `AbsoluteUrl` makes the compiler prevent this.
 - Platform gotchas belong in the value object — e.g., Linux `Uri.TryCreate` treating `/path` as `file:///path` is handled once in `FromRelative`, not at every call site.
 

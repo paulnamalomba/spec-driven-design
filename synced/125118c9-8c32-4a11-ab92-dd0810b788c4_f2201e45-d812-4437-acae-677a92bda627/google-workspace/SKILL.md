@@ -10,7 +10,7 @@ The Google connectors are thin wrappers over Google's raw APIs, with almost no g
 ## Read the reference before you touch the file
 
 | Working on | Read first | Why it matters |
-|---|---|---|
+| --- | --- | --- |
 | A Google Doc | `references/docs.md` | Docs edits address UTF-16 positions that shift after every insert and go stale after every write. Tabs and pending suggestions change the positions too. |
 | A Google Sheet | `references/sheets.md` | Both write tools parse input like the Sheets UI, so text can silently become numbers or dates. Formatting needs numeric sheet IDs, 0-based ranges, and field masks without parentheses. |
 | A Google Slides deck | `references/slides.md` | Positions are in EMU, an element's real size is its size times its scale, and an unmasked read can exceed 150 KB for three slides. Slides never shrinks text to fit. |
@@ -20,7 +20,7 @@ Read the reference for every app the task touches before the first edit. Embeddi
 ## 1. Check the connectors before you start
 
 | Connector | What it can do |
-|---|---|
+| --- | --- |
 | Google Drive | Create files, upload and convert content, rename, read a file as text, export (PDF and other formats), search, trash |
 | Google Docs | Read a doc's full structure and edit it in place, directly or as suggestions |
 | Google Sheets | Read values and structure, write values and formulas, format, add tabs and charts |
@@ -59,7 +59,7 @@ Example: "I can create the sheet now. If you want changes later, turn on the Goo
 The `scripts/` folder next to this file holds tested helpers. They turn the APIs' raw JSON into short readable summaries, and turn simple specs into correct request batches, so the error-prone arithmetic never happens by hand. Use them wherever you can run Python. Run them by their full path inside this skill's folder; the references write that folder as `<skill>`.
 
 | Script | Commands | Used for |
-|---|---|---|
+| --- | --- | --- |
 | `docs_index.py` | `outline`, `find`, `new-table`, `fill-table` | Docs positions, text search with bold and suggestion state, adding a filled table in one call, filling an existing table |
 | `sheets_helper.py` | `range`, `format`, `cells` | A1 ranges to grid ranges, formatting batches from a short spec, reading formulas and error cells |
 | `slides_helper.py` | `outline`, `build` | Real slide geometry with overflow and overlap warnings, building slides from an inch-based spec |
@@ -72,7 +72,7 @@ Every script prints `--help` with its full usage. Each reference shows the comma
 ## 5. Common failures across apps
 
 | Symptom | Cause | Fix |
-|---|---|---|
+| --- | --- | --- |
 | "No such tool available" | The tool is deferred, or the name is different on this surface | Search for and load the tool. Use the exact name your surface lists. |
 | Permission denied on a file you created | The file is in the trash | Ask the user to restore it from Drive's trash. You can't restore it with the connectors. |
 | 400: required revision ID does not match | The file changed after your read: your own previous write, or someone else editing | Read again, rebuild the requests from the new read, and send them with the new revision. For Sheets, send them without `writeControl`. |

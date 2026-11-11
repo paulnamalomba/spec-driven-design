@@ -289,6 +289,7 @@ When one feature matters more, use the bento.
 on the page ground, the panel under them), on a dark page the card's box with `.panel.panel--flush`
 (x.ai's cards). Each card: the title, two lines in ink (16 to 20 words), then the panel (page CSS
 `#<section> .panel { --p-h: 336px }`) holding a `.stage.stage--fade-b` with one pasted fragment:
+
 - `chat` `.at-rise.fit` (`--fit-max: 400px; --ax: max(24px, 50% - 200px)`, `--ay` and `--ay-sm`
   56px): out through the bottom by 24px or more; `search` or `stat` the same with `.to-edge`
   (`stat` with `data-ui-opts='{"fill":true}'`);
@@ -358,6 +359,7 @@ that shows exactly that. The workhorse for software, products and studios.
 24px; up to three short facts as plain lines; 24px; one `.link`) and
 `.frame.frame--split.span-6.start-7` (5:4, square on a phone) holding a `.stage.stage--fade-br`. The
 main piece is cut by the bottom, never floating with ground on all four sides:
+
 - `window` or the client's screenshot `.at-corner.to-edge` at `--ax`/`--ay` 56px, cut by the right
   and bottom; `files` the same with `.wide` (`--w: 680px`);
 - a narrower piece (`doc`, `code`, `chat`, `search`, `checklist`) `.at-rise.to-edge`, centred by
@@ -443,7 +445,7 @@ product, service or place.
 **The two panes** (kit fragments, rewritten to the client's names; the list is always `window`):
 
 | Product | List pane | Open pane |
-|---|---|---|
+| --- | --- | --- |
 | Code review | `window`: pull requests | `diff-review` (the comment and Apply in its top 250px) |
 | Support, inbox, CRM, agents | `window`: conversations | `chat` (the open thread) |
 | Docs, contracts, knowledge | `window`: documents | `doc` (the page with its marked phrase) |

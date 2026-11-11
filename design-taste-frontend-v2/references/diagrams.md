@@ -18,7 +18,7 @@ kinds it suits (`types`: software, tech, gaming, product, service); `demo.html` 
 ## Pick a layout and a preset
 
 | layout | shows | presets |
-|---|---|---|
+| --- | --- | --- |
 | `hub` | a centre and its tools; with `children` a mind map, or a web with `"shape": "radial"` | hub-tools, hub-branches, hub-web, hub-stack (tech), hub-stores (gaming) |
 | `ring` | logos or regions on an orbit | ring-apps, ring-regions, ring-edge (tech), ring-servers (gaming) |
 | `tree` | one thing branching out | tree-orders, tree-release (tech) |

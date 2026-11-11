@@ -27,6 +27,7 @@ Before creating anything:
 ## Step 2 — Global transformation rules
 
 ### Layout
+
 - Multi-column grids stack into a single column. Column order = desktop reading order (left→right, top→bottom).
 - Content max-width: 390 − 2×20px side margins = **350px** content area. Side padding: 20px (or 16px if the desktop system uses a 4px base).
 - Section vertical padding: reduce desktop values by ~40–50% (e.g. 120px → 64px, 96px → 56px, 64px → 40px). Keep the rhythm proportional — bigger desktop gaps stay bigger on mobile.
@@ -34,6 +35,7 @@ Before creating anything:
 - Use auto layout (vertical) for every stacked section so the frame stays editable.
 
 ### Typography
+
 - Scale down headings ~30–40%, keep body nearly intact:
   - Desktop 64–72 → 36–40
   - Desktop 48–56 → 30–32
@@ -46,12 +48,14 @@ Before creating anything:
 - Left-align long text blocks even if desktop centers them; centered is fine for short heroes and section titles.
 
 ### Touch targets
+
 - Every interactive element: minimum **44×44px** hit area.
 - Buttons: full-width (350px) for primary CTAs in stacked sections; height 48–56px. Secondary buttons may stay intrinsic width.
 - Adjacent tap targets: minimum 8px between them.
 - Links inside body text: keep, but ensure surrounding line-height gives enough tap room.
 
 ### Imagery
+
 - Full-bleed images may extend edge-to-edge (390px); contained images stay within the 350px content area.
 - Preserve aspect ratios; switch wide panoramic crops (e.g., 21:9 hero) to 4:3 or 1:1 crops focused on the subject.
 - Decorative background elements that would crowd a small screen: scale down or remove, and list every removal in the final report.
@@ -59,42 +63,52 @@ Before creating anything:
 ## Step 3 — Section-specific patterns
 
 ### Navigation
+
 - Desktop horizontal nav → top bar 64px tall: logo left, hamburger icon right.
 - Also create a separate frame `[name] — Mobile Menu` showing the opened menu state: full-screen or dropdown with the nav links stacked, 56px row height each.
 - If the desktop nav has a prominent CTA (e.g. "Get started"), keep it visible in the top bar next to the hamburger if space allows, otherwise first item in the opened menu.
 - If the page is app-like (dashboard) with 3–5 primary destinations → use a bottom tab bar (56px, icons + labels) instead of a hamburger.
 
 ### Hero
+
 - Stack: heading → subheading → CTA(s) → hero image. If the image is the message (product shot), image may go first.
 - Two side-by-side CTAs → stack vertically, primary on top, 12px gap.
 
 ### Feature grids (3–4 columns)
+
 - Stack into one column, OR use a horizontal swipe carousel if there are 4+ visually rich cards. Default: stack. Use carousel only for card galleries, logos, and testimonials.
 - Card internal padding: reduce ~25% from desktop.
 
 ### Logo bars / social proof
+
 - Wrap into 2 rows, or single-row horizontal scroll. Shrink logos to max height 28–32px.
 
 ### Pricing tables
+
 - Stack plans vertically, recommended plan first (not middle, as on desktop).
 - If plans share a long feature-comparison table → each plan card lists its own features; drop the comparison matrix and note it in the report.
 
 ### Data tables
+
 - Tables wider than 350px: transform each row into a card (label: value pairs stacked), or make the table horizontally scrollable with the first column pinned. Default: cards for ≤6 columns of simple data, scroll for dense numeric tables.
 
 ### Forms
+
 - All fields full-width, stacked. Field height 48–56px. Labels above fields, never placeholder-only.
 - Multi-column form rows (First name | Last name) → stacked, unless both fields are short (ZIP | City may stay paired).
 
 ### Footer
+
 - Columns stack; link groups become either stacked lists or accordions if there are 4+ groups. Legal line and social icons last.
 
 ### Sticky elements
+
 - Desktop sticky sidebar CTAs → sticky bottom bar on mobile (full-width button, 16px padding, above safe area).
 
 ## Step 4 — Content prioritization
 
 Mobile users scroll, but attention decays. Without deleting content:
+
 - Keep the desktop section order unless a section is purely decorative filler before the primary CTA — in that case it may move below the CTA section. Report any reordering.
 - Collapse long FAQ lists into accordions (first item may be expanded).
 - Long testimonial walls → carousel of one testimonial per view.

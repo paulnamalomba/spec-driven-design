@@ -4,7 +4,7 @@ Thirteen objects in three families and one builder; each family's README is the 
 `assets/objects/index.html` shows the objects; `product-render/views.html` the builder's three worked specs, every view at anchor scale.
 
 | Family | Objects | What it is |
-|---|---|---|
+| --- | --- | --- |
 | Print objects | `print-cup`, `print-wheel`, `print-lamp`, `print-globe`, `print-cards` | a thing modelled in code: a studio render (default) or a print of it (halftone, engraving, dither); `_print-core/README.md` |
 | Photo prints | `photo-halftone`, `photo-engraving`, `photo-dither` | one real photograph printed by a shader, the photograph under the pointer; `photo-kit/README.md` |
 | Scenes | `split-reveal`, `dither-sequence`, `dot-object`, `exploded-layers`, `product-turntable` | photographs (the turntable: a generic form) through a print, alive under the pointer; `_scenes/README.md` |
@@ -131,7 +131,7 @@ All from the one spec, with the kit's own names (`build.js`, the three worked sp
 write each section's view on its plan line, no two alike (`side` for the hero, `three-quarter`, `detail:<part>` close-ups or an `exploded` scene, a `rear-quarter` of the spec's own; whole views in three sections at most; `sections.md`, Product).
 
 | spec key | what it gives |
-|---|---|
+| --- | --- |
 | (none needed) | the standard views `three-quarter` (the spec's `angle`), `side` (a long product's widest: its hero), `side-left`, `front`, `rear`, `top`, `low` (only those the spec's `supports` lists); `detail:<part>[,<part>]` (or `detail-<part>`) frames the named parts and runs the rest off the frame: a close-up |
 | `views` | the spec's own views, `{ "detail-saddle": { "part": ["saddle*", "seat post"], "angle": -42, "elev": 16, "margin": 1.3 } }` (`from` a standard view; a part name takes the parts it begins, `*` any) |
 | `scenes` | the product in use or loaded: `{ "loaded": { "label", "hide": [parts], "props": [{ "prop", "at", "size", … }], "parts", "lit", "pool", "click" } }`. The props the helper can draw: `crate`, `bag`, `child-seat`, `bench`, `parcel`, `desk`, `book`, `mug`, `sheet`, `tray`; `lit` lights them round a lamp. No scene and no prop by default: one only where a headline's promise needs it (four crates for "takes four crates"), at a size the section can read; a use photograph is better |
@@ -199,7 +199,7 @@ the same view twice on a page in two sizes.
   cylinder (heights -1..1 along its half length, `seamWidth`, `seamDepth`) cut panel lines: a robot's shell, a base's groove.
 
 | type | sizes | for |
-|---|---|---|
+| --- | --- | --- |
 | `tube` | `r`, `r2` (taper), `cap` `flat`/`round`, `round` | frame tubes, posts, rods, a tapered robot link |
 | `beam` | `w`, `d`, `round` | flat bars, cranks, rails, a drone's arms |
 | `box` | `size` [x,y,z], `round` | housings, bodies, pedals, grippers, crates |
@@ -277,7 +277,7 @@ leaves out the file lines.
 ## GPU cost
 
 | Family | Class | Contexts |
-|---|---|---|
+| --- | --- | --- |
 | Print objects | high per frame (raymarch), only while it moves near the screen; at rest one sharp frame, kept | share 2 |
 | Photo prints | low, still at rest | 1 each, at most 3 |
 | Scenes | low, drawn only while moved or stepping | at most 2 |

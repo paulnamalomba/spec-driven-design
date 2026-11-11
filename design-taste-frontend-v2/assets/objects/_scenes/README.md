@@ -5,7 +5,7 @@ own photographs (`src`); one models a generic thing in code. Each is the picture
 hero frame: still or nearly still at rest, and it moves under the pointer, never on scroll.
 
 | id | what it shows | moves by itself | hover / touch |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `split-reveal` | one photograph, half printed as a halftone, a line between | no | the line follows the pointer; drag on touch; a slider for the keyboard |
 | `dither-sequence` | 2 to 6 photographs that belong together, dithered, cut one to the next | yes: holds, then wipes (pause disc) | the pointer scrubs the frames; drag on touch |
 | `dot-object` | one object cut out of its photograph and set in dots | no | under the pointer the dots take the photograph's real colour, like a loupe |

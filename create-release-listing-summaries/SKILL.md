@@ -65,11 +65,14 @@ Source Document: <version>.txt
 ## Abstraction & Content Guardrails
 
 ### 1. Abstract & User-Centric Focus
+
 - Write from the perspective of user benefits, functional enhancements, visual polish, performance improvements, and reliability.
 - Use simple, concise, and professional natural language appropriate for public App Store and Google Play "What's New" release notes.
 
 ### 2. Strict Prohibition of Fine-Grained Technical Details
+
 NEVER include low-level code implementation details in listing summaries. Specifically exclude:
+
 - **Widget / Class / Component Names**: Do NOT mention widget, class, or component names. Abstract them to general concepts like "action buttons", "notification coordinator", "countdown timer", or "slide controls".
 - **Variable / Payload / Type Names**: Do NOT mention internal types or strings.
 - **Code Counts & Quantitative Refactor Metrics**: Do NOT include internal code metrics such as "139 widget surfaces", "227 text scaling declarations", or "100-key cache".
@@ -82,11 +85,13 @@ NEVER include low-level code implementation details in listing summaries. Specif
 ## Execution Protocol
 
 ### Step 1: Discover Source Release Notes
+
 1. Locate the source release note file in the target repository's `.commits/` directory (e.g., `<app 1>/.commits/1.0.28.80.txt` or `<app 2>/.commits/1.0.38.80.txt`).
 2. Read the full release note document to identify major changes, UI redesigns, dispatch logic, safety features, performance tweaks, and accessibility improvements.
 3. Extract the release date and version numbers.
 
 ### Step 2: Synthesize & Abstract Features
+
 1. Categorize changes into broad user-facing domains:
    - Trip Booking & Dispatch Notifications
    - Real-time Tracking & State Synchronization
@@ -97,9 +102,11 @@ NEVER include low-level code implementation details in listing summaries. Specif
 2. Transform each technical detail into an abstract summary bullet highlighting user value.
 
 ### Step 3: Format Output
+
 1. Format exactly **5 Android points** focusing on core app updates.
 2. Format exactly **12 iOS points** expanding on detailed user features, visual refinements, design consistency, and stability enhancements.
 3. Ensure bullet points follow the format `- Title: Description sentence.`
 
 ### Step 4: Write Listing File
+
 Write the final formatted markdown file directly to `builds/<app>-<version>-listing.md`.

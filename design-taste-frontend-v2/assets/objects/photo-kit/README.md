@@ -5,7 +5,7 @@ or a dither. Hover (a tap on a phone) shows the photograph itself under the prin
 crafted moment on a page, never the way a page shows its photographs.
 
 | Object | Looks like | Hover |
-|---|---|---|
+| --- | --- | --- |
 | `photo-halftone` | a one-ink halftone: round dots on a 45° screen, clean paper in the light, solid ink in the deepest shadow | a loupe (round lens, hairline rim, soft shadow) shows the photograph in its own colours |
 | `photo-engraving` | an engraved plate: diagonal lines that swell in shadow and bend over the forms, over a light wash of the photograph's colour | the lines part around the cursor and the photograph shows through |
 | `photo-dither` | a three-colour grain: the photograph's deepest and most colourful colours on the paper | the photograph develops through the grain in a soft circle |

@@ -42,6 +42,7 @@ npx skills add imxv/pretty-mermaid-skills@pretty-mermaid -g -y
 - 📚 **开箱即用**：提供完整的模板和详细文档
 
 ### 支持主题列表
+
 | Light Themes | Dark Themes | Other |
 | :--- | :--- | :--- |
 | zinc-light | zinc-dark | nord |
@@ -75,24 +76,29 @@ npx skills add imxv/pretty-mermaid-skills@pretty-mermaid -g -y
 ## 安装说明
 
 ### 从 GitHub 安装
+
 ```bash
 npx skills add imxv/pretty-mermaid-skills@pretty-mermaid -g -y
 ```
 
 ### 验证安装
+
 ```bash
 npx skills list -g
 ```
+
 确认全局 Skill 列表中包含 `pretty-mermaid`。需要 Node.js 16 或更高版本。
 
 ## 📖 快速开始
 
 ### 列出可用主题
+
 ```bash
 node scripts/themes.mjs
 ```
 
 ### 渲染单个图表
+
 ```bash
 node scripts/render.mjs \
   --input diagram.mmd \
@@ -101,6 +107,7 @@ node scripts/render.mjs \
 ```
 
 ### 渲染 PNG
+
 ```bash
 node scripts/render.mjs \
   --input diagram.mmd \
@@ -111,6 +118,7 @@ node scripts/render.mjs \
 ```
 
 ### 批量渲染
+
 ```bash
 node scripts/batch.mjs \
   --input-dir ./diagrams \
@@ -121,6 +129,7 @@ node scripts/batch.mjs \
 ## 📂 使用示例
 
 查看 `assets/example_diagrams/` 目录下的 6 个模板文件，快速上手：
+
 - `flowchart.mmd` - 流程图
 - `sequence.mmd` - 时序图
 - `state.mmd` - 状态图
@@ -144,9 +153,11 @@ PNG 由 Node.js 直接生成，无需安装外部转换工具。渲染器同时�
 参与项目前请阅读[贡献指南](CONTRIBUTING.md)；提交敏感问题前请先查看[安全策略](SECURITY.md)。版本记录见[更新日志](CHANGELOG.md)。
 
 ## ⚙️ 系统要求
+
 - Node.js 16+
 
 ## 📄 许可证
+
 MIT License
 
 ## Star History
@@ -154,4 +165,5 @@ MIT License
 [![Star History Chart](https://api.star-history.com/svg?repos=imxv/Pretty-mermaid-skills&type=timeline&legend=top-left)](https://www.star-history.com/#imxv/Pretty-mermaid-skills&type=timeline&legend=top-left)
 
 ## 🙏 致谢
+
 基于 [beautiful-mermaid](https://github.com/lukilabs/beautiful-mermaid) 项目

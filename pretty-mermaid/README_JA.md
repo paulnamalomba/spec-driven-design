@@ -99,6 +99,7 @@ node scripts/render.mjs \
 ```
 
 ### PNG をレンダリング
+
 ```bash
 node scripts/render.mjs \
   --input diagram.mmd \

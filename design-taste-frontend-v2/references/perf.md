@@ -11,7 +11,7 @@ Reading the numbers:
 - Counts (images, contexts, modules) and bytes are exact; they do not depend on host load.
 
 | Check | WARN | FAIL |
-|---|---|---|
+| --- | --- | --- |
 | Transfer (text gzipped) | above 1500 KiB | above 3000 KiB |
 | Images total / largest single image | above 1200 / 350 KiB | above 2400 / 700 KiB |
 | JS parsed / CSS | above 450 / 120 KiB | above 900 / 250 KiB |

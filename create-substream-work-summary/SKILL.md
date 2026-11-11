@@ -15,16 +15,19 @@ This skill standardizes the creation of technical substream work summary documen
 
 When invoked, the skill requires a **Substream Number** (integer `N` >= 1).
 
-### Formatting Rules:
+### Formatting Rules
+
 1. **Date (`DDbbYY`)**: 2-digit day, 3-letter lowercase month abbreviation, 2-digit year (e.g. `07aug26` for August 7, 2026).
 2. **Substream Tag (`substream<NN>`)**: Substream number with leading zero if less than 10 (e.g. `substream01`, `substream02`, `substream12`).
 3. **Repo Name (`<reponame>`)**: Name of the target repository folder or git root (e.g. `afriflex-webapp`, `afriflex-admin`, `afriflex`).
 4. **Branch Name (`<branchname>`)**: Active git branch returned by `git branch --show-current` (e.g. `main`, `dev`, `feature-sacco`).
 
-### Strict Target Save Path:
+### Strict Target Save Path
+
 ```text
 docs/work/DDbbYY-substream<NN>-work-to-<reponame>-<branchname>.md
 ```
+
 *(e.g. `docs/work/07aug26-substream01-work-to-afriflex-webapp-main.md`)*
 
 > [!IMPORTANT]
@@ -35,24 +38,33 @@ docs/work/DDbbYY-substream<NN>-work-to-<reponame>-<branchname>.md
 ## Execution Protocol
 
 ### Step 1: Discover Environment & Git Baseline
+
 1. Determine active repository name and directory root (`pwd` / basename).
 2. Query active branch name:
+
    ```bash
    git branch --show-current
    ```
+
 3. Capture git status and uncommitted / committed diff for the substream:
+
    ```bash
    git status --short
    git diff
    ```
+
 4. Capture the complete tracked patch for every path in the touched-files matrix:
+
    ```bash
    git diff --full-index --binary HEAD -- <path-1> <path-2> ...
    ```
+
 5. For every untracked touched file, append its complete addition patch:
+
    ```bash
    git diff --no-index --full-index --binary /dev/null <untracked-file>
    ```
+
    `git diff --no-index` normally exits `1` when differences exist; that exit is
    expected and does not mean generation failed.
 6. Verify the finished Markdown contains one `diff --git` entry for every
@@ -60,6 +72,7 @@ docs/work/DDbbYY-substream<NN>-work-to-<reponame>-<branchname>.md
    `diff summary`, or `reproduce with` in place of code.
 
 ### Step 2: Structure & Technical Detail Requirements
+
 Each substream work document must follow this standard markdown structure:
 
 1. **Document Title & Metadata Table**:
@@ -91,7 +104,9 @@ Each substream work document must follow this standard markdown structure:
 ---
 
 ## Output Directory Setup
+
 Ensure `docs/work` directory exists before writing:
+
 ```bash
 mkdir -p docs/work
 ```

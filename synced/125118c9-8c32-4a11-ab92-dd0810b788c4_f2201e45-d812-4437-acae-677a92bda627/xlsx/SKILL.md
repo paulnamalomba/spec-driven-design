@@ -7,7 +7,7 @@ license: Proprietary. LICENSE.txt has complete terms
 # XLSX creation, editing, and analysis
 
 | Task | Approach |
-|---|---|
+| --- | --- |
 | **Create** or **edit** with formulas/formatting | `openpyxl` — see gotchas below |
 | **Bulk data** in or out | `pandas` (`read_excel`, `to_excel`) |
 | **Quick look** at a sheet | `markitdown file.xlsx` — `## SheetName` per sheet; reads `.xlsm` too. No cell coordinates, so don't plan edits from it |

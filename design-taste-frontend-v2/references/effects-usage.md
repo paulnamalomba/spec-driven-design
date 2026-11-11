@@ -30,7 +30,7 @@ photographs is shown in stand-in photographs (`photos.md`).
 ## What each kind gets
 
 | | tech | product, service (other) | place |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Lead picture | the client's UI (hardware: its photographs or CAD render, else stand-in photographs of its kind, never an effect or an order form alone; a game: its name and its art, else its name over a stand-in photograph of its setting; a render only when the brief asks for 3D) | its photographs; a product without them: stand-in photographs of its kind (a render only when the brief asks for 3D) | its photographs (a remote place: its region's landscape) |
 | The one effect | a live ground, a WebGL part, an object or a big scene | none | none |
 | Card panel grounds | one card group, still, from the effect's family; with a big scene the lit ground (`data-ground`), no `data-fx` | the client's photograph | none |

@@ -69,7 +69,7 @@ Hover moves only for a fine pointer (`(hover: hover) and (pointer: fine)`; keybo
 same state anywhere); every hover control also works by tap and keyboard and has a focus state; nothing resizes or pushes a neighbour; no rotate, skew, glow, shine sweep or chip glide.
 
 | Part | Motion | Time |
-|---|---|---|
+| --- | --- | --- |
 | Button | on hover the fill steps 14% toward the ink (an outline gains a faint fill and a stronger border) and the box steps up 1px (2px on `.btn--xl`); press sinks it to 1px below rest and scales .985, so a hover shot and a press shot each show a move; the text-link secondary of the `arrow` and `block` button looks keeps its underline and does not step (its press scales .985 only); fine pointer only; page CSS never sets a `.btn`'s `transform` or `transition` | 150ms in, 120ms out, 90ms press |
 | Arrow | `svg.m-arrow` moves 3px right and settles back; one arrow style a page | 150 / 120ms |
 | Link | one underline style at regular weight: running text and `.link` rest on a faint 1px hairline and an ink line draws left to right, leaving to the right; nav and footer words rest bare, darken and draw a 1px line 4px under the word | 150 / 120ms |

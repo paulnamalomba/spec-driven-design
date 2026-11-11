@@ -9,6 +9,7 @@ user-invocable: false
 ## When to Use This Skill
 
 Use this skill when:
+
 - Designing new types and APIs
 - Reviewing code for performance issues
 - Choosing between class, struct, and record
@@ -48,6 +49,7 @@ public class OrderProcessor  // Can be subclassed - intentional?
 ```
 
 **Benefits:**
+
 - JIT can devirtualize method calls
 - Communicates "this is not an extension point"
 - Prevents accidental breaking changes
@@ -90,7 +92,7 @@ public struct Point  // Not readonly!
 ### When to Use Structs
 
 | Use Struct When | Use Class When |
-|-----------------|----------------|
+| ----------------- | ---------------- |
 | Small (≤16 bytes typically) | Larger objects |
 | Short-lived | Long-lived |
 | Frequently allocated | Shared references needed |
@@ -119,6 +121,7 @@ var total = OrderCalculator.CalculateTotal(items);
 ```
 
 **Benefits:**
+
 - No vtable lookup (faster)
 - No hidden state
 - Easier to test (pure input → output)
@@ -244,6 +247,7 @@ public Task<Order> CreateOrderAsync(CreateOrderCommand cmd)
 ```
 
 **ValueTask rules:**
+
 - Never await a ValueTask more than once
 - Never use `.Result` or `.GetAwaiter().GetResult()` before completion
 - If in doubt, use Task
@@ -343,7 +347,7 @@ public IReadOnlyList<OrderItem> BuildOrderItems(Cart cart)
 ### Collection Guidelines
 
 | Scenario | Return Type |
-|----------|-------------|
+| ---------- | ------------- |
 | API boundary | `IReadOnlyList<T>`, `IReadOnlyCollection<T>` |
 | Static lookup data | `FrozenDictionary<K,V>`, `FrozenSet<T>` |
 | Internal building | `List<T>`, then return as readonly |
@@ -355,7 +359,7 @@ public IReadOnlyList<OrderItem> BuildOrderItems(Cart cart)
 ## Quick Reference
 
 | Pattern | Benefit |
-|---------|---------|
+| --------- | --------- |
 | `sealed class` | Devirtualization, clear API |
 | `readonly record struct` | No defensive copies, value semantics |
 | Static pure functions | No vtable, testable, thread-safe |
@@ -393,6 +397,6 @@ public ValueTask<Order> CreateOrderAsync();  // Just use Task
 
 ## Resources
 
-- **Performance Best Practices**: https://learn.microsoft.com/en-us/dotnet/standard/performance/
-- **Span<T> Guidance**: https://learn.microsoft.com/en-us/dotnet/standard/memory-and-spans/
-- **Frozen Collections**: https://learn.microsoft.com/en-us/dotnet/api/system.collections.frozen
+- **Performance Best Practices**: <https://learn.microsoft.com/en-us/dotnet/standard/performance/>
+- **Span<T> Guidance**: <https://learn.microsoft.com/en-us/dotnet/standard/memory-and-spans/>
+- **Frozen Collections**: <https://learn.microsoft.com/en-us/dotnet/api/system.collections.frozen>

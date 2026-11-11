@@ -46,23 +46,28 @@ New notes and new entries use UTF-8 Markdown (`.md`), with real headings, tables
 ## Execution Protocol
 
 ### Step 1: Discover Baseline & Git Diff Scope
+
 1. Locate the `.commits/` directory in the target repository.
 2. Determine the previous documented version or release tag (e.g. `0.9.7.5` or `1.4.1`).
 3. Compute the git diff baseline against the previous tag:
+
    ```bash
    git diff <previous_tag> -- . ':(exclude).commits/**'
    git status --short
    ```
+
 4. Extract the exact file insertions, deletions, modified files, and untracked files to ground the notes in verified changes.
 
 ### Step 2: Content & Technical Depth Requirements
 
 #### In Full Mode (Default)
+
 - Notes must be highly technical and detailed, documenting exact function signatures, state hooks, components, API endpoints, DTO interfaces, CSS classes, database migrations, and architectural rationale.
 - Do not abstract or summarize away technical detail; preserve explicit symbol names, line changes, and precise behaviors.
 - Include the complete git diff baseline, code files touched, compatibility notes, and detailed validation logs.
 
 #### In Minimal Mode (Optional)
+
 - Completely obscure all code, code file paths, git diff statistics, and raw SQL.
 - Focus strictly on abstract, functional, and behavioral updates.
 - **Alias variable and component names into natural language**: Avoid direct unparsed symbols in `PascalCase`, `camelCase`, `snake_case`, or dot-notation. For example, `QrArtifactRasterizer` becomes "QR Artifact Rasterizer", `HalfQR.QrEngine` becomes "HalfQR Engine", and `HalfQR.Cli` becomes "HalfQR CLI".
@@ -78,6 +83,7 @@ New notes and new entries use UTF-8 Markdown (`.md`), with real headings, tables
 Use this layout for standard engineering release notes:
 
 1. **Header & Release Metadata:**
+
    ```markdown
    # <Product/Repo> v<Version> release notes
 
@@ -85,6 +91,7 @@ Use this layout for standard engineering release notes:
 
    ## [<Version>] - <YYYY-MM-DD>
    ```
+
 2. **Diff Baseline:**
    - Previous documented version and release tag.
    - Release scope command (`git diff <tag> -- . ':(exclude).commits/**'` and `git status --short`).
@@ -107,9 +114,11 @@ Use this layout for standard engineering release notes:
 Use this layout when minimal notes are requested:
 
 1. **Header & Release Metadata:**
+
    ```markdown
    # <Product/Repo> [<Version>] - <YYYY-MM-DD>
    ```
+
 2. **Added:**
    - Active past-tense bullets describing new features, CLI commands, curated assets, or helpers.
    - Example: `Added a verify-render command to HalfQR CLI so draft SVG and final PNG artifacts can be rendered, decoded, and written to disk from the same backend pipeline used by the product.`
@@ -125,6 +134,7 @@ Use this layout when minimal notes are requested:
    - High-level build and test commands (without machine-specific paths or noisy flags).
    - Abstract, human-readable verification confirmations.
    - Example:
+
      ```markdown
      dotnet build HalfQR.sln
      npm run build from webapp

@@ -80,7 +80,7 @@ results in `.taste-skill/found.json` under `--out`, so `fetch` and `credits` tak
 library ids. With `--trade` and no words it runs the trade's own search words:
 
 | Trade | search words |
-|---|---|
+| --- | --- |
 | yoga, pilates, spa, wellness | yoga studio, yoga class, pilates studio, sauna interior |
 | pottery, ceramics | pottery wheel, pottery studio, ceramics workshop |
 | a studio (art, design, photography) | artist studio, design studio, photography studio |

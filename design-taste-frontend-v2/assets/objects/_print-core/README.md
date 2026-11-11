@@ -7,6 +7,7 @@ that render (halftone, engraving, dither or type). It turns slowly, leans toward
 takes one small step on a click (the lamp switches on, the cards fan out).
 
 **Where it goes**
+
 - **A product page without photographs**: the object of the product's own kind is the product's
   picture: the hero (`hero` preset, or `tile` in a hero split) and the statement's picture, as a
   render. A desk lamp for a lamp maker, a cup for a tableware maker, a wheel for a maker of wheels.
@@ -24,7 +25,7 @@ takes one small step on a click (the lamp switches on, the cards fan out).
   `aria-label` alone or name the thing plainly ("A desk lamp, switched on").
 
 | id | the render | prints | click |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `print-cup` | porcelain cup of coffee on its saucer, the glaze in the accent | halftone, engraving | rings run across the coffee |
 | `print-wheel` | road wheel: tan-wall tyre, alloy rim, 24 spokes, hub in the accent | halftone (spokes as solid lines) | it spins up |
 | `print-lamp` | balanced-arm desk lamp: stepped base, paired rods, chrome springs, a domed shade; base and shade enamelled in the accent | halftone | it switches on |

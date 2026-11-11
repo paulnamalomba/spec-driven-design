@@ -27,7 +27,7 @@ section 2) and, on tech, the section that holds the effect, the scene or a momen
   each plan line's kind; three object lines at most.
 
   | Kind | the object whole: hero + 2 | carries the other sections |
-  |---|---|---|
+  | --- | --- | --- |
   | Software | the `app-frame` | UI fragments of its subject on cards, a diagram card, real tool icons, a type moment, a named quote with its face, the effect or scene |
   | Gaming | the client's key art (none: the setting's photograph under the game's name) | the world (in-engine shots, else photographs of its setting), the crew at work (the client's screenshots), the trailer frame, the screenshot strip, a type moment, the real platform marks |
   | Tech hardware | the product (photograph, the client's CAD render; a render only when the brief asks for 3D) | its use (the device at a bench or in its place), parts close up, the motion video frame, a diagram card held still, a type moment (one figure set large), a context photograph of the trade (a workshop, a lab) |
@@ -141,6 +141,7 @@ platform icons, prices from), [press lines or a quote the brief gives], [faq], f
 the main action (Add to Steam wishlist, Pre-order). In testing, a game page that never named the game
 and showed an abstract effect for key art lost 3.5 to 5.5 to one with a launch date, a scene of the
 game's world, feature cards and real platform icons. So:
+
 - **The hero names the game:** the h1 is its name and genre ("Northline, a co-op survival game",
   40 characters at most on the `product` stage, 32 on the `photo` hero), or its wordmark (the client's logo file) over an
   h1 naming the genre. The lead or a line under it carries the launch date or status the brief
@@ -187,6 +188,7 @@ table or a monthly switch; only prices the brief gives (none given: "Price on re
 be assumed). Photographs first: the client's, else stand-ins (below). A technical
 product (site-kind tech) may take the effect; any other product takes no effect; a render on
 either only when the brief asks for 3D or a render (below).
+
 - **The product is the hero, not every frame.** The bar is Figure and 1X: where the product is
   shown whole it fills the frame at large scale, and its use, parts and place carry the rest. In testing, a rendered product page scored 5.5,
   creativity 4.5 ("a safe grey template"), because every visual was a mid-size product in a grey
@@ -341,6 +343,7 @@ The nav is not a screen; `footer.closing` is one; a 2-screen section counts two.
   not a list); 8 to 12 is the compact page, 12 or more the full page.
 
 These three names mean only these lengths everywhere in the skill.
+
 - **Photographs by section,** all distinct: hero 1; visit 1 (0 with a map); menu or prices 1; rooms
   2 to 6; goods 4; the place 3 (row), 1 (story) or a wall; orders 2 or 3, or booking 1; close 1. Nav
   panel photographs do not count.
@@ -375,7 +378,7 @@ to 4.5 because every section was text beside one picture and nothing answered th
   span-6 588; square corners, one grade, no words on any photograph):
 
   | id | at 1440 | at 390 |
-  |---|---|---|
+  | --- | --- | --- |
   | `bleed` | the head row on the `.wrap` (its line at the right), then one photograph across the whole viewport, 1440x560, nothing on it; once a page, never right after the hero | 390x488 (4:5 crop) |
   | `pair` | two photographs on span-6, the same ratio (4:3 at 588x441 or 4:5 at 588x735 in a 2-screen section), tops level; the head row above | stacked, 342 wide, 24 apart |
   | `trio` | the offset trio: three photographs on span-5 (4:5, 486x607), span-4 (1:1, 384x384) and span-3 (4:3, 282x212), tops on one line, three sizes of one subject family (the room, its table, a cup) | the first 342 wide, the other two two-up at 165 |
@@ -501,6 +504,7 @@ to 4.5 because every section was text beside one picture and nothing answered th
 ### Order by trade
 
 Each starts hero, visit; the rest in this order, 4 to 6 screens:
+
 - **Cafe:** menu as text with its composition; the place (its composition or a story row); beans
   or goods only if sold.
 - **Bakery:** what it bakes (goods with prices); orders (one card per kind); the process (its
@@ -555,6 +559,7 @@ visit and the offer, footer.closing. With one or two good photographs, the best 
 the other is the section's, in one row with the groups (With its photograph, below). With none, the hero is a statement on `.ground-brand` (`deal.mjs --hero statement`: the
 h1, the sub-line, the inverted button) and the section has no picture on purpose (the one
 exception to "two picture-less sections are never neighbours").
+
 - **The section** is open type on the page ground, never a card or a ground box (across the `.wrap`
   that is a band): the offer as ruled text in groups (a maker's tableware and its classes are two
   groups of rows, prices visible), then the visit block as three `span-4` columns on the grid

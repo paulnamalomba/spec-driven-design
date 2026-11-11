@@ -74,5 +74,5 @@ Then implement only that plan. For a new or ambiguous flow, use a separate disco
 
 ## References
 
-- WCAG 2.2: https://www.w3.org/TR/WCAG22/
-- Chrome accessibility tooling: https://developer.chrome.com/docs/devtools/accessibility/reference
+- WCAG 2.2: <https://www.w3.org/TR/WCAG22/>
+- Chrome accessibility tooling: <https://developer.chrome.com/docs/devtools/accessibility/reference>

@@ -175,6 +175,7 @@ AI chatbots emphasize phrases in boldface mechanically, especially for acronyms 
 AI outputs lists where items start with bolded headers followed by colons. Collapse into prose when possible.
 
 > **Before:**
+>
 > - **User Experience:** The user experience has been significantly improved with a new interface.
 > - **Performance:** Performance has been enhanced through optimized algorithms.
 > - **Security:** Security has been strengthened with end-to-end encryption.

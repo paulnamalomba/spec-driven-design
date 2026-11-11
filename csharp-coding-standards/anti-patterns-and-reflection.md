@@ -17,7 +17,7 @@ Reflection-based libraries like AutoMapper trade compile-time safety for conveni
 ### Banned Libraries
 
 | Library | Problem |
-|---------|---------|
+| --------- | --------- |
 | **AutoMapper** | Reflection magic, hidden mappings, runtime failures, hard to debug |
 | **Mapster** | Same issues as AutoMapper |
 | **ExpressMapper** | Same issues |
@@ -61,7 +61,7 @@ var entity = request.ToEntity();
 ### Benefits of Explicit Mappings
 
 | Aspect | AutoMapper | Explicit Methods |
-|--------|------------|------------------|
+| -------- | ------------ | ------------------ |
 | **Compile-time safety** | No - runtime errors | Yes - compiler catches mismatches |
 | **Discoverability** | Hidden in profiles | "Go to Definition" works |
 | **Debugging** | Black box | Step through code |
@@ -91,6 +91,7 @@ public static OrderSummaryDto ToSummary(this Order order) => new(
 ```
 
 This is:
+
 - **Readable**: Anyone can understand the transformation
 - **Debuggable**: Set a breakpoint, inspect values
 - **Testable**: Pass an Order, assert on the result
@@ -101,7 +102,7 @@ This is:
 Reflection has legitimate uses, but mapping DTOs isn't one of them:
 
 | Use Case | Acceptable? |
-|----------|-------------|
+| ---------- | ------------- |
 | Serialization (System.Text.Json, Newtonsoft) | Yes - well-tested, source generators available |
 | Dependency injection container | Yes - framework infrastructure |
 | ORM entity mapping (EF Core) | Yes - necessary for database abstraction |
@@ -147,18 +148,20 @@ static extern Order CreateOrder(OrderId id, CustomerId customerId);
 **Why UnsafeAccessor over reflection:**
 
 | Aspect | Reflection | UnsafeAccessor |
-|--------|------------|----------------|
+| -------- | ------------ | ---------------- |
 | Performance | Slow (100-1000x) | Zero overhead |
 | AOT compatible | No | Yes |
 | Allocations | Yes (boxing, arrays) | None |
 | Compile-time checked | No | Partially (signature) |
 
 **Use cases:**
+
 - Serializers accessing private backing fields
 - Test helpers verifying internal state
 - Framework code that needs to bypass visibility
 
 **Resources:**
+
 - [A new way of doing reflection with .NET 8](https://steven-giesel.com/blogPost/05ecdd16-8dc4-490f-b1cf-780c994346a4)
 - [Accessing private members without reflection in .NET 8.0](https://www.strathweb.com/2023/10/accessing-private-members-without-reflection-in-net-8-0/)
 - [Modern .NET Reflection with UnsafeAccessor](https://blog.ndepend.com/modern-net-reflection-with-unsafeaccessor/)

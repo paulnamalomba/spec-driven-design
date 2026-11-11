@@ -108,6 +108,7 @@ public record PaymentMethod
 ```
 
 **When inheritance is acceptable:**
+
 - Framework requirements (e.g., `ControllerBase` in ASP.NET Core)
 - Library integration (e.g., custom exceptions inheriting from `Exception`)
 - **These should be rare cases in your application code**
@@ -193,6 +194,7 @@ public sealed class OrderService(IOrderRepository repository)
 ```
 
 **When to use Result vs Exceptions:**
+
 - **Use Result**: Expected errors (validation, business rules, not found)
 - **Use Exceptions**: Unexpected errors (network failures, system errors, programming bugs)
 

@@ -180,7 +180,7 @@ colours: the judges marked a contour pattern standing in for a map as a fake dra
 ## When to use each
 
 | Part | Use it for | Not for |
-|---|---|---|
+| --- | --- | --- |
 | `fx-feature-card` | A 2x2 of product features | Features with nothing to show in a window |
 | `fx-dither-object` | The product as an object, with no photograph (the print render) | Decoration that is not the product; a studio render |
 | `fx-headline` | The hero line or closing line; fill 2-3 words | Body text, two filled lines on a page |

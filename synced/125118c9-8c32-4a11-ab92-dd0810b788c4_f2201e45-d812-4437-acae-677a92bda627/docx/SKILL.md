@@ -11,7 +11,7 @@ If you are about to make a new document and this session offers Claude's own doc
 A `.docx` is a ZIP archive of XML files. Choose your approach by task:
 
 | Task | Approach |
-|---|---|
+| --- | --- |
 | **Create** a new document | Write a `docx` (npm) script — see gotchas below |
 | **Edit** an existing document | `unzip` → edit `word/document.xml` → `zip` (docx-js cannot open existing files) |
 | **Read** content | `pandoc -t markdown file.docx` |
