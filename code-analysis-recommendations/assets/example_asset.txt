@@ -1,0 +1,40 @@
+=== TEMPLATE: CodeAnalysis.md ===
+# Code Analysis: {FeatureName}
+**Date:** {DMMMYY}
+
+## 1. Overview & Expected Behavior
+[Describe what the feature/bug is supposed to do]
+
+## 2. Current Code Execution Flow
+[Deep-read breakdown of how the code currently operates]
+
+## 3. Root Cause Analysis / Misalignments
+[Explain exactly where the code diverges from expectation]
+
+## 4. Dead Code & Duplication
+- [List any dead code or duplicated logic found during analysis]
+
+## 5. Strategy for Resolution
+[Actionable points for fixing the issue]
+
+=== TEMPLATE: Fixes.md ===
+# Recommendations & Fixes: {FeatureName}
+**Date:** {DMMMYY}
+
+## 1. Fixes
+
+In 'path/to/affected/file.ts':
+Replace this:
+```typescript
+// old code
+```
+With this:
+```typescript
+// new code
+```
+
+In 'path/to/another/file.ts':
+Insert this at line [X] (or after [Function Y]):
+```typescript
+// code to insert
+```
