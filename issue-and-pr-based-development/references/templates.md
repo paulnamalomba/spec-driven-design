@@ -23,7 +23,8 @@ Load when writing an issue, PR, closing comment, agent brief or agent report. Re
 - `<path>`
 
 Size: <XS|S|M|L>
-Plan: <link to tasks/plan.md or the plan item>
+Stack: <stack>, layer <k> of <N>; below: #<i>; above: #<i> (or "None")
+Plan: <link to tasks/plan.md or the plan item>; artifact "Implementation plan" when attached
 ```
 
 ## Defect issue
@@ -48,13 +49,15 @@ Found while working on: <org>/<repo>#<i> (if any)
 
 ## Pull request
 
-Title: `<imperative summary>`. Branch: `<owner>/<work>`.
+Title: `<imperative summary>`. Branch: `<owner>/<work>`. Base: `<default>`, or `<lower>` for a stack layer.
 
 ```markdown
 ## Summary
 <What changed and why, in two to four sentences.>
 
 Closes #<i>
+
+Stack: layer <k> of <N> on `<lower>` (delete when not stacked)
 
 ## Decisions for the reviewer
 - <choice made, alternative rejected, reason>
@@ -75,6 +78,12 @@ Add attribution lines only as the team's policy says.
 ```bash
 gh pr create -R <org>/<repo> --base <default> --head <owner>/<work> \
   --title "<title>" --body-file <pr-body.md>
+```
+
+For a stack layer, `gh stack submit --auto` opens the PR. Then set its title and body:
+
+```bash
+gh pr edit <owner>/<work> -R <org>/<repo> --title "<title>" --body-file <pr-body.md>
 ```
 
 ## Closing evidence
@@ -101,7 +110,8 @@ Store as a file. The prompt only points at it: `Read <brief path> and <task-list
 # Brief: <work>
 
 Issue: <org>/<repo>#<i>
-Worktree: <path>   Branch: <owner>/<work>   Base: origin/<default>
+Worktree: <path>   Branch: <owner>/<work>   Base: origin/<default> | <lower> (stack layer)
+Stack: <stack>, layer <k> of <N> (or "None")
 Read first: <AGENTS.md path>, <spec or plan path>
 
 ## Scope
@@ -119,7 +129,8 @@ As listed in <org>/<repo>#<i>.
 - Heavy tests only under the shared lock: <lock path>
 
 ## Rules
-- Commit locally only. Do not push, open PRs or edit the board.
+- Commit locally only. Do not push, open PRs, run remote `gh stack` commands, add issue artifacts or edit the board.
+- In a stack, change only your layer. Report a defect in a lower layer; do not fix it here.
 - Do not touch files you did not create or are not in scope.
 - File a defect found outside scope as a note in your report.
 

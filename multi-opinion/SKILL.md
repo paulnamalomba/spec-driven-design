@@ -16,15 +16,15 @@ Before an audit, address outstanding PR comments, fix known issues, and run rele
 ## Best Practices
 
 Bring in four delegates to help with the user's request, usually for research, review or feedback via the following matrix:
-- 1 fable high
-- 1 opus high
-- 2 Gemini Flash 3.8 high 
+- 1 Claude Fable (Medium)
+- 1 Claude Opus (High)
+- 2 Gemini Flash 3.8 (High) 
   - via `/antigravity:research` for research tasks 
   - via `/antigravity:handoff` for implementation, analysis and review
 
-If the user's instructions name council members, use those. Otherwise pick the aforementioned models.
+Use `/chief-of-staff` to resolve delegate models and start each delegate model in parallel. Use the harness's subagent tools warpped in that skil. If you cannot reach three providers, or a named member is unavailable, report it instead of substituting.
 
-In T3 Code, use `/chief-of-staff` to resolve the models and start each delegate model in parallel. Use the harness's subagent tools warpped in that skil. If you cannot reach three providers, or a named member is unavailable, report it instead of substituting.
+If the user's instructions name council members, use those. Otherwise pick the aforementioned models.
 
 Give each delegate the request and relevant context. For review or feedback, keep their work read-only. Collect their responses and summarize the useful findings, disagreements, and recommended next steps.
 
