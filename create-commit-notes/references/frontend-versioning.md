@@ -1,6 +1,6 @@
 # Frontend internal versions and releases
 
-Read the frontend and suite `AGENTS.md` first. `FRONTEND_INTERNAL_VERSION` owns the independent SESKAFEM workbench counter. Every field in `<breaking>.<major>.<minor>.<build>` has exactly one digit, 0–9. Carries reset following fields: `0.1.0.9 -> 0.1.1.0`, `0.1.9.9 -> 0.2.0.0`, `0.9.9.9 -> 1.0.0.0`. Stop at `9.9.9.9`.
+Read the frontend and suite `AGENTS.md` first. `FRONTEND_INTERNAL_VERSION` owns the independent SESKAFEM workbench counter. In `<breaking>.<major>.<minor>.<build>` the first three fields have exactly one digit, 0–9, and the build field runs 0–99 without zero padding (user, 17 November 2026). The build field counts up, `0.1.2.9 -> 0.1.2.10`, and carries reset following fields: `0.1.2.99 -> 0.1.3.0`, `0.1.9.99 -> 0.2.0.0`, `0.9.9.99 -> 1.0.0.0`. Stop at `9.9.9.99`; a build field of 100 is refused. Records made under the earlier one-digit build field stay valid, including `0.1.0.9 -> 0.1.1.0` and `0.1.1.9 -> 0.1.2.0`; never renumber them. The MS-MPI, seskaocct and seskafreecad build fields also run 0–99, with their own ranges for the other fields.
 
 Only successful artifact production and all declared acceptance checks advance the accepted version. Failed, cancelled, validation-only, documentation-only and no-op work leave it unchanged. Reserve a candidate before embedding it; retain the actual source commit, acceptance commit, evidence and artifact hashes separately. Never relabel an old artifact. Keep every earlier acceptance gate and record explicit qualification limits.
 
