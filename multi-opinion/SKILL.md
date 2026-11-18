@@ -16,8 +16,7 @@ Before an audit, address outstanding PR comments, fix known issues, and run rele
 ## Best Practices
 
 Bring in four delegates to help with the user's request, usually for research, review or feedback via the following matrix:
-- 1 Claude Fable (Medium)
-- 1 Claude Opus (High)
+- 1 Claude Fable (Low)
 - 2 Gemini Flash 3.8 (High) 
   - via `/antigravity:research` for research tasks 
   - via `/antigravity:handoff` for implementation, analysis and review

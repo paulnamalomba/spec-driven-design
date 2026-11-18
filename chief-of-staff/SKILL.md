@@ -19,6 +19,13 @@ Harness-permitting, you will suggest recurring schedules which can help in achie
 
 All work should be done in subagents. Protect your context window.
 
+For claude code:
+- Fable 5.2 (low)
+  - Up to 4 fable 5.2 low agents, instructed with `/caveman` as well
+- Orchestrate antigravity as implementers using either Gemini 4 Hydrogen (High) or Gemini 3.8 Flash (High) using `/antigravity:handoff` for implementation, analysis and review and via `/antigravity:research` for research tasks.
+  - Up to 4 such agents, instructed with `/caveman`
+
+
 Use background agents so you can stay in active dialogue with the user.
 
 Communication to and from subagents should be sparse. Communicate primarily through **context pointers**: research notes, previous commits, and others. Don't duplicate information already available via pointers.
