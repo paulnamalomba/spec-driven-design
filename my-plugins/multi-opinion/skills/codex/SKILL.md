@@ -1,5 +1,5 @@
 ---
-name: multi-opinion-codex
+name: codex
 description: Trigger this if the user says 'multi-opinion'.
 ---
 

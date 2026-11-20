@@ -1,0 +1,9 @@
+{
+  "name": "multi-opinion",
+  "version": "latest",
+  "description": "Multi opinion skill.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Multi Opinion - Paul Namalomba"
+  }
+}

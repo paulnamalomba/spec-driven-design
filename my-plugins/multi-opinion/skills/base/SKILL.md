@@ -1,9 +1,10 @@
 ---
-name: multi-opinion-google
+name: base
+
 description: Trigger this if the user says 'multi-opinion'.
 ---
 
-# Multi Opinion Google (Council)
+# Multi Opinion (Council)
 
 ## When to Apply
 
@@ -16,10 +17,10 @@ Before an audit, address outstanding PR comments, fix known issues, and run rele
 ## Best Practices
 
 Bring in four delegates to help with the user's request, usually for research, review or feedback via the following matrix:
-
-Uses 1 Gemini 3.8 Flash (High) and 1 Gemini 4 Hydrogen (High)
-- via `/antigravity:research` for research tasks 
-- via `/antigravity:handoff` for implementation, analysis and review
+- 1 Claude Fable (Low)
+- 2 Gemini Flash 3.8 (High) 
+  - via `/antigravity:research` for research tasks 
+  - via `/antigravity:handoff` for implementation, analysis and review
 
 Use `/chief-of-staff` to resolve delegate models and start each delegate model in parallel. Use the harness's subagent tools warpped in that skil. If you cannot reach three providers, or a named member is unavailable, report it instead of substituting.
 
