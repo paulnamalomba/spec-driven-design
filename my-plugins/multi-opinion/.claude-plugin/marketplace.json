@@ -1,0 +1,12 @@
+{
+  "name": "multi-opinion",
+  "owner": {
+    "name": "Paul Namalomba"
+  },
+  "plugins": [
+    {
+      "name": "multi-opinion",
+      "source": "./"
+    }
+  ]
+}

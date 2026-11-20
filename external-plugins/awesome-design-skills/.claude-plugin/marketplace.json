@@ -1,0 +1,12 @@
+{
+  "name": "awesome-design-skills",
+  "owner": {
+    "name": "Paul Namalomba"
+  },
+  "plugins": [
+    {
+      "name": "awesome-design-skills",
+      "source": "./"
+    }
+  ]
+}
