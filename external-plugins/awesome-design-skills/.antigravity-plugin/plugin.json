@@ -1,4 +1,5 @@
 {
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
   "name": "awesome-design-skills",
   "version": "latest",
   "description": "Design system skills from Bergside."
