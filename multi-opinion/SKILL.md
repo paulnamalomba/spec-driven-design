@@ -3,7 +3,7 @@ name: multi-opinion
 description: Trigger this if the user says 'multi-opinion'.
 ---
 
-# Council
+# Multi Opinion (Council)
 
 ## When to Apply
 

@@ -3,7 +3,7 @@ name: multi-opinion-google
 description: Trigger this if the user says 'multi-opinion'.
 ---
 
-# Council
+# Multi Opinion Google (Council)
 
 ## When to Apply
 
@@ -17,7 +17,7 @@ Before an audit, address outstanding PR comments, fix known issues, and run rele
 
 Bring in four delegates to help with the user's request, usually for research, review or feedback via the following matrix:
 
-Uses 3 Gemini 3.8 Flash (High) or Gemini 4 Hydrogen (High)
+Uses 1 Gemini 3.8 Flash (High) and 1 Gemini 4 Hydrogen (High)
 - via `/antigravity:research` for research tasks 
 - via `/antigravity:handoff` for implementation, analysis and review
 

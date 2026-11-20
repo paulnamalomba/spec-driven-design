@@ -1,9 +1,9 @@
 ---
-name: multi-opinion-google
+name: multi-opinion-codex
 description: Trigger this if the user says 'multi-opinion'.
 ---
 
-# Council
+# Multi Opinion Codex (Council)
 
 ## When to Apply
 
@@ -15,12 +15,10 @@ Before an audit, address outstanding PR comments, fix known issues, and run rele
 
 ## Best Practices
 
-Bring in four delegates to help with the user's request, usually for research, review or feedback via the following matrix:
+Bring in four delegates to help with the user's request, usually for implentation, analysis, research, review or feedback via the following matrix:
 
-- Uses 1 GPT Sol 6.2 (High)
-- Uses 2 Gemini 3.8 Flash (High) or Gemini 4 Hydrogen (High)
-  - via `/antigravity:research` for research tasks 
-  - via `/antigravity:handoff` for implementation, analysis and review
+- Uses 1 Gemini Hydrogen 4 (High)
+- Uses 1 GPT Terra 6.1 (xHigh)
 
 Use `/chief-of-staff` to resolve delegate models and start each delegate model in parallel. Use the harness's subagent tools warpped in that skil. If you cannot reach three providers, or a named member is unavailable, report it instead of substituting.
 
