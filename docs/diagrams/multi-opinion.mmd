@@ -1,0 +1,12 @@
+sequenceDiagram
+  participant U as User
+  participant O as Orchestrator
+  participant D as Delegates
+  U->>O: multi-opinion request
+  O->>O: Fix known issues and run checks
+  O->>D: Start delegates in parallel
+  D-->>O: Findings and score out of 10
+  O->>O: Verify findings against code
+  O->>D: Fresh review after fixes
+  D-->>O: Round scores
+  O->>U: Summary and council table

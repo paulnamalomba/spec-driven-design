@@ -1,0 +1,10 @@
+flowchart TB
+  IN[Source repos, business docs, screenshots] --> DISC[Discovery and evidence]
+  DISC --> SRS[Existing-system SRS]
+  DISC --> ANA[Code and UX analysis]
+  SRS --> JM[Journey merge]
+  ANA --> FIX[Approved fixes]
+  JM --> ARCH[Technical architecture]
+  FIX --> ARCH
+  ARCH --> IMPL[Approved implementation]
+  IMPL --> VAL[Review, audit, release notes]
