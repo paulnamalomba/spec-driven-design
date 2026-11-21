@@ -1,0 +1,29 @@
+{
+  "name": "spec-driven-design",
+  "plugins": [
+    {
+      "name": "awesome-design-skills",
+      "source": {
+        "source": "local",
+        "path": "./external-plugins/awesome-design-skills"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "multi-opinion",
+      "source": {
+        "source": "local",
+        "path": "./my-plugins/multi-opinion"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Orchestration"
+    }
+  ]
+}
