@@ -1,24 +1,24 @@
 ---
 name: create-release-listing-summaries
-description: Creates user-facing abstract Android (5 points) and iOS (12 points) app store release listing summaries (<app>-<version>-listing.md) in the builds directory based on release commit notes (.commits/<version>.txt).
+description: Creates user-facing abstract Android and iOS app store release listing summaries (<app>-<version>-listing.md) in the listings repository's app-listings directory from release commit notes (.commits/<version>.md or .commits/<version>.txt).
 ---
 
 # Skill: Release Listing Summaries Creation
 
 ## Overview
 
-This skill standardizes the generation of user-facing, abstract App Store and Google Play release listing summary documents (`<app>-<version>-listing.md`) for mobile applications (`<app 1>`, `<app 2>`, etc.) stored in the central `builds/` directory.
+This skill standardizes user-facing, abstract App Store and Google Play release listing summary documents (`<app>-<version>-listing.md`) for mobile applications (`<app 1>`, `<app 2>`, etc.), stored in the workspace's central listings repository under `app-listings/`.
 
-The summaries translate internal technical release notes (`.commits/<version>.txt`) or Git diff baselines into polished, high-level, user-centric feature highlights suitable for public app store release notes.
+The summaries translate internal technical release notes (`.commits/<version>.md` or legacy `.commits/<version>.txt`) into concise, user-centric feature highlights suitable for public app store release notes.
 
 ---
 
 ## Output Target & Naming
 
-- **Output Directory**: `builds/` (at the root of the project workspace, e.g., `/<repo name>/builds/`)
+- **Output Directory**: `<listings repo>/app-listings/` in the parent project workspace (e.g., `../<platform>_listings/app-listings/`). Locate the sibling `*/app-listings/` directory in the workspace; never write to the legacy `builds/` directory.
 - **File Naming Format**: `<app>-<version>-listing.md`
-  - Example Driver: `driver-1.0.28.80-listing.md`
-  - Example Rider: `rider-1.0.38.80-listing.md`
+  - Example Driver: `driver-1.0.52.105-listing.md`
+  - Example Rider: `rider-1.0.64.108-listing.md`
 
 ---
 
@@ -27,38 +27,30 @@ The summaries translate internal technical release notes (`.commits/<version>.tx
 Each generated listing summary Markdown document MUST adhere to the following structure:
 
 ```markdown
-# <Platform Name> <App> v<Version> Release Listing Summary
+# <Platform Name> <App> v<Version> release listing summary
 
 Release Date: <Month Day, Year>  
-Source Document: <version>.txt
+Source Document: <version>.md
 
 ---
 
-## Android Listing Summary (5 Points)
+## Android listing summary (<N> points)
 
-- Point 1
-- Point 2
-- Point 3
-- Point 4
-- Point 5
+- <Short Feature Title> (new): <Concise user-facing benefit sentence.>
+- <Short Feature Title> (improved): <Concise user-facing benefit sentence.>
 
 ---
 
-## iOS Listing Summary (12 Points)
+## iOS listing summary (<M> points)
 
-- Point 1
-- Point 2
-- Point 3
-- Point 4
-- Point 5
-- Point 6
-- Point 7
-- Point 8
-- Point 9
-- Point 10
-- Point 11
-- Point 12
+- <Short Feature Title> (new): <Concise user-facing benefit sentence.>
+- <Short Feature Title> (improved): <Concise user-facing benefit sentence.>
 ```
+
+- Set `Source Document` to the exact source filename read (`<version>.md` or `<version>.txt`).
+- Set the heading count to `(1 point)` when a platform has exactly 1 bullet, and `(<N> points)` otherwise. Android and iOS counts (`N` and `M`) reflect the actual distinct, user-facing changes for each platform and may differ when changes are platform-specific.
+- Every bullet MUST place `(new)` or `(improved)` in brackets immediately before the colon:
+  `- <Short Feature Title> (new|improved): <Concise user-facing benefit sentence.>`
 
 ---
 
@@ -68,6 +60,7 @@ Source Document: <version>.txt
 
 - Write from the perspective of user benefits, functional enhancements, visual polish, performance improvements, and reliability.
 - Use simple, concise, and professional natural language appropriate for public App Store and Google Play "What's New" release notes.
+- Only include distinct, user-facing changes from the target release. Do NOT pad bullets to hit an arbitrary count, duplicate the same change across multiple bullets, or include internal-only, test-only, CI/build-only, or admin-only entries.
 
 ### 2. Strict Prohibition of Fine-Grained Technical Details
 
@@ -84,29 +77,24 @@ NEVER include low-level code implementation details in listing summaries. Specif
 
 ## Execution Protocol
 
-### Step 1: Discover Source Release Notes
+### Step 1: Discover Source Release Notes & Existing Listings
 
-1. Locate the source release note file in the target repository's `.commits/` directory (e.g., `<app 1>/.commits/1.0.28.80.txt` or `<app 2>/.commits/1.0.38.80.txt`).
-2. Read the full release note document to identify major changes, UI redesigns, dispatch logic, safety features, performance tweaks, and accessibility improvements.
-3. Extract the release date and version numbers.
+1. Locate the source release note in the target app repository's `.commits/` directory, checking `.commits/<version>.md` first and falling back to legacy `.commits/<version>.txt` if no `.md` note exists.
+2. Locate the workspace's `<listings repo>/app-listings/` directory and inspect existing `<app>-*-listing.md` files (especially recent prior releases and any existing file for `<version>`) so nothing from an already-listed release is duplicated.
+3. Read the full source release note to extract the release date, version, and distinct user-facing changes (filtering out internal refactors, tests, tooling, and admin-only changes).
 
 ### Step 2: Synthesize & Abstract Features
 
-1. Categorize changes into broad user-facing domains:
-   - Trip Booking & Dispatch Notifications
-   - Real-time Tracking & State Synchronization
-   - Visual Design, Typography & System Contrast
-   - Payment, Auth & Registration Workflows
-   - Safety, Support & Guided Tours
-   - App Performance & Reliability
-2. Transform each technical detail into an abstract summary bullet highlighting user value.
+1. Group distinct user-facing changes by broad domain (trip dispatch, real-time tracking, visual design & accessibility, payments/auth, safety/support, performance & reliability) and separate Android-specific, iOS-specific, and shared items.
+2. Classify each item as `(new)` (newly introduced capability or safeguard) or `(improved)` (refinement, fix, or enhancement to existing behavior).
+3. Distill each distinct change into one concise, abstract user-benefit sentence obeying all abstraction guardrails.
 
 ### Step 3: Format Output
 
-1. Format exactly **5 Android points** focusing on core app updates.
-2. Format exactly **12 iOS points** expanding on detailed user features, visual refinements, design consistency, and stability enhancements.
-3. Ensure bullet points follow the format `- Title: Description sentence.`
+1. List the exact count of distinct user-facing bullets per platform (`(1 point)` or `(<N> points)`), with no padding and no duplicate items.
+2. Format every bullet strictly as `- <Short Feature Title> (new|improved): <Concise user-facing benefit sentence.>`.
+3. Verify the document contains zero technical identifiers, metrics, constants, internal scripts, quoted UI labels, or changes already covered by earlier listings.
 
 ### Step 4: Write Listing File
 
-Write the final formatted markdown file directly to `builds/<app>-<version>-listing.md`.
+Write the final formatted Markdown file directly to `<listings repo>/app-listings/<app>-<version>-listing.md`.

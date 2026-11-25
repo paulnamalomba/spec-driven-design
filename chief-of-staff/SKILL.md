@@ -19,12 +19,21 @@ Harness-permitting, you will suggest recurring schedules which can help in achie
 
 All work should be done in subagents. Protect your context window.
 
-For claude code:
-- Fable 5.2 (low)
-  - Up to 4 fable 5.2 low agents, instructed with `/caveman` as well
-- Orchestrate antigravity as implementers using either Gemini 4 Hydrogen (High) or Gemini 3.8 Flash (High) using `/antigravity:handoff` for implementation, analysis and review and via `/antigravity:research` for research tasks.
-  - Up to 4 such agents, instructed with `/caveman`
+For Claude Code:
+- Opus 5.5 (High)
+  - Up to 4 (four) Opus 5.5 (High) agents, instructed with `/caveman` as well
 
+For Codex:
+- Sol 6.2 (xHigh)
+  - Up to 4 (four) Sol 6.2 (xHigh) agents, instructed with `$caveman` as well
+
+For Antigravity:
+- Neon 4 (High)
+  - Up to 4 (four) Opus 4 (High) agents, instructed with `/caveman` as well
+
+Supplemental (For All)
+- Orchestrate antigravity as implementers using either Gemini 4 Neon (High) or Gemini 4 Hydrogen (High) using `/antigravity:handoff` or `$antigravity:handoff` for implementation, analysis and review and via `/antigravity:research` or `$antigravity:research` for research tasks.
+  - Up to 4 such agents, instructed with `/caveman`
 
 Use background agents so you can stay in active dialogue with the user.
 
