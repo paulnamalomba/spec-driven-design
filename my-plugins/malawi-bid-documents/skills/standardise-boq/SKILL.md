@@ -1,5 +1,5 @@
 ---
-name: boq-print-standardise
+name: "standardise-boq"
 description: Standardise a Bill of Quantities workbook so every sheet shares one column layout, header, Arial 10 formatting, borders, typed "Page No. X/Y" footers and A4 print setup, and the collection/summary totals chain has no double counts.
 ---
 

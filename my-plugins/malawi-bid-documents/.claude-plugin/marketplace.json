@@ -1,0 +1,12 @@
+{
+  "name": "malawi-bid-documents",
+  "owner": {
+    "name": "Paul Namalomba"
+  },
+  "plugins": [
+    {
+      "name": "malawi-bid-documents",
+      "source": "./"
+    }
+  ]
+}

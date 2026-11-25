@@ -14,31 +14,40 @@ Agent skills and plugins for spec-first software work: requirements, architectur
 
 ## Contents
 
-- [Quick start](#quick-start)
-- [How the skills fit together](#how-the-skills-fit-together)
-- [Skills](#skills)
-  - [Specifications and architecture](#specifications-and-architecture)
-  - [Analysis, review, and audits](#analysis-review-and-audits)
-  - [Frontend and UI design](#frontend-and-ui-design)
-  - [Docs, releases, and office files](#docs-releases-and-office-files)
-  - [Planning and agent behaviour](#planning-and-agent-behaviour)
-  - [Language standards](#language-standards)
-- [Plugins](#plugins)
-- [Writing a good request](#writing-a-good-request)
-- [Common chains](#common-chains)
-  - [Documenting an existing product](#documenting-an-existing-product)
-  - [Fixing UI drift](#fixing-ui-drift)
-  - [Shipping a release](#shipping-a-release)
-  - [Running work through issues and PRs](#running-work-through-issues-and-prs)
-- [Package layout](#package-layout)
-- [Repository layout](#repository-layout)
-- [Project-specific skills](#project-specific-skills)
-- [Third-party sources](#third-party-sources)
-- [Writing or changing a skill](#writing-or-changing-a-skill)
-- [Ground rules](#ground-rules)
-- [Checking the repo](#checking-the-repo)
-- [License](#license)
-- [Author](#author)
+- [spec-driven-design](#spec-driven-design)
+  - [Contents](#contents)
+  - [Quick start](#quick-start)
+  - [How the skills fit together](#how-the-skills-fit-together)
+  - [Skills](#skills)
+    - [Specifications and architecture](#specifications-and-architecture)
+    - [Analysis, review, and audits](#analysis-review-and-audits)
+    - [Frontend and UI design](#frontend-and-ui-design)
+    - [Docs, releases, and office files](#docs-releases-and-office-files)
+    - [Planning and agent behaviour](#planning-and-agent-behaviour)
+    - [Language standards](#language-standards)
+      - [Local symlinks](#local-symlinks)
+  - [Plugins](#plugins)
+    - [multi-opinion](#multi-opinion)
+    - [awesome-design-skills](#awesome-design-skills)
+    - [Installing a plugin](#installing-a-plugin)
+    - [Adding a plugin](#adding-a-plugin)
+  - [Writing a good request](#writing-a-good-request)
+  - [Common chains](#common-chains)
+    - [Documenting an existing product](#documenting-an-existing-product)
+    - [Fixing UI drift](#fixing-ui-drift)
+    - [Shipping a release](#shipping-a-release)
+    - [Running work through issues and PRs](#running-work-through-issues-and-prs)
+  - [Package layout](#package-layout)
+  - [Repository layout](#repository-layout)
+  - [Project-specific skills](#project-specific-skills)
+  - [Third-party sources](#third-party-sources)
+  - [Writing or changing a skill](#writing-or-changing-a-skill)
+  - [Ground rules](#ground-rules)
+  - [Checking the repo](#checking-the-repo)
+  - [License](#license)
+  - [Author](#author)
+
+---
 
 ## Quick start
 
@@ -245,7 +254,7 @@ agy plugin install ./external-plugins/awesome-design-skills
 agy plugin validate ./my-plugins/multi-opinion   # manifest check
 ```
 
-Codex reads a repo marketplace from `.agents/plugins/marketplace.json`. That folder is git-ignored, so create it after cloning:
+Codex reads a repo marketplace from `.agents/plugins/marketplace.json`.
 
 ```json
 {

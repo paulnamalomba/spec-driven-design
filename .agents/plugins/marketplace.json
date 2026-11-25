@@ -24,6 +24,18 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Orchestration"
+    },
+    {
+      "name": "malawi-bid-documents",
+      "source": {
+        "source": "local",
+        "path": "./my-plugins/malawi-bid-documents"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Orchestration"
     }
   ]
 }
