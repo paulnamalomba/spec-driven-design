@@ -17,7 +17,7 @@ Before an audit, address outstanding PR comments, fix known issues, and run rele
 
 Bring in four delegates to help with the user's request, usually for implentation, analysis, research, review or feedback via the following matrix:
 
-- Uses 1 Gemini Hydrogen 4 (High)
+- Uses 1 Gemini 4 Hydrogen (High)
 - Uses 1 GPT Terra 6.1 (xHigh)
 
 Use `/chief-of-staff` to resolve delegate models and start each delegate model in parallel. Use the harness's subagent tools warpped in that skil. If you cannot reach three providers, or a named member is unavailable, report it instead of substituting.
