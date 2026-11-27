@@ -14,12 +14,12 @@ Bring in four delegates to help with the user's request via the following matrix
 
 Use `/chief-of-staff` with up to four (4), but minimum of one (1) delegates to help with the user's request via the following matrix:
 
-- Embedded external models via the antigravity skills: Uses Maximum 2 Gemini Flash 3.8 (High) via:
+- Embedded external models via the antigravity skills: Uses Maximum 2 Gemini 4 Hydrogen (High) via:
   - $antigravity:antigravity-handoff (if the executor of this skill is codex CLI)
   - /antigravity:handoff (if the executor of this skill is claude code)
 - Internal models via executor:
   - Uses Maximum two (2) GPT Terra 6.1 (xHigh) (if the executor of this skill is codex CLI) 
-  - Uses Maximum two (2) Claude Sonnet 5.5 Medium (if the executor of this skill is claude code)
+  - Uses Maximum two (2) Claude Opus 5.5 High (if the executor of this skill is claude code)
 
 Resolve these delegate models and start each delegate model in parallel. Use the harness's subagent tools warpped in that skil. If you cannot reach three providers, or a named member is unavailable, report it instead of substituting.
 
