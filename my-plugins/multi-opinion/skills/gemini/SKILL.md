@@ -15,7 +15,7 @@ Before an audit, address outstanding PR comments, fix known issues, and run rele
 
 ## Best Practices
 
-Bring in four delegates to help with the user's request, usually for research, review or feedback via the following matrix:
+Bring in two delegates to help with the user's request, usually for research, review or feedback via the following matrix:
 
 Uses 2 Gemini 4 Hydrogen (High)
 - via `/antigravity:research` for research tasks 
